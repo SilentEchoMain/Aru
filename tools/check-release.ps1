@@ -25,9 +25,11 @@ $requiredFiles = @(
     "CONTRIBUTING.md",
     "tools/build-corpus.ps1",
     "tools/build-learning.ps1",
+    "tools/check-grammar.ps1",
     "tools/aru-tool.ps1",
     "tools/project-report.ps1",
     "tools/test-site.ps1",
+    ".github/workflows/release-check.yml",
     ".github/ISSUE_TEMPLATE/word-proposal.yml",
     ".github/ISSUE_TEMPLATE/grammar-rfc.yml",
     ".github/ISSUE_TEMPLATE/text-contribution.yml",
@@ -53,11 +55,11 @@ foreach ($file in $versionFiles) {
 
 $readmeContent = Get-Content (Join-Path $root "README.md") -Raw
 $changelogContent = Get-Content (Join-Path $root "CHANGELOG.md") -Raw
-if ($readmeContent -notmatch "v1\.3\.0") {
-    Fail "Expected README.md to mention project release v1.3.0."
+if ($readmeContent -notmatch "v1\.4\.0") {
+    Fail "Expected README.md to mention project release v1.4.0."
 }
-if ($changelogContent -notmatch "v1\.3\.0") {
-    Fail "Expected CHANGELOG.md to mention project release v1.3.0."
+if ($changelogContent -notmatch "v1\.4\.0") {
+    Fail "Expected CHANGELOG.md to mention project release v1.4.0."
 }
 
 $licenseContent = Get-Content (Join-Path $root "LICENSE.md") -Raw
@@ -239,9 +241,11 @@ Test-AruRows "phrasebook" $phrasebookRows
 Test-AruRows "corpus" $corpusRows
 Test-AruRows "dialogue" $dialogueRows
 
+& (Join-Path $root "tools/check-grammar.ps1")
+
 Write-Output "Aru release check passed."
 Write-Output "Language core: v1.0.0"
-Write-Output "Project release: v1.3.0"
+Write-Output "Project release: v1.4.0"
 Write-Output "Lexicon entries: $lexiconEntries"
 Write-Output "Phrasebook entries: $phrasebookEntries"
 Write-Output "Corpus texts: $corpusEntries"

@@ -1,0 +1,32 @@
+name: Release Check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  release-check:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build generated corpus files
+        shell: pwsh
+        run: ./tools/build-corpus.ps1
+
+      - name: Build generated learning files
+        shell: pwsh
+        run: ./tools/build-learning.ps1
+
+      - name: Check grammar
+        shell: pwsh
+        run: ./tools/check-grammar.ps1
+
+      - name: Check site
+        shell: pwsh
+        run: ./tools/test-site.ps1
+
+      - name: Check release
+        shell: pwsh
+        run: ./tools/check-release.ps1

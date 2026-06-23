@@ -50,7 +50,7 @@ I understood the basics quickly, and I can say something real.
 - Write more original texts in Aru.
 - Keep expanding the phrasebook and corpus.
 - Add optional domain vocabularies outside the core lexicon.
-- Build a parser or validator from the formal grammar sketch.
+- Keep improving the parser and validator from the formal grammar sketch.
 - Keep improving the public site and playground.
 - Add syntax highlighting for editors.
 - Publish writing prompts and translation challenges.
@@ -63,7 +63,9 @@ Current public-use targets:
 - Keep at least 100 short corpus texts.
 - Keep at least 30 learning dialogues.
 - Keep at least 20 writing prompts.
+- Keep at least 300 generated learning flashcards.
 - Keep all public examples valid against the core lexicon unless they are marked names after `ya` or exact digits after `saka`.
+- Run `.\tools\check-grammar.ps1` before proposing changes to public examples.
 
 ## Community Process
 
@@ -81,6 +83,16 @@ Grammar proposals should include:
 
 ```text
 problem -> attempted Aru expressions -> proposed rule -> examples -> compatibility note
+```
+
+Before opening a pull request, run:
+
+```powershell
+.\tools\build-corpus.ps1
+.\tools\build-learning.ps1
+.\tools\check-grammar.ps1
+.\tools\test-site.ps1
+.\tools\check-release.ps1
 ```
 
 ## Not In v1.0.0

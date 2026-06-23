@@ -35,7 +35,7 @@ $courseLessonCount = ([regex]::Matches($courseContent, "(?m)^## Lesson \d+")).Co
 
 $report = [pscustomobject]@{
     languageCore = "v1.0.0"
-    projectRelease = "v1.3.0"
+    projectRelease = "v1.4.0"
     lexiconEntries = $lexicon.Count
     phrasebookEntries = $phrasebook.Count
     corpusTexts = $corpus.Count

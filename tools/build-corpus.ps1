@@ -86,7 +86,7 @@ for ($i = 1; $i -le 100; $i++) {
         }
         4 {
             $topic = "relative"
-            $aru = "$($p.aru) re ri ra kipa ke $($obj.aru), ra $($qual.aru). $($q.aru) ra sela ke ri. $($p.aru) ra lano ke $($obj.aru) ko $($q.aru). $($q.aru) ra toma ke $($obj.aru). $($obj.aru) ra ne $($q.aru)."
+            $aru = "$($p.aru) re ri ra kipa ke $($obj.aru), ra $($qual.aru). $($q.aru) ra sela ke ena. $($p.aru) ra lano ke $($obj.aru) ko $($q.aru). $($q.aru) ra toma ke $($obj.aru). $($obj.aru) ra ne $($q.aru)."
             $en = "The $($p.en) who holds the $($obj.en) is $($qual.en). The $($q.en) sees that person. The $($p.en) gives the $($obj.en) to the $($q.en). The $($q.en) keeps the $($obj.en). The $($obj.en) is related to the $($q.en)."
         }
         5 {

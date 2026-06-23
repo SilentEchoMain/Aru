@@ -1,5 +1,13 @@
 # Changelog
 
+## Aru Project v1.4.0
+
+- Added `tools/check-grammar.ps1` for token, name, number, relative-phrase, question, imperative, and boundary checks.
+- Added `.github/workflows/release-check.yml` to run generated builds, grammar checks, site checks, and release checks on GitHub.
+- Extended `tools/check-release.ps1` so the release gate includes grammar validation.
+- Updated project documentation for the automated grammar-check workflow.
+- Language core remains **Aru v1.0.0**.
+
 ## Aru Project v1.3.0
 
 - Added `COURSE.md` with a structured 12-lesson course.

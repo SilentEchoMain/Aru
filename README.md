@@ -6,7 +6,7 @@ Its goal is to be small, regular, and useful for simple speech without grammatic
 
 Current status: **stable core v1.0.0**.
 
-Current project release: **v1.3.0**.
+Current project release: **v1.4.0**.
 
 ## Core Idea
 
@@ -99,6 +99,7 @@ Open [index.html](index.html) for the public site and browser playground.
 .\tools\aru-tool.ps1 -Search waro -Cards
 .\tools\build-corpus.ps1
 .\tools\build-learning.ps1
+.\tools\check-grammar.ps1
 .\tools\test-site.ps1
 .\tools\project-report.ps1
 ```
