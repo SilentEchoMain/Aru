@@ -49,6 +49,7 @@ $flashcards = Read-Tsv "FLASHCARDS.tsv"
 $releases = Read-Tsv "RELEASES.tsv"
 $textSubmissions = Read-Tsv "TEXT_SUBMISSIONS.tsv"
 $benchmark = Read-Tsv "TRANSLATION_BENCH.tsv"
+$challenges = Read-Tsv "COMMUNITY_CHALLENGES.tsv"
 $promptContent = Get-Content (Join-Path $root "PROMPTS.md") -Raw
 $promptCount = ([regex]::Matches($promptContent, "(?m)^## Prompt \d+")).Count
 $courseContent = Get-Content (Join-Path $root "COURSE.md") -Raw
@@ -56,7 +57,7 @@ $courseLessonCount = ([regex]::Matches($courseContent, "(?m)^## Lesson \d+")).Co
 
 $report = [pscustomobject]@{
     languageCore = "v1.0.0"
-    projectRelease = "v1.12.0"
+    projectRelease = "v1.13.0"
     lexiconEntries = $lexicon.Count
     phrasebookEntries = $phrasebook.Count
     corpusTexts = $corpus.Count
@@ -73,6 +74,9 @@ $report = [pscustomobject]@{
     benchmarkLevels = Count-By $benchmark "level"
     benchmarkDomains = Count-By $benchmark "domain"
     benchmarkPhenomena = Count-By $benchmark "phenomenon"
+    communityChallenges = $challenges.Count
+    challengeTracks = Count-By $challenges "track"
+    challengeLevels = Count-By $challenges "level"
     lexiconStatuses = Count-By $lexicon "status"
     lexiconDomains = Count-By $lexicon "domain"
     lexiconLevels = Count-By $lexicon "level"
@@ -106,6 +110,7 @@ if ($Json) {
     Write-Output "Current release: $($report.currentRelease)"
     Write-Output "Text submissions: $($report.textSubmissions)"
     Write-Output "Benchmark rows: $($report.benchmarkRows)"
+    Write-Output "Community challenges: $($report.communityChallenges)"
     Write-Output ""
     Write-Output "Lexicon statuses:"
     $report.lexiconStatuses | Format-Table -AutoSize
@@ -121,6 +126,10 @@ if ($Json) {
     $report.benchmarkLevels | Format-Table -AutoSize
     Write-Output "Benchmark phenomena:"
     $report.benchmarkPhenomena | Format-Table -AutoSize
+    Write-Output "Challenge tracks:"
+    $report.challengeTracks | Format-Table -AutoSize
+    Write-Output "Challenge levels:"
+    $report.challengeLevels | Format-Table -AutoSize
     Write-Output ""
     Write-Output "Top phrasebook topics:"
     $report.phrasebookTopics | Select-Object -First 10 | Format-Table -AutoSize

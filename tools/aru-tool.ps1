@@ -8,6 +8,7 @@ param(
     [switch]$Releases,
     [switch]$Submissions,
     [switch]$Benchmark,
+    [switch]$Challenges,
     [switch]$Json
 )
 
@@ -22,6 +23,7 @@ $flashcardsPath = Join-Path $root "FLASHCARDS.tsv"
 $releasesPath = Join-Path $root "RELEASES.tsv"
 $submissionsPath = Join-Path $root "TEXT_SUBMISSIONS.tsv"
 $benchmarkPath = Join-Path $root "TRANSLATION_BENCH.tsv"
+$challengesPath = Join-Path $root "COMMUNITY_CHALLENGES.tsv"
 
 function Fail($message) {
     Write-Error $message
@@ -52,6 +54,9 @@ if (!(Test-Path $submissionsPath)) {
 if (!(Test-Path $benchmarkPath)) {
     Fail "TRANSLATION_BENCH.tsv is missing."
 }
+if (!(Test-Path $challengesPath)) {
+    Fail "COMMUNITY_CHALLENGES.tsv is missing."
+}
 
 $lexicon = Import-Csv -Delimiter "`t" $lexiconPath
 $phrasebook = Import-Csv -Delimiter "`t" $phrasebookPath
@@ -61,6 +66,7 @@ $flashcardRows = Import-Csv -Delimiter "`t" $flashcardsPath
 $releaseRows = Import-Csv -Delimiter "`t" $releasesPath
 $submissionRows = Import-Csv -Delimiter "`t" $submissionsPath
 $benchmarkRows = Import-Csv -Delimiter "`t" $benchmarkPath
+$challengeRows = Import-Csv -Delimiter "`t" $challengesPath
 $roots = @{}
 foreach ($row in $lexicon) {
     $roots[$row.root] = $row
@@ -142,6 +148,10 @@ if ($Search) {
         $matches = @($benchmarkRows | Where-Object {
             ($_.id + " " + $_.level + " " + $_.domain + " " + $_.phenomenon + " " + $_.source_en + " " + $_.reference_aru + " " + $_.notes).ToLowerInvariant().Contains($needle)
         })
+    } elseif ($Challenges) {
+        $matches = @($challengeRows | Where-Object {
+            ($_.id + " " + $_.track + " " + $_.level + " " + $_.title + " " + $_.prompt + " " + $_.seed_aru + " " + $_.outcome + " " + $_.check + " " + $_.status).ToLowerInvariant().Contains($needle)
+        })
     } elseif ($Corpus) {
         $matches = @($corpusRows | Where-Object {
             ($_.id + " " + $_.level + " " + $_.topic + " " + $_.aru + " " + $_.en + " " + $_.notes).ToLowerInvariant().Contains($needle)
@@ -179,6 +189,7 @@ if (!$Text) {
     Write-Output "  .\tools\aru-tool.ps1 -Search portal -Releases"
     Write-Output "  .\tools\aru-tool.ps1 -Search draft -Submissions"
     Write-Output "  .\tools\aru-tool.ps1 -Search relative -Benchmark"
+    Write-Output "  .\tools\aru-tool.ps1 -Search writing -Challenges"
     exit 0
 }
 

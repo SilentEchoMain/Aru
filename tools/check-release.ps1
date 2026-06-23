@@ -30,6 +30,10 @@ $requiredFiles = @(
     "AUTHORING.md",
     "TEXT_WORKFLOW.md",
     "TEXT_SUBMISSIONS.tsv",
+    "ADOPTION.md",
+    "TEACHER_GUIDE.md",
+    "WORKSHOP_PLAN.md",
+    "COMMUNITY_CHALLENGES.tsv",
     "BENCHMARK.md",
     "QUALITY_METRICS.md",
     "TRANSLATION_BENCH.tsv",
@@ -41,6 +45,8 @@ $requiredFiles = @(
     "tools/build-corpus.ps1",
     "tools/build-learning.ps1",
     "tools/build-releases.ps1",
+    "tools/check-adoption.ps1",
+    "tools/adoption-report.ps1",
     "tools/new-text-submission.ps1",
     "tools/check-authoring.ps1",
     "tools/check-benchmark.ps1",
@@ -82,11 +88,11 @@ foreach ($file in $versionFiles) {
 
 $readmeContent = Get-Content (Join-Path $root "README.md") -Raw
 $changelogContent = Get-Content (Join-Path $root "CHANGELOG.md") -Raw
-if ($readmeContent -notmatch "v1\.12\.0") {
-    Fail "Expected README.md to mention project release v1.12.0."
+if ($readmeContent -notmatch "v1\.13\.0") {
+    Fail "Expected README.md to mention project release v1.13.0."
 }
-if ($changelogContent -notmatch "v1\.12\.0") {
-    Fail "Expected CHANGELOG.md to mention project release v1.12.0."
+if ($changelogContent -notmatch "v1\.13\.0") {
+    Fail "Expected CHANGELOG.md to mention project release v1.13.0."
 }
 
 $licenseContent = Get-Content (Join-Path $root "LICENSE.md") -Raw
@@ -234,8 +240,8 @@ foreach ($column in @("id", "deck", "front", "back", "tags")) {
 
 $releaseLines = Get-Content (Join-Path $root "RELEASES.tsv")
 $releaseEntries = [Math]::Max(0, $releaseLines.Count - 1)
-if ($releaseEntries -lt 13) {
-    Fail "Expected at least 13 release entries, got $releaseEntries."
+if ($releaseEntries -lt 14) {
+    Fail "Expected at least 14 release entries, got $releaseEntries."
 }
 
 $releaseRows = Import-Csv -Delimiter "`t" (Join-Path $root "RELEASES.tsv")
@@ -295,6 +301,7 @@ Test-AruRows "phrasebook" $phrasebookRows
 Test-AruRows "corpus" $corpusRows
 Test-AruRows "dialogue" $dialogueRows
 
+& (Join-Path $root "tools/check-adoption.ps1")
 & (Join-Path $root "tools/check-authoring.ps1")
 & (Join-Path $root "tools/check-benchmark.ps1")
 & (Join-Path $root "tools/check-community.ps1")
@@ -305,7 +312,7 @@ Test-AruRows "dialogue" $dialogueRows
 
 Write-Output "Aru release check passed."
 Write-Output "Language core: v1.0.0"
-Write-Output "Project release: v1.12.0"
+Write-Output "Project release: v1.13.0"
 Write-Output "Lexicon entries: $lexiconEntries"
 Write-Output "Phrasebook entries: $phrasebookEntries"
 Write-Output "Corpus texts: $corpusEntries"

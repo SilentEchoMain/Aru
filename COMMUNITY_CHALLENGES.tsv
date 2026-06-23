@@ -1,0 +1,31 @@
+id	track	level	title	prompt	seed_aru	outcome	check	status
+A001	first-contact	A0	Introduce Yourself	Say your name and ask another person's name.	lani ne na ra ya Mira. lani ne ta ra se?	two-line self introduction	names use ya	ready
+A002	first-contact	A0	Say One Need	Say that you need water.	na ra sima taka ke wai.	one need sentence	modal root is clear	ready
+A003	first-contact	A0	Short Movement	Tell someone to come.	o tanu.	one command	imperative uses o	ready
+A004	first-contact	A0	Basic Choice	Ask if the listener eats.	ka ta ra kani?	one yes/no question	question uses ka	ready
+A005	first-contact	A0	See And Hear	Say that you see light and hear a person.	na ra sela ke luma. na ra lora ke mene.	two perception sentences	objects use ke	ready
+A006	reading	A0	Find Particles	Mark ra and ke in a short sentence.	na ra sela ke luma.	annotated sentence	ra and ke identified	ready
+A007	reading	A1	Read Time	Explain whether the action is past, current, or future.	na ra po naka ko malo.	one English explanation	time marker identified	ready
+A008	reading	A2	Read Cause	Explain why the speaker does not go.	na ra no naka so etu roka.	one English explanation	cause uses so etu	ready
+A009	reading	A2	Read Relative	Identify what ri refers to.	malo re na ra sela ke ri, ra maru.	one reference note	ri points to head word	ready
+A010	reading	A2	Read Comparison	State which house is bigger.	malo i ra maru pasu malo ena.	one comparison note	pasu structure identified	ready
+A011	writing	A0	Write A House	Write two sentences about a house.	malo ra maru. malo ra nela.	two short sentences	each sentence has ra	ready
+A012	writing	A1	Write A Day	Write what you do today.	temu luma nu le, na ra raku ke sipu.	one time-framed sentence	le separates frame	ready
+A013	writing	A1	Write Help	Write a request for help.	ta o wena ke na.	one request	command is addressed	ready
+A014	writing	A2	Write A Reason	Write a reason using so etu.	na ra mota so etu roka.	one cause sentence	cause uses so etu	ready
+A015	writing	A2	Write A Relative Text	Write one short relative phrase.	mene re ri ra lowa ke sipu, ra nela.	one relative sentence	ri stays inside re phrase	ready
+A016	translation	A0	Translate I Speak	Translate: I speak.	na ra waro.	one translation	matches benchmark style	ready
+A017	translation	A1	Translate Future Movement	Translate: I will go to the house.	na ra po naka ko malo.	one translation	time and direction clear	ready
+A018	translation	A1	Translate Learning	Translate: I study Aru.	na ra nema ke ya Aru.	one translation	name uses ya	ready
+A019	translation	A2	Translate Comparison	Translate: This tool is less heavy than that tool.	tulu i ra risa mini pasu tulu ena.	one translation	lesser comparison clear	ready
+A020	translation	A2	Translate Content	Translate: I know that they came.	na ra sona ke i le, u ra pa tanu.	one translation	content frame clear	ready
+A021	teaching	A0	Teach Ra	Explain ra with one example.	na ra waro.	one explanation and example	ra is not translated as be	ready
+A022	teaching	A0	Teach Ke	Explain ke with one example.	na ra kani ke pani.	one explanation and example	ke marks direct object	ready
+A023	teaching	A1	Teach Ne	Explain weak relation with a possession example.	malo ne na ra nela.	one explanation and example	ne relation stays weak	ready
+A024	teaching	A1	Teach Context	Explain le with a time frame.	temu luma nu le, na ra waro.	one explanation and example	le separates context	ready
+A025	teaching	A2	Teach Ri	Explain ri inside a relative phrase.	mene re ri ra waro, ra nela.	one explanation and example	ri appears only inside re	ready
+A026	community	A0	Share A Greeting	Post one simple Aru sentence with English.	na ra waro we ta.	one public sentence	English stays close	ready
+A027	community	A1	Review A Draft	Check a draft sentence for unknown roots.	na ra lowa ke sipu.	one review note	root check performed	ready
+A028	community	A1	Submit A Text	Prepare a queue row for a short corpus text.	na ra raku ke sipu lisu.	one draft queue row	status starts draft	ready
+A029	community	A2	Score A Translation	Score a benchmark translation with quality metrics.	malo i ra maru pasu malo ena.	one score note	metrics are named	ready
+A030	community	A2	Open A Discussion	Ask which Aru pattern was hardest.	naru se ra kasa?	one discussion prompt	question is clear	ready

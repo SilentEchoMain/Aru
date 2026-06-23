@@ -413,6 +413,7 @@
         <a href="#course">Course</a>
         <a href="#submissions">Submissions</a>
         <a href="#benchmark">Benchmark</a>
+        <a href="#challenges">Challenges</a>
         <a href="#corpus">Corpus</a>
         <a href="#dialogues">Dialogues</a>
         <a href="#releases">Releases</a>
@@ -497,6 +498,21 @@
           <h3>Quality Metrics</h3>
           <p>Score public examples for meaning, grammar, lexicon, clarity, and economy.</p>
           <a class="button" href="QUALITY_METRICS.md">Open metrics</a>
+        </div>
+        <div class="panel">
+          <h3>Adoption</h3>
+          <p>Plan public entry points, growth loops, and first learner milestones.</p>
+          <a class="button" href="ADOPTION.md">Open adoption plan</a>
+        </div>
+        <div class="panel">
+          <h3>Teacher Guide</h3>
+          <p>Facilitate first lessons without overwhelming new learners.</p>
+          <a class="button" href="TEACHER_GUIDE.md">Open teacher guide</a>
+        </div>
+        <div class="panel">
+          <h3>Workshop</h3>
+          <p>Run a 60-minute first Aru session with review and challenge steps.</p>
+          <a class="button" href="WORKSHOP_PLAN.md">Open workshop plan</a>
         </div>
         <div class="panel">
           <h3>Review</h3>
@@ -637,6 +653,27 @@ I go to the house.</pre>
       <div id="benchmarkTable"></div>
     </section>
 
+    <section id="challenges">
+      <h2>Community Challenges</h2>
+      <p class="muted">Search 30 ready tasks for learners, teachers, translators, and first public contributors.</p>
+      <p><a class="button" href="COMMUNITY_CHALLENGES.tsv">Open challenge data</a></p>
+      <div class="filters">
+        <div>
+          <label for="challengeTrack">Track</label>
+          <select id="challengeTrack"></select>
+        </div>
+        <div>
+          <label for="challengeLevel">Level</label>
+          <select id="challengeLevel"></select>
+        </div>
+        <div>
+          <label for="challengeSearch">Search</label>
+          <input id="challengeSearch" placeholder="Search title, task, seed Aru, outcome, or check">
+        </div>
+      </div>
+      <div id="challengeTable"></div>
+    </section>
+
     <section id="corpus">
       <h2>Corpus Reader</h2>
       <p class="muted">Search 100 short corpus texts built from the stable v1.0.0 core.</p>
@@ -699,6 +736,7 @@ I go to the house.</pre>
     let releases = [];
     let submissions = [];
     let benchmark = [];
+    let challenges = [];
     let roots = new Set();
 
     function parseTsv(text) {
@@ -711,7 +749,7 @@ I go to the house.</pre>
     }
 
     async function loadData() {
-      const [lex, phrases, corpusText, dialogueText, flashcardText, releaseText, submissionText, benchmarkText] = await Promise.all([
+      const [lex, phrases, corpusText, dialogueText, flashcardText, releaseText, submissionText, benchmarkText, challengeText] = await Promise.all([
         fetch("LEXICON.tsv").then(r => r.text()),
         fetch("PHRASEBOOK.tsv").then(r => r.text()),
         fetch("CORPUS.tsv").then(r => r.text()),
@@ -719,7 +757,8 @@ I go to the house.</pre>
         fetch("FLASHCARDS.tsv").then(r => r.text()),
         fetch("RELEASES.tsv").then(r => r.text()),
         fetch("TEXT_SUBMISSIONS.tsv").then(r => r.text()),
-        fetch("TRANSLATION_BENCH.tsv").then(r => r.text())
+        fetch("TRANSLATION_BENCH.tsv").then(r => r.text()),
+        fetch("COMMUNITY_CHALLENGES.tsv").then(r => r.text())
       ]);
       lexicon = parseTsv(lex);
       phrasebook = parseTsv(phrases);
@@ -729,6 +768,7 @@ I go to the house.</pre>
       releases = parseTsv(releaseText);
       submissions = parseTsv(submissionText);
       benchmark = parseTsv(benchmarkText);
+      challenges = parseTsv(challengeText);
       roots = new Set(lexicon.map(row => row.root));
       setupFilters();
       renderStats();
@@ -740,6 +780,7 @@ I go to the house.</pre>
       renderReleases();
       renderSubmissions();
       renderBenchmark();
+      renderChallenges();
       analyze();
     }
 
@@ -836,13 +877,15 @@ I go to the house.</pre>
       fillSelect("dialogueTopic", uniqueValues(dialogues, "topic"), "topics");
       fillSelect("benchmarkLevel", uniqueValues(benchmark, "level"), "levels");
       fillSelect("benchmarkPhenomenon", uniqueValues(benchmark, "phenomenon"), "phenomena");
+      fillSelect("challengeTrack", uniqueValues(challenges, "track"), "tracks");
+      fillSelect("challengeLevel", uniqueValues(challenges, "level"), "levels");
     }
 
     function renderStats() {
       const current = releases.find(row => row.status === "current") || releases[0] || {};
       const stats = [
         ["Core", "v1.0.0"],
-        ["Project", current.version || "v1.12.0"],
+        ["Project", current.version || "v1.13.0"],
         ["Roots", lexicon.length],
         ["Phrases", phrasebook.length],
         ["Corpus Texts", corpus.length],
@@ -850,7 +893,8 @@ I go to the house.</pre>
         ["Flashcards", flashcards.length],
         ["Releases", releases.length],
         ["Submissions", submissions.length],
-        ["Benchmark", benchmark.length]
+        ["Benchmark", benchmark.length],
+        ["Challenges", challenges.length]
       ];
       document.getElementById("statsGrid").innerHTML = stats
         .map(([label, value]) => `<div class="metric"><strong>${value}</strong><span>${label}</span></div>`)
@@ -933,6 +977,18 @@ I go to the house.</pre>
       document.getElementById("benchmarkTable").innerHTML = table(["id", "level", "domain", "phenomenon", "source_en", "reference_aru"], rows);
     }
 
+    function renderChallenges() {
+      const q = document.getElementById("challengeSearch").value.toLowerCase();
+      const track = document.getElementById("challengeTrack").value;
+      const level = document.getElementById("challengeLevel").value;
+      const rows = challenges
+        .filter(row => !track || row.track === track)
+        .filter(row => !level || row.level === level)
+        .filter(row => Object.values(row).join(" ").toLowerCase().includes(q))
+        .slice(0, 80);
+      document.getElementById("challengeTable").innerHTML = table(["id", "track", "level", "title", "seed_aru", "outcome", "status"], rows);
+    }
+
     document.getElementById("input").addEventListener("input", analyze);
     document.getElementById("lexiconSearch").addEventListener("input", renderLexicon);
     document.getElementById("lexiconDomain").addEventListener("change", renderLexicon);
@@ -949,6 +1005,9 @@ I go to the house.</pre>
     document.getElementById("benchmarkSearch").addEventListener("input", renderBenchmark);
     document.getElementById("benchmarkLevel").addEventListener("change", renderBenchmark);
     document.getElementById("benchmarkPhenomenon").addEventListener("change", renderBenchmark);
+    document.getElementById("challengeSearch").addEventListener("input", renderChallenges);
+    document.getElementById("challengeTrack").addEventListener("change", renderChallenges);
+    document.getElementById("challengeLevel").addEventListener("change", renderChallenges);
     loadData().catch(error => {
       document.getElementById("status").className = "status bad";
       document.getElementById("status").textContent = "Could not load project TSV files.";

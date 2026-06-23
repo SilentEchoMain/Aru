@@ -23,6 +23,10 @@ jobs:
         shell: pwsh
         run: ./tools/build-releases.ps1
 
+      - name: Check adoption kit
+        shell: pwsh
+        run: ./tools/check-adoption.ps1
+
       - name: Check text authoring
         shell: pwsh
         run: ./tools/check-authoring.ps1

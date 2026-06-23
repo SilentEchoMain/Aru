@@ -22,11 +22,13 @@
 - [ ] Authoring or editor changes follow `AUTHORING.md`.
 - [ ] Text queue changes follow `TEXT_WORKFLOW.md`.
 - [ ] Benchmark changes follow `BENCHMARK.md` and `QUALITY_METRICS.md`.
+- [ ] Adoption, workshop, or challenge changes follow `ADOPTION.md`.
 - [ ] Review notes can be checked against `REVIEW_CHECKLIST.md`.
 
 ## Checks
 
 ```powershell
+.\tools\check-adoption.ps1
 .\tools\check-authoring.ps1
 .\tools\check-benchmark.ps1
 .\tools\check-community.ps1

@@ -31,6 +31,8 @@ Use this checklist when reviewing pull requests, issue proposals, and discussion
 - Translations are clear and do not hide missing Aru structure.
 - Benchmark rows are short, levelled, and tied to one main phenomenon.
 - Benchmark reference translations follow `QUALITY_METRICS.md`.
+- Community challenges are concrete, ready to run, and aligned with `ADOPTION.md`.
+- Teaching materials keep first-session grammar small.
 
 ## Editor And Authoring
 
@@ -47,6 +49,7 @@ Run:
 .\tools\build-corpus.ps1
 .\tools\build-learning.ps1
 .\tools\build-releases.ps1
+.\tools\check-adoption.ps1
 .\tools\check-authoring.ps1
 .\tools\check-benchmark.ps1
 .\tools\check-community.ps1

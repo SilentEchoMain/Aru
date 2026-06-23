@@ -65,6 +65,7 @@ Current public-use targets:
 - Keep at least 20 writing prompts.
 - Keep at least 300 generated learning flashcards.
 - Keep at least 50 translation benchmark items.
+- Keep at least 30 public community challenges.
 - Keep all public examples valid against the core lexicon unless they are marked names after `ya` or exact digits after `saka`.
 - Run `.\tools\check-grammar.ps1` before proposing changes to public examples.
 
@@ -88,7 +89,7 @@ Grammar proposals should include:
 problem -> attempted Aru expressions -> proposed rule -> examples -> compatibility note
 ```
 
-Use [GOVERNANCE.md](GOVERNANCE.md), [STYLE_GUIDE.md](STYLE_GUIDE.md), [AUTHORING.md](AUTHORING.md), [BENCHMARK.md](BENCHMARK.md), [QUALITY_METRICS.md](QUALITY_METRICS.md), and [REVIEW_CHECKLIST.md](REVIEW_CHECKLIST.md) for decision rules, public writing style, authoring workflow, benchmark quality, scoring, and review expectations.
+Use [GOVERNANCE.md](GOVERNANCE.md), [STYLE_GUIDE.md](STYLE_GUIDE.md), [AUTHORING.md](AUTHORING.md), [ADOPTION.md](ADOPTION.md), [TEACHER_GUIDE.md](TEACHER_GUIDE.md), [WORKSHOP_PLAN.md](WORKSHOP_PLAN.md), [BENCHMARK.md](BENCHMARK.md), [QUALITY_METRICS.md](QUALITY_METRICS.md), and [REVIEW_CHECKLIST.md](REVIEW_CHECKLIST.md) for decision rules, public writing style, authoring workflow, adoption, teaching, benchmark quality, scoring, and review expectations.
 
 Before opening a pull request, run:
 
@@ -96,6 +97,7 @@ Before opening a pull request, run:
 .\tools\build-corpus.ps1
 .\tools\build-learning.ps1
 .\tools\build-releases.ps1
+.\tools\check-adoption.ps1
 .\tools\check-authoring.ps1
 .\tools\check-benchmark.ps1
 .\tools\check-community.ps1

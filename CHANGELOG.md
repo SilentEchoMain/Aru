@@ -1,5 +1,14 @@
 # Changelog
 
+## Aru Project v1.13.0
+
+- Added `ADOPTION.md` for public growth strategy and learner entry points.
+- Added `TEACHER_GUIDE.md` and `WORKSHOP_PLAN.md` for first-session facilitation.
+- Added `COMMUNITY_CHALLENGES.tsv` with 30 ready learner, translation, teaching, and community tasks.
+- Added `tools/check-adoption.ps1` and `tools/adoption-report.ps1`.
+- Connected adoption checks to CI, release gates, project reports, CLI search, and the public portal.
+- Language core remains **Aru v1.0.0**.
+
 ## Aru Project v1.12.0
 
 - Added `BENCHMARK.md` for the public translation benchmark workflow.
