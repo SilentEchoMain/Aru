@@ -1,0 +1,101 @@
+﻿id	topic	aru	en
+001	identity	lani ne na ra ya Aru.	My name is Aru.
+002	identity	na ra mene.	I am a person.
+003	identity	ta ra mene nela.	You are a good person.
+004	identity	u ra melo ne na.	They are my friend.
+005	identity	na mun ra kale mini.	We are a small group.
+006	speech	na ra waro.	I speak.
+007	speech	ta ra lora ke na?	Do you hear me?
+008	speech	na ra lora ke ta.	I hear you.
+009	speech	na ra waro we ya Mira.	I speak with Mira.
+010	speech	ta o waro mini.	Speak briefly.
+011	perception	na ra sela ke luma.	I see light / the sun.
+012	perception	u ra sela ke malo maru.	They see a big house.
+013	perception	ta ra lora ke noki?	Do you hear the night / darkness?
+014	perception	mata ne na ra sela ke tulu.	My eye sees the tool.
+015	perception	nuko ne ta ra lora ke waro.	Your ear hears speech.
+016	movement	na ra naka.	I go.
+017	movement	ta ra naka ko malo.	You go to the house.
+018	movement	u ra tanu so malo.	They come from the house.
+019	movement	na ra weki so malo.	I leave the house.
+020	movement	na ra naka we ta.	I go with you.
+021	place	na ra to malo.	I am at the house.
+022	place	na ra to insa malo.	I am inside the house.
+023	place	tulu ra to supa malo.	The tool is on top of the house.
+024	place	kano ra to poka mamu.	The child is beside the parent.
+025	place	malo ra to kima wai.	The house is near water.
+026	time	temu luma nu le, na ra salo.	Today I work.
+027	time	temu luma pa le, na ra pa miso.	Yesterday I slept.
+028	time	temu luma po le, na ra po tanu.	Tomorrow I will come.
+029	time	na ra nu kani ke pani.	I am eating food now.
+030	time	ta ra po naka ko tera para.	You will go to a far place.
+031	food	na ra kani ke pani.	I eat food.
+032	food	ta o kani ke pani welo.	Eat hot food.
+033	food	na ra rima ke wai.	I want water.
+034	food	pani ra to suko.	The food is in the container.
+035	food	wai ra nilo.	The water is cold.
+036	work	na ra maku ke malo.	I build a house.
+037	work	ta ra salo we tulu.	You work with a tool.
+038	work	u ra raku ke sipu.	They write a text.
+039	work	na ra lowa ke lipa.	I read the book / document.
+040	work	tulu i ra ko sela para.	This tool is for distant seeing.
+041	learning	na ra nema ke ya Aru.	I study Aru.
+042	learning	ta ra sona ke naru ne waro.	You know the rules of speech.
+043	learning	u ra sona maku ke tulu.	They know how to make a tool.
+044	learning	na ra rima sona waro nela.	I want to know how to speak well.
+045	learning	senu ra pane ke se?	What does the teacher answer?
+046	questions	ka ta ra kani?	Are you eating?
+047	questions	se ra naka?	Who is going?
+048	questions	ta ra sela ke se?	What do you see?
+049	questions	ta ra to se?	Where are you?
+050	questions	ta ra no tanu so etu se?	Why did you not come?
+051	negation	na ra no kani ke pani.	I do not eat food.
+052	negation	no na ra kani ke pani.	Not I eat food.
+053	negation	na ra kani ke no pani.	I eat not-food.
+054	negation	o no naka.	Do not go.
+055	negation	na ra pa no tanu.	I did not come.
+056	cause	na ra no naka so etu nilo.	I do not go because of cold.
+057	cause	na ra no naka so etu i le, u ra nilo.	I do not go because it is cold.
+058	cause	u ra miso so etu salo maru.	They rest because of much work.
+059	cause	ta ra tanu so etu rima ne na?	Did you come because of my wish?
+060	cause	u ra naka, sia na ra naka.	They go, therefore I go.
+061	relations	malo ne na ra maru.	My house is big.
+062	relations	lani ne ta ra ya Mira.	Your name is Mira.
+063	relations	naru ne waro ra lisu.	The grammar is simple.
+064	relations	malo ko kano ra kima.	The house for the child is near.
+065	relations	wai so rano ra lisu.	The water from the river is clean.
+066	relative	mene re ri ra maku ke malo, ra nela.	The person who builds a house is good.
+067	relative	malo re na ra sela ke ri, ra maru.	The house that I see is big.
+068	relative	mene re na ra lano ke pani ko ri, ra melo ne na.	The person to whom I give food is my friend.
+069	relative	tulu re ta ra kipa ke ri, ra kasa.	The tool you hold is hard.
+070	relative	malo re na ra to ri, ra nilo.	The house where I am is cold.
+071	comparison	malo i ra maru pasu malo ena.	This house is bigger than that house.
+072	comparison	tulu i ra nela pasu tulu ena.	This tool is better than that tool.
+073	comparison	wai i ra welo mini pasu wai ena.	This water is less hot than that water.
+074	comparison	mene i ra riki sama pasu mene ena.	This person is as fast as that one.
+075	comparison	malo i ra maru pasu ora.	This house is the biggest.
+076	content	na ra sona ke i le, u ra pa tanu.	I know that they came.
+077	content	ta ra rima ke i le, na ra naka.	You want me to go.
+078	content	u ra sela ke i le, na ra maku ke malo.	They see that I build a house.
+079	content	na ra waro ke i le, ya Aru ra lisu.	I say that Aru is simple.
+080	content	ta ra sano ke i le, na ra po tanu?	Do you believe that I will come?
+081	body	soma ne na ra nilo.	My body is cold.
+082	body	na ra nawa to pamo.	I have pain in my leg.
+083	body	kute ne ta ra kipa ke tulu.	Your hand holds the tool.
+084	body	muto ne u ra no waro.	Their mouth does not speak.
+085	body	neno ne na ra pawa.	My heart is strong.
+086	world	kasi ra to tera.	The plant is on the ground.
+087	world	simo ra naka to rano.	The animal moves by the river.
+088	world	roka ra tanu so kawo.	Rain comes from the sky.
+089	world	kowa ra naka we luma.	The wind moves with the light / sun.
+090	world	mewa ra maru pasu rano.	The sea is bigger than the river.
+091	objects	lipa i ra ne na.	This document is mine / related to me.
+092	objects	poto ra to lipa.	The image is on the sheet / in the book.
+093	objects	suko ra ama ke wai.	The container has water.
+094	objects	tulu ra rupi.	The tool is broken.
+095	objects	na ra mela ke tulu.	I repair the tool.
+096	style	ya Aru ra waro lisu.	Aru is simple speech.
+097	style	na ra no rima ke naru maru.	I do not want big rules.
+098	style	mene ra pawa waro nela.	A person can speak well.
+099	style	naru mini ra nela.	A small rule is good.
+100	style	waro lisu ra pawa.	Simple speech is powerful.
