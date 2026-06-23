@@ -23,8 +23,10 @@ foreach ($required in @(
     "Release Timeline",
     "GOVERNANCE.md",
     "STYLE_GUIDE.md",
+    "AUTHORING.md",
     "REVIEW_CHECKLIST.md",
     "CODE_OF_CONDUCT.md",
+    "editor/vscode/aru.tmLanguage.json",
     "RELEASES.tsv",
     "lexiconDomain",
     "lexiconLevel",
@@ -41,8 +43,8 @@ foreach ($required in @(
 }
 
 $releases = @(Import-Csv -Delimiter "`t" $releasesPath)
-if ($releases.Count -lt 10) {
-    Fail "Expected at least 10 releases, got $($releases.Count)."
+if ($releases.Count -lt 11) {
+    Fail "Expected at least 11 releases, got $($releases.Count)."
 }
 
 $columns = @($releases[0].PSObject.Properties.Name)
@@ -56,8 +58,8 @@ $current = @($releases | Where-Object { $_.status -eq "current" })
 if ($current.Count -ne 1) {
     Fail "Expected exactly one current release, got $($current.Count)."
 }
-if ($current[0].version -ne "v1.9.0") {
-    Fail "Expected current release v1.9.0, got $($current[0].version)."
+if ($current[0].version -ne "v1.10.0") {
+    Fail "Expected current release v1.10.0, got $($current[0].version)."
 }
 if (($releases | Where-Object { $_.core -ne "v1.0.0" }).Count -gt 0) {
     Fail "Every project release should preserve language core v1.0.0."

@@ -27,12 +27,17 @@ $requiredFiles = @(
     "CONTRIBUTING.md",
     "GOVERNANCE.md",
     "STYLE_GUIDE.md",
+    "AUTHORING.md",
     "REVIEW_CHECKLIST.md",
     "CODE_OF_CONDUCT.md",
+    "editor/vscode/aru.tmLanguage.json",
+    "editor/vscode/aru.code-snippets",
+    "editor/vscode/language-configuration.json",
     "tools/build-corpus.ps1",
     "tools/build-learning.ps1",
     "tools/build-releases.ps1",
     "tools/check-community.ps1",
+    "tools/check-editor.ps1",
     "tools/check-lexicon.ps1",
     "tools/check-grammar.ps1",
     "tools/check-portal.ps1",
@@ -68,11 +73,11 @@ foreach ($file in $versionFiles) {
 
 $readmeContent = Get-Content (Join-Path $root "README.md") -Raw
 $changelogContent = Get-Content (Join-Path $root "CHANGELOG.md") -Raw
-if ($readmeContent -notmatch "v1\.9\.0") {
-    Fail "Expected README.md to mention project release v1.9.0."
+if ($readmeContent -notmatch "v1\.10\.0") {
+    Fail "Expected README.md to mention project release v1.10.0."
 }
-if ($changelogContent -notmatch "v1\.9\.0") {
-    Fail "Expected CHANGELOG.md to mention project release v1.9.0."
+if ($changelogContent -notmatch "v1\.10\.0") {
+    Fail "Expected CHANGELOG.md to mention project release v1.10.0."
 }
 
 $licenseContent = Get-Content (Join-Path $root "LICENSE.md") -Raw
@@ -220,8 +225,8 @@ foreach ($column in @("id", "deck", "front", "back", "tags")) {
 
 $releaseLines = Get-Content (Join-Path $root "RELEASES.tsv")
 $releaseEntries = [Math]::Max(0, $releaseLines.Count - 1)
-if ($releaseEntries -lt 10) {
-    Fail "Expected at least 10 release entries, got $releaseEntries."
+if ($releaseEntries -lt 11) {
+    Fail "Expected at least 11 release entries, got $releaseEntries."
 }
 
 $releaseRows = Import-Csv -Delimiter "`t" (Join-Path $root "RELEASES.tsv")
@@ -282,13 +287,14 @@ Test-AruRows "corpus" $corpusRows
 Test-AruRows "dialogue" $dialogueRows
 
 & (Join-Path $root "tools/check-community.ps1")
+& (Join-Path $root "tools/check-editor.ps1")
 & (Join-Path $root "tools/check-lexicon.ps1")
 & (Join-Path $root "tools/check-grammar.ps1")
 & (Join-Path $root "tools/check-portal.ps1")
 
 Write-Output "Aru release check passed."
 Write-Output "Language core: v1.0.0"
-Write-Output "Project release: v1.9.0"
+Write-Output "Project release: v1.10.0"
 Write-Output "Lexicon entries: $lexiconEntries"
 Write-Output "Phrasebook entries: $phrasebookEntries"
 Write-Output "Corpus texts: $corpusEntries"

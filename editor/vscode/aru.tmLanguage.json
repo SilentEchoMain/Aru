@@ -1,0 +1,43 @@
+{
+  "name": "Aru",
+  "scopeName": "source.aru",
+  "patterns": [
+    {
+      "name": "keyword.control.aru",
+      "match": "\\b(ra|ke|ne|le|re|ri|no|ka|o|ya)\\b"
+    },
+    {
+      "name": "constant.language.time.aru",
+      "match": "\\b(pa|nu|po)\\b"
+    },
+    {
+      "name": "keyword.operator.relation.aru",
+      "match": "\\b(to|ko|so|we|pasu)\\b"
+    },
+    {
+      "name": "keyword.operator.logical.aru",
+      "match": "\\b(an|alo|sia|tune)\\b"
+    },
+    {
+      "name": "variable.language.pronoun.aru",
+      "match": "\\b(na|ta|u|i|ena|se)\\b"
+    },
+    {
+      "name": "constant.numeric.aru",
+      "match": "\\b(nalo|un|san|mun|ora|saka|[0-9]+)\\b"
+    },
+    {
+      "name": "entity.name.tag.foreign.aru",
+      "match": "\\bya\\s+([A-Za-z][A-Za-z0-9_-]*)"
+    },
+    {
+      "name": "invalid.illegal.shape.aru",
+      "match": "\\b[b-cd-fghj-qv-xzB-Z][A-Za-z0-9_-]*\\b"
+    },
+    {
+      "name": "string.comment.translation.aru",
+      "begin": "#",
+      "end": "$"
+    }
+  ]
+}

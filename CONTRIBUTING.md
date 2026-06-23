@@ -87,7 +87,7 @@ Grammar proposals should include:
 problem -> attempted Aru expressions -> proposed rule -> examples -> compatibility note
 ```
 
-Use [GOVERNANCE.md](GOVERNANCE.md), [STYLE_GUIDE.md](STYLE_GUIDE.md), and [REVIEW_CHECKLIST.md](REVIEW_CHECKLIST.md) for decision rules, public writing style, and review expectations.
+Use [GOVERNANCE.md](GOVERNANCE.md), [STYLE_GUIDE.md](STYLE_GUIDE.md), [AUTHORING.md](AUTHORING.md), and [REVIEW_CHECKLIST.md](REVIEW_CHECKLIST.md) for decision rules, public writing style, authoring workflow, and review expectations.
 
 Before opening a pull request, run:
 
@@ -96,6 +96,7 @@ Before opening a pull request, run:
 .\tools\build-learning.ps1
 .\tools\build-releases.ps1
 .\tools\check-community.ps1
+.\tools\check-editor.ps1
 .\tools\check-lexicon.ps1
 .\tools\check-grammar.ps1
 .\tools\check-portal.ps1

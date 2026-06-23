@@ -30,6 +30,12 @@ Use this checklist when reviewing pull requests, issue proposals, and discussion
 - Lessons introduce patterns before dense examples.
 - Translations are clear and do not hide missing Aru structure.
 
+## Editor And Authoring
+
+- Public authoring guidance stays aligned with `STYLE_GUIDE.md`.
+- Editor snippets use valid Aru examples.
+- Editor grammar highlights core particles, relations, names, and numbers.
+
 ## Project Checks
 
 Run:
@@ -39,6 +45,7 @@ Run:
 .\tools\build-learning.ps1
 .\tools\build-releases.ps1
 .\tools\check-community.ps1
+.\tools\check-editor.ps1
 .\tools\check-lexicon.ps1
 .\tools\check-grammar.ps1
 .\tools\check-portal.ps1

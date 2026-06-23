@@ -27,6 +27,10 @@ jobs:
         shell: pwsh
         run: ./tools/check-community.ps1
 
+      - name: Check editor assets
+        shell: pwsh
+        run: ./tools/check-editor.ps1
+
       - name: Check lexicon
         shell: pwsh
         run: ./tools/check-lexicon.ps1

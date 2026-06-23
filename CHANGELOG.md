@@ -1,5 +1,13 @@
 # Changelog
 
+## Aru Project v1.10.0
+
+- Added `AUTHORING.md` for public writing and editor workflow.
+- Added starter VS Code assets under `editor/vscode/`: TextMate grammar, snippets, and language configuration.
+- Added `tools/check-editor.ps1` for editor asset validation.
+- Connected editor checks to CI, release gates, review guidance, and the public portal.
+- Language core remains **Aru v1.0.0**.
+
 ## Aru Project v1.9.0
 
 - Added `GOVERNANCE.md` for project decisions, compatibility, and release ownership.

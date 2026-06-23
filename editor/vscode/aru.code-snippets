@@ -1,0 +1,50 @@
+{
+  "Aru basic sentence": {
+    "scope": "aru",
+    "prefix": "aru-ra",
+    "body": [
+      "${1:na} ra ${2:waro}."
+    ],
+    "description": "subject ra predicate"
+  },
+  "Aru object sentence": {
+    "scope": "aru",
+    "prefix": "aru-ke",
+    "body": [
+      "${1:na} ra ${2:sela} ke ${3:luma}."
+    ],
+    "description": "subject ra predicate ke object"
+  },
+  "Aru context frame": {
+    "scope": "aru",
+    "prefix": "aru-le",
+    "body": [
+      "${1:etu ta ra naka} le, ${2:na ra naka}."
+    ],
+    "description": "context le, sentence"
+  },
+  "Aru content clause": {
+    "scope": "aru",
+    "prefix": "aru-content",
+    "body": [
+      "${1:na} ra ${2:sona} ke i le, ${3:u ra pa tanu}."
+    ],
+    "description": "ke i le content clause"
+  },
+  "Aru relative phrase": {
+    "scope": "aru",
+    "prefix": "aru-re",
+    "body": [
+      "${1:mene} re ri ra ${2:waro}, ra ${3:nela}."
+    ],
+    "description": "head re ri ... relative phrase"
+  },
+  "Aru corpus row": {
+    "scope": "tsv",
+    "prefix": "aru-corpus-row",
+    "body": [
+      "${1:T000}\t${2:A1}\t${3:topic}\t${4:na ra waro.}\t${5:I speak.}\t${6:Draft corpus text}"
+    ],
+    "description": "CORPUS.tsv row shape"
+  }
+}
