@@ -456,8 +456,9 @@ I go to the house.</pre>
 
     <section id="lexicon">
       <h2>Lexicon Search</h2>
-      <p class="muted">Search the 157-entry core lexicon.</p>
-      <input id="lexiconSearch" placeholder="Search roots, categories, or meanings">
+      <p class="muted">Search the 157-entry core lexicon with stable IDs, domains, and learner levels.</p>
+      <p><a class="button" href="LEXICON_POLICY.md">Open lexicon policy</a></p>
+      <input id="lexiconSearch" placeholder="Search IDs, roots, domains, categories, or meanings">
       <div id="lexiconTable"></div>
     </section>
 
@@ -631,7 +632,7 @@ I go to the house.</pre>
       const rows = lexicon
         .filter(row => Object.values(row).join(" ").toLowerCase().includes(q))
         .slice(0, 80);
-      document.getElementById("lexiconTable").innerHTML = table(["root", "category", "meaning", "notes"], rows);
+      document.getElementById("lexiconTable").innerHTML = table(["id", "root", "category", "domain", "level", "status", "meaning", "notes"], rows);
     }
 
     function renderPhrases() {

@@ -126,7 +126,7 @@ if ($Search) {
         })
     } else {
         $matches = @($lexicon | Where-Object {
-            ($_.root + " " + $_.category + " " + $_.meaning + " " + $_.notes).ToLowerInvariant().Contains($needle)
+            ($_.id + " " + $_.root + " " + $_.category + " " + $_.domain + " " + $_.level + " " + $_.status + " " + $_.introduced + " " + $_.meaning + " " + $_.notes).ToLowerInvariant().Contains($needle)
         })
     }
 

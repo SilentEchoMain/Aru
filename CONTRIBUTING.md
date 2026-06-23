@@ -74,8 +74,10 @@ New examples can be added freely when they follow the v1.0.0 grammar.
 New roots should be proposed with:
 
 ```text
-root -> meaning -> example phrase -> reason
+root -> meaning -> domain -> level -> examples -> need -> alternatives tried
 ```
+
+Use [LEXICON_POLICY.md](LEXICON_POLICY.md) for root IDs, domains, levels, and lifecycle status.
 
 New grammar should be proposed only after existing grammar fails to express a repeated need across real texts.
 
@@ -90,6 +92,7 @@ Before opening a pull request, run:
 ```powershell
 .\tools\build-corpus.ps1
 .\tools\build-learning.ps1
+.\tools\check-lexicon.ps1
 .\tools\check-grammar.ps1
 .\tools\test-site.ps1
 .\tools\check-release.ps1

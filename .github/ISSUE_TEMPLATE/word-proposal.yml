@@ -22,6 +22,35 @@ body:
       description: Keep the meaning broad and reusable.
     validations:
       required: true
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Domain
+      description: Pick the broadest useful domain.
+      options:
+        - society
+        - world
+        - body
+        - action
+        - quality
+        - media
+        - nature
+        - abstract
+        - grammar
+    validations:
+      required: true
+  - type: dropdown
+    id: level
+    attributes:
+      label: Learner level
+      description: Where should this root first appear?
+      options:
+        - A0
+        - A1
+        - A2
+        - B1
+    validations:
+      required: true
   - type: textarea
     id: examples
     attributes:
@@ -45,4 +74,3 @@ body:
       description: Existing roots or compounds you tried before proposing this.
     validations:
       required: true
-

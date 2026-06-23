@@ -1,158 +1,158 @@
-﻿root	category	meaning	notes
-ra	particle	predicate marker	
-ke	particle	object marker	
-ne	particle	weak relation / genitive	
-le	particle	context / frame	
-re	particle	relative construction	
-ri	particle	relative substitute	Used only inside re-phrases.
-no	particle	not	
-ka	particle	yes/no question	
-o	particle	imperative	
-ya	particle	name / foreign word	
-pa	time	past	
-nu	time	now / present	
-po	time	future	
-to	relation	area / place / contact	
-ko	relation	direction / addressee / goal	
-so	relation	source	For cause, use so etu X.
-we	relation	accompaniment / means	
-pasu	relation	than / compared with	
-an	conjunction	and	
-alo	conjunction	or	
-sia	conjunction	therefore	
-tune	conjunction	but	
-na	pronoun	I / we	
-ta	pronoun	you	
-u	pronoun	he / she / it / they	
-i	demonstrative	this / here	
-ena	demonstrative	that / there	
-se	indefinite	unknown element	
-nalo	quantity	zero / absence	
-un	quantity	one	
-san	quantity	two	
-mun	quantity	many	Also used for explicit plurality.
-ora	quantity	all / every	Also used in superlative expressions.
-saka	quantity	exact number	
-mene	root	person	
-lani	root	name	
-mamu	root	parent / caretaker	
-waro	root	speech / speak	
-naru	root	rule / order	
-etu	root	condition / circumstance	
-malo	root	house / shelter / building	
-tera	root	earth / place / surface	
-luma	root	light / sun	
-temu	root	time / period	
-noki	root	darkness / night	
-muna	root	moon	
-wai	root	water / liquid	
-pira	root	fire / heat	
-kawo	root	air / sky	
-pani	root	food	
-lenu	root	clothing / covering	
-tulu	root	tool	
-insa	root	inside / interior	
-supa	root	surface / top	
-poka	root	side / nearby	
-naka	root	go / move	
-tanu	root	come / arrive	
-ruma	root	become	Usually without ke.
-waki	root	begin	
-maku	root	do / make / build	
-kani	root	eat / consume	
-taka	root	take / receive	
-lano	root	give / send	
-sela	root	see / perceive	
-lora	root	hear / listen	
-sona	root	know / understand / know how	
-rima	root	want / intend	
-pawa	root	can / have power	
-sima	root	need / should	
-miso	root	sleep / rest	
-pini	root	finish / stop	
-ama	root	have / contain	
-maru	quality	big / important	
-mini	quality	small / slight	Also used for lesser degree.
-nela	quality	good / right / useful	
-keto	quality	bad / harmful / wrong	
-sini	quality	new	
-lasa	quality	old	
-welo	quality	hot	
-nilo	quality	cold	
-kima	quality	near	
-para	quality	far	
-sama	quality	similar / same	
-lisu	quality	clean / simple	
-soma	root	body	
-saki	root	head	
-mata	root	eye / gaze	
-nuko	root	ear	
-muto	root	mouth / opening	
-kute	root	hand / arm	
-pamo	root	leg / foot	
-rani	root	blood	
-telo	root	skin / outer layer	
-neno	root	heart / center	
-nawa	root	pain / hurt	
-nima	root	life / live	
-melo	root	friend	
-kano	root	child	
-rane	root	adult / elder	
-senu	root	teacher / guide	
-kale	root	group / community	
-nami	root	family / close group	
-mono	root	thing / object	
-suko	root	container / vessel	
-lipa	root	sheet / book / document	
-raku	root	write / mark / drawing	
-lowa	root	read / interpret sign	
-poto	root	image / picture	
-sipu	root	text / record	
-salo	root	work / task	
-pela	root	play / game	
-mona	root	thought / think	
-sawi	root	ask / request	
-pane	root	answer / reply	
-nema	root	learn / study	
-laki	root	choose / choice	
-kame	root	remember	
-niso	root	forget	
-sano	root	believe / trust	
-sena	root	try / test	
-wena	root	help / support	
-wati	root	wait	
-mota	root	stay / remain	
-weki	root	leave / depart	
-soku	root	search / find	
-toma	root	keep / store	
-kipa	root	hold / carry	
-puka	root	open	
-soto	root	close / shut	
-rupi	root	break / broken	
-mela	root	repair / heal	
-kasi	root	plant / grow	
-simo	root	living creature / animal	
-kapi	root	stone / solid piece	
-pula	root	dust / powder	
-roka	root	rain	
-lupo	root	path / road	
-rano	root	river / flow	
-mewa	root	sea / large water place	
-sara	root	mountain / high land	
-pano	root	field / open area	
-kowa	root	wind / moving air	
-misa	root	middle / between	
-tonu	quality	true / real	
-kemu	quality	false / unreal	
-kasa	quality	hard / difficult	
-lapi	quality	soft	
-nasa	quality	strange / confused	
-sene	quality	quiet / calm	
-riki	quality	fast	
-mole	quality	slow	
-risa	quality	heavy	
-puna	quality	lightweight	
-rasa	quality	red	
-nilu	quality	blue / green	
-walo	quality	white / bright-colored	
-pako	quality	black / dark-colored	
+﻿id	root	category	domain	level	status	introduced	meaning	notes
+ARU-001	ra	particle	grammar	A0	core	v1.0.0	predicate marker	
+ARU-002	ke	particle	grammar	A0	core	v1.0.0	object marker	
+ARU-003	ne	particle	grammar	A1	core	v1.0.0	weak relation / genitive	
+ARU-004	le	particle	grammar	A1	core	v1.0.0	context / frame	
+ARU-005	re	particle	grammar	A2	core	v1.0.0	relative construction	
+ARU-006	ri	particle	grammar	A2	core	v1.0.0	relative substitute	Used only inside re-phrases.
+ARU-007	no	particle	grammar	A0	core	v1.0.0	not	
+ARU-008	ka	particle	grammar	A0	core	v1.0.0	yes/no question	
+ARU-009	o	particle	grammar	A0	core	v1.0.0	imperative	
+ARU-010	ya	particle	grammar	A0	core	v1.0.0	name / foreign word	
+ARU-011	pa	time	grammar	A1	core	v1.0.0	past	
+ARU-012	nu	time	grammar	A1	core	v1.0.0	now / present	
+ARU-013	po	time	grammar	A1	core	v1.0.0	future	
+ARU-014	to	relation	grammar	A1	core	v1.0.0	area / place / contact	
+ARU-015	ko	relation	grammar	A1	core	v1.0.0	direction / addressee / goal	
+ARU-016	so	relation	grammar	A1	core	v1.0.0	source	For cause, use so etu X.
+ARU-017	we	relation	grammar	A1	core	v1.0.0	accompaniment / means	
+ARU-018	pasu	relation	grammar	A2	core	v1.0.0	than / compared with	
+ARU-019	an	conjunction	grammar	A1	core	v1.0.0	and	
+ARU-020	alo	conjunction	grammar	A1	core	v1.0.0	or	
+ARU-021	sia	conjunction	grammar	A2	core	v1.0.0	therefore	
+ARU-022	tune	conjunction	grammar	A2	core	v1.0.0	but	
+ARU-023	na	pronoun	grammar	A0	core	v1.0.0	I / we	
+ARU-024	ta	pronoun	grammar	A0	core	v1.0.0	you	
+ARU-025	u	pronoun	grammar	A0	core	v1.0.0	he / she / it / they	
+ARU-026	i	demonstrative	grammar	A0	core	v1.0.0	this / here	
+ARU-027	ena	demonstrative	grammar	A1	core	v1.0.0	that / there	
+ARU-028	se	indefinite	grammar	A0	core	v1.0.0	unknown element	
+ARU-029	nalo	quantity	grammar	A0	core	v1.0.0	zero / absence	
+ARU-030	un	quantity	grammar	A0	core	v1.0.0	one	
+ARU-031	san	quantity	grammar	A0	core	v1.0.0	two	
+ARU-032	mun	quantity	grammar	A0	core	v1.0.0	many	Also used for explicit plurality.
+ARU-033	ora	quantity	grammar	A2	core	v1.0.0	all / every	Also used in superlative expressions.
+ARU-034	saka	quantity	grammar	A2	core	v1.0.0	exact number	
+ARU-035	mene	root	society	A0	core	v1.0.0	person	
+ARU-036	lani	root	society	A0	core	v1.0.0	name	
+ARU-037	mamu	root	society	A1	core	v1.0.0	parent / caretaker	
+ARU-038	waro	root	society	A0	core	v1.0.0	speech / speak	
+ARU-039	naru	root	society	A2	core	v1.0.0	rule / order	
+ARU-040	etu	root	society	A2	core	v1.0.0	condition / circumstance	
+ARU-041	malo	root	world	A0	core	v1.0.0	house / shelter / building	
+ARU-042	tera	root	world	A1	core	v1.0.0	earth / place / surface	
+ARU-043	luma	root	world	A0	core	v1.0.0	light / sun	
+ARU-044	temu	root	world	A1	core	v1.0.0	time / period	
+ARU-045	noki	root	world	A1	core	v1.0.0	darkness / night	
+ARU-046	muna	root	world	A1	core	v1.0.0	moon	
+ARU-047	wai	root	world	A0	core	v1.0.0	water / liquid	
+ARU-048	pira	root	world	A1	core	v1.0.0	fire / heat	
+ARU-049	kawo	root	world	A1	core	v1.0.0	air / sky	
+ARU-050	pani	root	world	A0	core	v1.0.0	food	
+ARU-051	lenu	root	world	A1	core	v1.0.0	clothing / covering	
+ARU-052	tulu	root	world	A1	core	v1.0.0	tool	
+ARU-053	insa	root	world	A1	core	v1.0.0	inside / interior	
+ARU-054	supa	root	world	A1	core	v1.0.0	surface / top	
+ARU-055	poka	root	world	A1	core	v1.0.0	side / nearby	
+ARU-056	naka	root	action	A0	core	v1.0.0	go / move	
+ARU-057	tanu	root	action	A0	core	v1.0.0	come / arrive	
+ARU-058	ruma	root	action	A1	core	v1.0.0	become	Usually without ke.
+ARU-059	waki	root	action	A1	core	v1.0.0	begin	
+ARU-060	maku	root	action	A1	core	v1.0.0	do / make / build	
+ARU-061	kani	root	action	A0	core	v1.0.0	eat / consume	
+ARU-062	taka	root	action	A1	core	v1.0.0	take / receive	
+ARU-063	lano	root	action	A1	core	v1.0.0	give / send	
+ARU-064	sela	root	action	A0	core	v1.0.0	see / perceive	
+ARU-065	lora	root	action	A0	core	v1.0.0	hear / listen	
+ARU-066	sona	root	action	A1	core	v1.0.0	know / understand / know how	
+ARU-067	rima	root	action	A2	core	v1.0.0	want / intend	
+ARU-068	pawa	root	action	A2	core	v1.0.0	can / have power	
+ARU-069	sima	root	action	A2	core	v1.0.0	need / should	
+ARU-070	miso	root	action	A1	core	v1.0.0	sleep / rest	
+ARU-071	pini	root	action	A2	core	v1.0.0	finish / stop	
+ARU-072	ama	root	action	A1	core	v1.0.0	have / contain	
+ARU-073	maru	quality	quality	A0	core	v1.0.0	big / important	
+ARU-074	mini	quality	quality	A0	core	v1.0.0	small / slight	Also used for lesser degree.
+ARU-075	nela	quality	quality	A0	core	v1.0.0	good / right / useful	
+ARU-076	keto	quality	quality	A0	core	v1.0.0	bad / harmful / wrong	
+ARU-077	sini	quality	quality	A1	core	v1.0.0	new	
+ARU-078	lasa	quality	quality	A1	core	v1.0.0	old	
+ARU-079	welo	quality	quality	A1	core	v1.0.0	hot	
+ARU-080	nilo	quality	quality	A1	core	v1.0.0	cold	
+ARU-081	kima	quality	quality	A1	core	v1.0.0	near	
+ARU-082	para	quality	quality	A2	core	v1.0.0	far	
+ARU-083	sama	quality	quality	A2	core	v1.0.0	similar / same	
+ARU-084	lisu	quality	quality	A0	core	v1.0.0	clean / simple	
+ARU-085	soma	root	body	A1	core	v1.0.0	body	
+ARU-086	saki	root	body	A1	core	v1.0.0	head	
+ARU-087	mata	root	body	A1	core	v1.0.0	eye / gaze	
+ARU-088	nuko	root	body	A1	core	v1.0.0	ear	
+ARU-089	muto	root	body	A1	core	v1.0.0	mouth / opening	
+ARU-090	kute	root	body	A1	core	v1.0.0	hand / arm	
+ARU-091	pamo	root	body	A1	core	v1.0.0	leg / foot	
+ARU-092	rani	root	body	A1	core	v1.0.0	blood	
+ARU-093	telo	root	body	A1	core	v1.0.0	skin / outer layer	
+ARU-094	neno	root	body	A1	core	v1.0.0	heart / center	
+ARU-095	nawa	root	body	A1	core	v1.0.0	pain / hurt	
+ARU-096	nima	root	body	A1	core	v1.0.0	life / live	
+ARU-097	melo	root	society	A1	core	v1.0.0	friend	
+ARU-098	kano	root	society	A1	core	v1.0.0	child	
+ARU-099	rane	root	society	A1	core	v1.0.0	adult / elder	
+ARU-100	senu	root	society	A1	core	v1.0.0	teacher / guide	
+ARU-101	kale	root	society	A1	core	v1.0.0	group / community	
+ARU-102	nami	root	society	A1	core	v1.0.0	family / close group	
+ARU-103	mono	root	world	A1	core	v1.0.0	thing / object	
+ARU-104	suko	root	world	A1	core	v1.0.0	container / vessel	
+ARU-105	lipa	root	media	A1	core	v1.0.0	sheet / book / document	
+ARU-106	raku	root	media	A1	core	v1.0.0	write / mark / drawing	
+ARU-107	lowa	root	media	A1	core	v1.0.0	read / interpret sign	
+ARU-108	poto	root	media	A1	core	v1.0.0	image / picture	
+ARU-109	sipu	root	media	A1	core	v1.0.0	text / record	
+ARU-110	salo	root	action	A1	core	v1.0.0	work / task	
+ARU-111	pela	root	action	A1	core	v1.0.0	play / game	
+ARU-112	mona	root	action	A1	core	v1.0.0	thought / think	
+ARU-113	sawi	root	action	A1	core	v1.0.0	ask / request	
+ARU-114	pane	root	action	A1	core	v1.0.0	answer / reply	
+ARU-115	nema	root	action	A1	core	v1.0.0	learn / study	
+ARU-116	laki	root	action	A1	core	v1.0.0	choose / choice	
+ARU-117	kame	root	action	A1	core	v1.0.0	remember	
+ARU-118	niso	root	action	A1	core	v1.0.0	forget	
+ARU-119	sano	root	action	A1	core	v1.0.0	believe / trust	
+ARU-120	sena	root	action	A1	core	v1.0.0	try / test	
+ARU-121	wena	root	action	A1	core	v1.0.0	help / support	
+ARU-122	wati	root	action	A1	core	v1.0.0	wait	
+ARU-123	mota	root	action	A1	core	v1.0.0	stay / remain	
+ARU-124	weki	root	action	A1	core	v1.0.0	leave / depart	
+ARU-125	soku	root	action	A1	core	v1.0.0	search / find	
+ARU-126	toma	root	action	A1	core	v1.0.0	keep / store	
+ARU-127	kipa	root	action	A1	core	v1.0.0	hold / carry	
+ARU-128	puka	root	action	A1	core	v1.0.0	open	
+ARU-129	soto	root	action	A1	core	v1.0.0	close / shut	
+ARU-130	rupi	root	action	A1	core	v1.0.0	break / broken	
+ARU-131	mela	root	action	A1	core	v1.0.0	repair / heal	
+ARU-132	kasi	root	action	A1	core	v1.0.0	plant / grow	
+ARU-133	simo	root	nature	A1	core	v1.0.0	living creature / animal	
+ARU-134	kapi	root	nature	A1	core	v1.0.0	stone / solid piece	
+ARU-135	pula	root	nature	A1	core	v1.0.0	dust / powder	
+ARU-136	roka	root	nature	A1	core	v1.0.0	rain	
+ARU-137	lupo	root	nature	A1	core	v1.0.0	path / road	
+ARU-138	rano	root	nature	A1	core	v1.0.0	river / flow	
+ARU-139	mewa	root	nature	A1	core	v1.0.0	sea / large water place	
+ARU-140	sara	root	nature	A1	core	v1.0.0	mountain / high land	
+ARU-141	pano	root	nature	A1	core	v1.0.0	field / open area	
+ARU-142	kowa	root	nature	A1	core	v1.0.0	wind / moving air	
+ARU-143	misa	root	world	A1	core	v1.0.0	middle / between	
+ARU-144	tonu	quality	quality	A2	core	v1.0.0	true / real	
+ARU-145	kemu	quality	quality	A2	core	v1.0.0	false / unreal	
+ARU-146	kasa	quality	quality	A2	core	v1.0.0	hard / difficult	
+ARU-147	lapi	quality	quality	A1	core	v1.0.0	soft	
+ARU-148	nasa	quality	quality	A2	core	v1.0.0	strange / confused	
+ARU-149	sene	quality	quality	A1	core	v1.0.0	quiet / calm	
+ARU-150	riki	quality	quality	A1	core	v1.0.0	fast	
+ARU-151	mole	quality	quality	A1	core	v1.0.0	slow	
+ARU-152	risa	quality	quality	A2	core	v1.0.0	heavy	
+ARU-153	puna	quality	quality	A2	core	v1.0.0	lightweight	
+ARU-154	rasa	quality	quality	A2	core	v1.0.0	red	
+ARU-155	nilu	quality	quality	A2	core	v1.0.0	blue / green	
+ARU-156	walo	quality	quality	A2	core	v1.0.0	white / bright-colored	
+ARU-157	pako	quality	quality	A2	core	v1.0.0	black / dark-colored	

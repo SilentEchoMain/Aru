@@ -1,161 +1,161 @@
 ﻿id	deck	front	back	tags
-C001	core-lexicon	ra	predicate marker	root particle
-C002	core-lexicon	ke	object marker	root particle
-C003	core-lexicon	ne	weak relation / genitive	root particle
-C004	core-lexicon	le	context / frame	root particle
-C005	core-lexicon	re	relative construction	root particle
-C006	core-lexicon	ri	relative substitute	root particle
-C007	core-lexicon	no	not	root particle
-C008	core-lexicon	ka	yes/no question	root particle
-C009	core-lexicon	o	imperative	root particle
-C010	core-lexicon	ya	name / foreign word	root particle
-C011	core-lexicon	pa	past	root time
-C012	core-lexicon	nu	now / present	root time
-C013	core-lexicon	po	future	root time
-C014	core-lexicon	to	area / place / contact	root relation
-C015	core-lexicon	ko	direction / addressee / goal	root relation
-C016	core-lexicon	so	source	root relation
-C017	core-lexicon	we	accompaniment / means	root relation
-C018	core-lexicon	pasu	than / compared with	root relation
-C019	core-lexicon	an	and	root conjunction
-C020	core-lexicon	alo	or	root conjunction
-C021	core-lexicon	sia	therefore	root conjunction
-C022	core-lexicon	tune	but	root conjunction
-C023	core-lexicon	na	I / we	root pronoun
-C024	core-lexicon	ta	you	root pronoun
-C025	core-lexicon	u	he / she / it / they	root pronoun
-C026	core-lexicon	i	this / here	root demonstrative
-C027	core-lexicon	ena	that / there	root demonstrative
-C028	core-lexicon	se	unknown element	root indefinite
-C029	core-lexicon	nalo	zero / absence	root quantity
-C030	core-lexicon	un	one	root quantity
-C031	core-lexicon	san	two	root quantity
-C032	core-lexicon	mun	many	root quantity
-C033	core-lexicon	ora	all / every	root quantity
-C034	core-lexicon	saka	exact number	root quantity
-C035	core-lexicon	mene	person	root root
-C036	core-lexicon	lani	name	root root
-C037	core-lexicon	mamu	parent / caretaker	root root
-C038	core-lexicon	waro	speech / speak	root root
-C039	core-lexicon	naru	rule / order	root root
-C040	core-lexicon	etu	condition / circumstance	root root
-C041	core-lexicon	malo	house / shelter / building	root root
-C042	core-lexicon	tera	earth / place / surface	root root
-C043	core-lexicon	luma	light / sun	root root
-C044	core-lexicon	temu	time / period	root root
-C045	core-lexicon	noki	darkness / night	root root
-C046	core-lexicon	muna	moon	root root
-C047	core-lexicon	wai	water / liquid	root root
-C048	core-lexicon	pira	fire / heat	root root
-C049	core-lexicon	kawo	air / sky	root root
-C050	core-lexicon	pani	food	root root
-C051	core-lexicon	lenu	clothing / covering	root root
-C052	core-lexicon	tulu	tool	root root
-C053	core-lexicon	insa	inside / interior	root root
-C054	core-lexicon	supa	surface / top	root root
-C055	core-lexicon	poka	side / nearby	root root
-C056	core-lexicon	naka	go / move	root root
-C057	core-lexicon	tanu	come / arrive	root root
-C058	core-lexicon	ruma	become	root root
-C059	core-lexicon	waki	begin	root root
-C060	core-lexicon	maku	do / make / build	root root
-C061	core-lexicon	kani	eat / consume	root root
-C062	core-lexicon	taka	take / receive	root root
-C063	core-lexicon	lano	give / send	root root
-C064	core-lexicon	sela	see / perceive	root root
-C065	core-lexicon	lora	hear / listen	root root
-C066	core-lexicon	sona	know / understand / know how	root root
-C067	core-lexicon	rima	want / intend	root root
-C068	core-lexicon	pawa	can / have power	root root
-C069	core-lexicon	sima	need / should	root root
-C070	core-lexicon	miso	sleep / rest	root root
-C071	core-lexicon	pini	finish / stop	root root
-C072	core-lexicon	ama	have / contain	root root
-C073	core-lexicon	maru	big / important	root quality
-C074	core-lexicon	mini	small / slight	root quality
-C075	core-lexicon	nela	good / right / useful	root quality
-C076	core-lexicon	keto	bad / harmful / wrong	root quality
-C077	core-lexicon	sini	new	root quality
-C078	core-lexicon	lasa	old	root quality
-C079	core-lexicon	welo	hot	root quality
-C080	core-lexicon	nilo	cold	root quality
-C081	core-lexicon	kima	near	root quality
-C082	core-lexicon	para	far	root quality
-C083	core-lexicon	sama	similar / same	root quality
-C084	core-lexicon	lisu	clean / simple	root quality
-C085	core-lexicon	soma	body	root root
-C086	core-lexicon	saki	head	root root
-C087	core-lexicon	mata	eye / gaze	root root
-C088	core-lexicon	nuko	ear	root root
-C089	core-lexicon	muto	mouth / opening	root root
-C090	core-lexicon	kute	hand / arm	root root
-C091	core-lexicon	pamo	leg / foot	root root
-C092	core-lexicon	rani	blood	root root
-C093	core-lexicon	telo	skin / outer layer	root root
-C094	core-lexicon	neno	heart / center	root root
-C095	core-lexicon	nawa	pain / hurt	root root
-C096	core-lexicon	nima	life / live	root root
-C097	core-lexicon	melo	friend	root root
-C098	core-lexicon	kano	child	root root
-C099	core-lexicon	rane	adult / elder	root root
-C100	core-lexicon	senu	teacher / guide	root root
-C101	core-lexicon	kale	group / community	root root
-C102	core-lexicon	nami	family / close group	root root
-C103	core-lexicon	mono	thing / object	root root
-C104	core-lexicon	suko	container / vessel	root root
-C105	core-lexicon	lipa	sheet / book / document	root root
-C106	core-lexicon	raku	write / mark / drawing	root root
-C107	core-lexicon	lowa	read / interpret sign	root root
-C108	core-lexicon	poto	image / picture	root root
-C109	core-lexicon	sipu	text / record	root root
-C110	core-lexicon	salo	work / task	root root
-C111	core-lexicon	pela	play / game	root root
-C112	core-lexicon	mona	thought / think	root root
-C113	core-lexicon	sawi	ask / request	root root
-C114	core-lexicon	pane	answer / reply	root root
-C115	core-lexicon	nema	learn / study	root root
-C116	core-lexicon	laki	choose / choice	root root
-C117	core-lexicon	kame	remember	root root
-C118	core-lexicon	niso	forget	root root
-C119	core-lexicon	sano	believe / trust	root root
-C120	core-lexicon	sena	try / test	root root
-C121	core-lexicon	wena	help / support	root root
-C122	core-lexicon	wati	wait	root root
-C123	core-lexicon	mota	stay / remain	root root
-C124	core-lexicon	weki	leave / depart	root root
-C125	core-lexicon	soku	search / find	root root
-C126	core-lexicon	toma	keep / store	root root
-C127	core-lexicon	kipa	hold / carry	root root
-C128	core-lexicon	puka	open	root root
-C129	core-lexicon	soto	close / shut	root root
-C130	core-lexicon	rupi	break / broken	root root
-C131	core-lexicon	mela	repair / heal	root root
-C132	core-lexicon	kasi	plant / grow	root root
-C133	core-lexicon	simo	living creature / animal	root root
-C134	core-lexicon	kapi	stone / solid piece	root root
-C135	core-lexicon	pula	dust / powder	root root
-C136	core-lexicon	roka	rain	root root
-C137	core-lexicon	lupo	path / road	root root
-C138	core-lexicon	rano	river / flow	root root
-C139	core-lexicon	mewa	sea / large water place	root root
-C140	core-lexicon	sara	mountain / high land	root root
-C141	core-lexicon	pano	field / open area	root root
-C142	core-lexicon	kowa	wind / moving air	root root
-C143	core-lexicon	misa	middle / between	root root
-C144	core-lexicon	tonu	true / real	root quality
-C145	core-lexicon	kemu	false / unreal	root quality
-C146	core-lexicon	kasa	hard / difficult	root quality
-C147	core-lexicon	lapi	soft	root quality
-C148	core-lexicon	nasa	strange / confused	root quality
-C149	core-lexicon	sene	quiet / calm	root quality
-C150	core-lexicon	riki	fast	root quality
-C151	core-lexicon	mole	slow	root quality
-C152	core-lexicon	risa	heavy	root quality
-C153	core-lexicon	puna	lightweight	root quality
-C154	core-lexicon	rasa	red	root quality
-C155	core-lexicon	nilu	blue / green	root quality
-C156	core-lexicon	walo	white / bright-colored	root quality
-C157	core-lexicon	pako	black / dark-colored	root quality
+C001	core-lexicon	ra	predicate marker	root particle grammar A0 core
+C002	core-lexicon	ke	object marker	root particle grammar A0 core
+C003	core-lexicon	ne	weak relation / genitive	root particle grammar A1 core
+C004	core-lexicon	le	context / frame	root particle grammar A1 core
+C005	core-lexicon	re	relative construction	root particle grammar A2 core
+C006	core-lexicon	ri	relative substitute	root particle grammar A2 core
+C007	core-lexicon	no	not	root particle grammar A0 core
+C008	core-lexicon	ka	yes/no question	root particle grammar A0 core
+C009	core-lexicon	o	imperative	root particle grammar A0 core
+C010	core-lexicon	ya	name / foreign word	root particle grammar A0 core
+C011	core-lexicon	pa	past	root time grammar A1 core
+C012	core-lexicon	nu	now / present	root time grammar A1 core
+C013	core-lexicon	po	future	root time grammar A1 core
+C014	core-lexicon	to	area / place / contact	root relation grammar A1 core
+C015	core-lexicon	ko	direction / addressee / goal	root relation grammar A1 core
+C016	core-lexicon	so	source	root relation grammar A1 core
+C017	core-lexicon	we	accompaniment / means	root relation grammar A1 core
+C018	core-lexicon	pasu	than / compared with	root relation grammar A2 core
+C019	core-lexicon	an	and	root conjunction grammar A1 core
+C020	core-lexicon	alo	or	root conjunction grammar A1 core
+C021	core-lexicon	sia	therefore	root conjunction grammar A2 core
+C022	core-lexicon	tune	but	root conjunction grammar A2 core
+C023	core-lexicon	na	I / we	root pronoun grammar A0 core
+C024	core-lexicon	ta	you	root pronoun grammar A0 core
+C025	core-lexicon	u	he / she / it / they	root pronoun grammar A0 core
+C026	core-lexicon	i	this / here	root demonstrative grammar A0 core
+C027	core-lexicon	ena	that / there	root demonstrative grammar A1 core
+C028	core-lexicon	se	unknown element	root indefinite grammar A0 core
+C029	core-lexicon	nalo	zero / absence	root quantity grammar A0 core
+C030	core-lexicon	un	one	root quantity grammar A0 core
+C031	core-lexicon	san	two	root quantity grammar A0 core
+C032	core-lexicon	mun	many	root quantity grammar A0 core
+C033	core-lexicon	ora	all / every	root quantity grammar A2 core
+C034	core-lexicon	saka	exact number	root quantity grammar A2 core
+C035	core-lexicon	mene	person	root root society A0 core
+C036	core-lexicon	lani	name	root root society A0 core
+C037	core-lexicon	mamu	parent / caretaker	root root society A1 core
+C038	core-lexicon	waro	speech / speak	root root society A0 core
+C039	core-lexicon	naru	rule / order	root root society A2 core
+C040	core-lexicon	etu	condition / circumstance	root root society A2 core
+C041	core-lexicon	malo	house / shelter / building	root root world A0 core
+C042	core-lexicon	tera	earth / place / surface	root root world A1 core
+C043	core-lexicon	luma	light / sun	root root world A0 core
+C044	core-lexicon	temu	time / period	root root world A1 core
+C045	core-lexicon	noki	darkness / night	root root world A1 core
+C046	core-lexicon	muna	moon	root root world A1 core
+C047	core-lexicon	wai	water / liquid	root root world A0 core
+C048	core-lexicon	pira	fire / heat	root root world A1 core
+C049	core-lexicon	kawo	air / sky	root root world A1 core
+C050	core-lexicon	pani	food	root root world A0 core
+C051	core-lexicon	lenu	clothing / covering	root root world A1 core
+C052	core-lexicon	tulu	tool	root root world A1 core
+C053	core-lexicon	insa	inside / interior	root root world A1 core
+C054	core-lexicon	supa	surface / top	root root world A1 core
+C055	core-lexicon	poka	side / nearby	root root world A1 core
+C056	core-lexicon	naka	go / move	root root action A0 core
+C057	core-lexicon	tanu	come / arrive	root root action A0 core
+C058	core-lexicon	ruma	become	root root action A1 core
+C059	core-lexicon	waki	begin	root root action A1 core
+C060	core-lexicon	maku	do / make / build	root root action A1 core
+C061	core-lexicon	kani	eat / consume	root root action A0 core
+C062	core-lexicon	taka	take / receive	root root action A1 core
+C063	core-lexicon	lano	give / send	root root action A1 core
+C064	core-lexicon	sela	see / perceive	root root action A0 core
+C065	core-lexicon	lora	hear / listen	root root action A0 core
+C066	core-lexicon	sona	know / understand / know how	root root action A1 core
+C067	core-lexicon	rima	want / intend	root root action A2 core
+C068	core-lexicon	pawa	can / have power	root root action A2 core
+C069	core-lexicon	sima	need / should	root root action A2 core
+C070	core-lexicon	miso	sleep / rest	root root action A1 core
+C071	core-lexicon	pini	finish / stop	root root action A2 core
+C072	core-lexicon	ama	have / contain	root root action A1 core
+C073	core-lexicon	maru	big / important	root quality quality A0 core
+C074	core-lexicon	mini	small / slight	root quality quality A0 core
+C075	core-lexicon	nela	good / right / useful	root quality quality A0 core
+C076	core-lexicon	keto	bad / harmful / wrong	root quality quality A0 core
+C077	core-lexicon	sini	new	root quality quality A1 core
+C078	core-lexicon	lasa	old	root quality quality A1 core
+C079	core-lexicon	welo	hot	root quality quality A1 core
+C080	core-lexicon	nilo	cold	root quality quality A1 core
+C081	core-lexicon	kima	near	root quality quality A1 core
+C082	core-lexicon	para	far	root quality quality A2 core
+C083	core-lexicon	sama	similar / same	root quality quality A2 core
+C084	core-lexicon	lisu	clean / simple	root quality quality A0 core
+C085	core-lexicon	soma	body	root root body A1 core
+C086	core-lexicon	saki	head	root root body A1 core
+C087	core-lexicon	mata	eye / gaze	root root body A1 core
+C088	core-lexicon	nuko	ear	root root body A1 core
+C089	core-lexicon	muto	mouth / opening	root root body A1 core
+C090	core-lexicon	kute	hand / arm	root root body A1 core
+C091	core-lexicon	pamo	leg / foot	root root body A1 core
+C092	core-lexicon	rani	blood	root root body A1 core
+C093	core-lexicon	telo	skin / outer layer	root root body A1 core
+C094	core-lexicon	neno	heart / center	root root body A1 core
+C095	core-lexicon	nawa	pain / hurt	root root body A1 core
+C096	core-lexicon	nima	life / live	root root body A1 core
+C097	core-lexicon	melo	friend	root root society A1 core
+C098	core-lexicon	kano	child	root root society A1 core
+C099	core-lexicon	rane	adult / elder	root root society A1 core
+C100	core-lexicon	senu	teacher / guide	root root society A1 core
+C101	core-lexicon	kale	group / community	root root society A1 core
+C102	core-lexicon	nami	family / close group	root root society A1 core
+C103	core-lexicon	mono	thing / object	root root world A1 core
+C104	core-lexicon	suko	container / vessel	root root world A1 core
+C105	core-lexicon	lipa	sheet / book / document	root root media A1 core
+C106	core-lexicon	raku	write / mark / drawing	root root media A1 core
+C107	core-lexicon	lowa	read / interpret sign	root root media A1 core
+C108	core-lexicon	poto	image / picture	root root media A1 core
+C109	core-lexicon	sipu	text / record	root root media A1 core
+C110	core-lexicon	salo	work / task	root root action A1 core
+C111	core-lexicon	pela	play / game	root root action A1 core
+C112	core-lexicon	mona	thought / think	root root action A1 core
+C113	core-lexicon	sawi	ask / request	root root action A1 core
+C114	core-lexicon	pane	answer / reply	root root action A1 core
+C115	core-lexicon	nema	learn / study	root root action A1 core
+C116	core-lexicon	laki	choose / choice	root root action A1 core
+C117	core-lexicon	kame	remember	root root action A1 core
+C118	core-lexicon	niso	forget	root root action A1 core
+C119	core-lexicon	sano	believe / trust	root root action A1 core
+C120	core-lexicon	sena	try / test	root root action A1 core
+C121	core-lexicon	wena	help / support	root root action A1 core
+C122	core-lexicon	wati	wait	root root action A1 core
+C123	core-lexicon	mota	stay / remain	root root action A1 core
+C124	core-lexicon	weki	leave / depart	root root action A1 core
+C125	core-lexicon	soku	search / find	root root action A1 core
+C126	core-lexicon	toma	keep / store	root root action A1 core
+C127	core-lexicon	kipa	hold / carry	root root action A1 core
+C128	core-lexicon	puka	open	root root action A1 core
+C129	core-lexicon	soto	close / shut	root root action A1 core
+C130	core-lexicon	rupi	break / broken	root root action A1 core
+C131	core-lexicon	mela	repair / heal	root root action A1 core
+C132	core-lexicon	kasi	plant / grow	root root action A1 core
+C133	core-lexicon	simo	living creature / animal	root root nature A1 core
+C134	core-lexicon	kapi	stone / solid piece	root root nature A1 core
+C135	core-lexicon	pula	dust / powder	root root nature A1 core
+C136	core-lexicon	roka	rain	root root nature A1 core
+C137	core-lexicon	lupo	path / road	root root nature A1 core
+C138	core-lexicon	rano	river / flow	root root nature A1 core
+C139	core-lexicon	mewa	sea / large water place	root root nature A1 core
+C140	core-lexicon	sara	mountain / high land	root root nature A1 core
+C141	core-lexicon	pano	field / open area	root root nature A1 core
+C142	core-lexicon	kowa	wind / moving air	root root nature A1 core
+C143	core-lexicon	misa	middle / between	root root world A1 core
+C144	core-lexicon	tonu	true / real	root quality quality A2 core
+C145	core-lexicon	kemu	false / unreal	root quality quality A2 core
+C146	core-lexicon	kasa	hard / difficult	root quality quality A2 core
+C147	core-lexicon	lapi	soft	root quality quality A1 core
+C148	core-lexicon	nasa	strange / confused	root quality quality A2 core
+C149	core-lexicon	sene	quiet / calm	root quality quality A1 core
+C150	core-lexicon	riki	fast	root quality quality A1 core
+C151	core-lexicon	mole	slow	root quality quality A1 core
+C152	core-lexicon	risa	heavy	root quality quality A2 core
+C153	core-lexicon	puna	lightweight	root quality quality A2 core
+C154	core-lexicon	rasa	red	root quality quality A2 core
+C155	core-lexicon	nilu	blue / green	root quality quality A2 core
+C156	core-lexicon	walo	white / bright-colored	root quality quality A2 core
+C157	core-lexicon	pako	black / dark-colored	root quality quality A2 core
 C158	phrasebook	lani ne na ra ya Aru.	My name is Aru.	phrase identity
 C159	phrasebook	na ra mene.	I am a person.	phrase identity
 C160	phrasebook	ta ra mene nela.	You are a good person.	phrase identity

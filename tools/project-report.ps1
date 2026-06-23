@@ -32,6 +32,15 @@ function Level-Counts($rows) {
     })
 }
 
+function Count-By($rows, $property) {
+    return @($rows | Group-Object $property | Sort-Object Name | ForEach-Object {
+        [pscustomobject]@{
+            name = $_.Name
+            count = $_.Count
+        }
+    })
+}
+
 $lexicon = Read-Tsv "LEXICON.tsv"
 $phrasebook = Read-Tsv "PHRASEBOOK.tsv"
 $corpus = Read-Tsv "CORPUS.tsv"
@@ -44,7 +53,7 @@ $courseLessonCount = ([regex]::Matches($courseContent, "(?m)^## Lesson \d+")).Co
 
 $report = [pscustomobject]@{
     languageCore = "v1.0.0"
-    projectRelease = "v1.5.0"
+    projectRelease = "v1.6.0"
     lexiconEntries = $lexicon.Count
     phrasebookEntries = $phrasebook.Count
     corpusTexts = $corpus.Count
@@ -52,6 +61,9 @@ $report = [pscustomobject]@{
     writingPrompts = $promptCount
     courseLessons = $courseLessonCount
     flashcards = $flashcards.Count
+    lexiconStatuses = Count-By $lexicon "status"
+    lexiconDomains = Count-By $lexicon "domain"
+    lexiconLevels = Count-By $lexicon "level"
     phrasebookTopics = Topic-Counts $phrasebook
     corpusTopics = Topic-Counts $corpus
     dialogueTopics = Topic-Counts $dialogues
@@ -78,6 +90,13 @@ if ($Json) {
     Write-Output "Writing prompts: $($report.writingPrompts)"
     Write-Output "Course lessons: $($report.courseLessons)"
     Write-Output "Flashcards: $($report.flashcards)"
+    Write-Output ""
+    Write-Output "Lexicon statuses:"
+    $report.lexiconStatuses | Format-Table -AutoSize
+    Write-Output "Lexicon domains:"
+    $report.lexiconDomains | Format-Table -AutoSize
+    Write-Output "Lexicon levels:"
+    $report.lexiconLevels | Format-Table -AutoSize
     Write-Output ""
     Write-Output "Top phrasebook topics:"
     $report.phrasebookTopics | Select-Object -First 10 | Format-Table -AutoSize

@@ -21,6 +21,7 @@
 ## Checks
 
 ```powershell
+.\tools\check-lexicon.ps1
+.\tools\check-grammar.ps1
 .\tools\check-release.ps1
 ```
-

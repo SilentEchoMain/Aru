@@ -12,6 +12,7 @@ $requiredFiles = @(
     "LICENSE.md",
     "SPEC.md",
     "LEXICON.tsv",
+    "LEXICON_POLICY.md",
     "PHRASEBOOK.tsv",
     "CORPUS.tsv",
     "DIALOGUES.tsv",
@@ -25,6 +26,7 @@ $requiredFiles = @(
     "CONTRIBUTING.md",
     "tools/build-corpus.ps1",
     "tools/build-learning.ps1",
+    "tools/check-lexicon.ps1",
     "tools/check-grammar.ps1",
     "tools/aru-tool.ps1",
     "tools/project-report.ps1",
@@ -55,11 +57,11 @@ foreach ($file in $versionFiles) {
 
 $readmeContent = Get-Content (Join-Path $root "README.md") -Raw
 $changelogContent = Get-Content (Join-Path $root "CHANGELOG.md") -Raw
-if ($readmeContent -notmatch "v1\.5\.0") {
-    Fail "Expected README.md to mention project release v1.5.0."
+if ($readmeContent -notmatch "v1\.6\.0") {
+    Fail "Expected README.md to mention project release v1.6.0."
 }
-if ($changelogContent -notmatch "v1\.5\.0") {
-    Fail "Expected CHANGELOG.md to mention project release v1.5.0."
+if ($changelogContent -notmatch "v1\.6\.0") {
+    Fail "Expected CHANGELOG.md to mention project release v1.6.0."
 }
 
 $licenseContent = Get-Content (Join-Path $root "LICENSE.md") -Raw
@@ -86,7 +88,7 @@ if ($lexiconEntries -lt 100) {
 
 $lexiconRows = Import-Csv -Delimiter "`t" (Join-Path $root "LEXICON.tsv")
 $lexiconColumns = @($lexiconRows[0].PSObject.Properties.Name)
-foreach ($column in @("root", "category", "meaning", "notes")) {
+foreach ($column in @("id", "root", "category", "domain", "level", "status", "introduced", "meaning", "notes")) {
     if ($lexiconColumns -notcontains $column) {
         Fail "Lexicon is missing required column: $column"
     }
@@ -251,11 +253,12 @@ Test-AruRows "phrasebook" $phrasebookRows
 Test-AruRows "corpus" $corpusRows
 Test-AruRows "dialogue" $dialogueRows
 
+& (Join-Path $root "tools/check-lexicon.ps1")
 & (Join-Path $root "tools/check-grammar.ps1")
 
 Write-Output "Aru release check passed."
 Write-Output "Language core: v1.0.0"
-Write-Output "Project release: v1.5.0"
+Write-Output "Project release: v1.6.0"
 Write-Output "Lexicon entries: $lexiconEntries"
 Write-Output "Phrasebook entries: $phrasebookEntries"
 Write-Output "Corpus texts: $corpusEntries"

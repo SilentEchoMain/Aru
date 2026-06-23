@@ -1,5 +1,14 @@
 # Changelog
 
+## Aru Project v1.6.0
+
+- Added stable lexicon metadata columns: `id`, `domain`, `level`, `status`, and `introduced`.
+- Added `LEXICON_POLICY.md` for root lifecycle, ID, domain, level, and proposal rules.
+- Added `tools/check-lexicon.ps1` for lexicon schema, ID, status, domain, level, duplicate, and phonology checks.
+- Extended release checks and GitHub Actions with lexicon validation.
+- Extended the site, CLI, flashcards, project report, PR template, and word-proposal template with lexicon metadata.
+- Language core remains **Aru v1.0.0**.
+
 ## Aru Project v1.5.0
 
 - Added `level` metadata to `CORPUS.tsv` and `DIALOGUES.tsv`.

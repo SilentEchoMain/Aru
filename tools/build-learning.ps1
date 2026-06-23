@@ -17,7 +17,7 @@ foreach ($entry in $lexicon) {
         deck = "core-lexicon"
         front = $entry.root
         back = $entry.meaning
-        tags = "root $($entry.category)"
+        tags = "root $($entry.category) $($entry.domain) $($entry.level) $($entry.status)"
     }
     $id++
 }
@@ -40,4 +40,3 @@ foreach ($row in $rows) {
 
 Set-Content -Path (Join-Path $root "FLASHCARDS.tsv") -Value $lines -Encoding utf8
 Write-Output "Generated FLASHCARDS.tsv: $($rows.Count) cards"
-
