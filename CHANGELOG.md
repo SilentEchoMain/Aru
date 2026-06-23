@@ -1,5 +1,14 @@
 # Changelog
 
+## Aru Project v1.1.0
+
+- Added `index.html` as a public website, quick-start page, searchable lexicon, searchable phrasebook, and browser playground.
+- Added `tools/aru-tool.ps1` for command-line text checks and lexicon/phrasebook search.
+- Expanded `PHRASEBOOK.tsv` from 100 to 150 entries, with new community, writing, tooling, public launch, and story examples.
+- Strengthened `tools/check-release.ps1` with site checks, license checks, TSV schema checks, phonology checks, and phrasebook token validation.
+- Expanded `CONTRIBUTING.md` with a public growth model for Aru.
+- Language core remains **Aru v1.0.0**.
+
 ## Aru v1.0.0
 
 - Promoted Aru from draft to stable core grammar.

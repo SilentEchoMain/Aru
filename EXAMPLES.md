@@ -2,7 +2,7 @@
 
 This file contains beginner lessons, validated examples, dialogues, short texts, and smoke phrase translations for **Aru v1.0.0**.
 
-The full 100-entry phrasebook is in [PHRASEBOOK.tsv](PHRASEBOOK.tsv).
+The full 150-entry phrasebook is in [PHRASEBOOK.tsv](PHRASEBOOK.tsv).
 
 ## Lessons
 
@@ -554,4 +554,3 @@ Listen to people.
 - `an` and `alo` connect the nearest same-type groups.
 - `to`, `ko`, `so`, `we`, and weak `ne` may act as predicates after `ra`.
 - `malo ne na`, `malo ko na`, and `malo to na` are distinct: related to me / for me / at me or by me.
-

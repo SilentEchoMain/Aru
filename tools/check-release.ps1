@@ -14,6 +14,7 @@ $requiredFiles = @(
     "LEXICON.tsv",
     "PHRASEBOOK.tsv",
     "EXAMPLES.md",
+    "index.html",
     "CHANGELOG.md",
     "CONTRIBUTING.md"
 )
@@ -33,9 +34,23 @@ foreach ($file in $versionFiles) {
     }
 }
 
+$readmeContent = Get-Content (Join-Path $root "README.md") -Raw
+$changelogContent = Get-Content (Join-Path $root "CHANGELOG.md") -Raw
+if ($readmeContent -notmatch "v1\.1\.0") {
+    Fail "Expected README.md to mention project release v1.1.0."
+}
+if ($changelogContent -notmatch "v1\.1\.0") {
+    Fail "Expected CHANGELOG.md to mention project release v1.1.0."
+}
+
 $licenseContent = Get-Content (Join-Path $root "LICENSE.md") -Raw
 if ($licenseContent -notmatch "Aru License 1\.0") {
     Fail "Expected LICENSE.md to contain Aru License 1.0."
+}
+
+$siteContent = Get-Content (Join-Path $root "index.html") -Raw
+if ($siteContent -notmatch "Aru Playground") {
+    Fail "Expected index.html to contain the Aru Playground."
 }
 
 $lexiconLines = Get-Content (Join-Path $root "LEXICON.tsv")
@@ -75,8 +90,8 @@ if ($badRoots.Count -gt 0) {
 
 $phrasebookLines = Get-Content (Join-Path $root "PHRASEBOOK.tsv")
 $phrasebookEntries = [Math]::Max(0, $phrasebookLines.Count - 1)
-if ($phrasebookEntries -lt 100) {
-    Fail "Expected at least 100 phrasebook entries, got $phrasebookEntries."
+if ($phrasebookEntries -lt 150) {
+    Fail "Expected at least 150 phrasebook entries, got $phrasebookEntries."
 }
 
 $phrasebookRows = Import-Csv -Delimiter "`t" (Join-Path $root "PHRASEBOOK.tsv")
@@ -87,7 +102,51 @@ foreach ($column in @("id", "topic", "aru", "en")) {
     }
 }
 
+$roots = @{}
+foreach ($row in $lexiconRows) {
+    $roots[$row.root] = $true
+}
+
+$unknownPhraseTokens = @()
+foreach ($row in $phrasebookRows) {
+    $skipName = $false
+    $skipNumber = $false
+    $tokens = (($row.aru -replace '[\.,\?:;\(\)\[\]\{\}"'']', ' ') -split '\s+' | Where-Object { $_ })
+    foreach ($token in $tokens) {
+        if ($skipName) {
+            $skipName = $false
+            continue
+        }
+        if ($skipNumber) {
+            if ($token -match '^\d+$') {
+                $skipNumber = $false
+                continue
+            }
+            $skipNumber = $false
+        }
+        if ($token -eq "ya") {
+            $skipName = $true
+            continue
+        }
+        if ($token -eq "saka") {
+            $skipNumber = $true
+            continue
+        }
+        if ($token -match '^\d+$') {
+            continue
+        }
+        if (!$roots.ContainsKey($token)) {
+            $unknownPhraseTokens += "$($row.id):$token"
+        }
+    }
+}
+
+if ($unknownPhraseTokens.Count -gt 0) {
+    Fail ("Unknown phrasebook tokens: " + (($unknownPhraseTokens | Sort-Object -Unique) -join ", "))
+}
+
 Write-Output "Aru release check passed."
-Write-Output "Version: v1.0.0"
+Write-Output "Language core: v1.0.0"
+Write-Output "Project release: v1.1.0"
 Write-Output "Lexicon entries: $lexiconEntries"
 Write-Output "Phrasebook entries: $phrasebookEntries"

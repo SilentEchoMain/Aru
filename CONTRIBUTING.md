@@ -29,16 +29,53 @@ Use [SPEC.md](SPEC.md) as the model.
 
 The stable core is frozen at **Aru v1.0.0**. Future work should expand use without breaking existing v1.0.0 texts.
 
-Post-1.0 priorities:
+## Growth Model
+
+Aru should grow through usage, not speculation.
+
+The core loop:
+
+```text
+clear idea -> easy entry -> real texts -> tools -> people -> feedback -> better texts
+```
+
+The project should optimize for one experience:
+
+```text
+I understood the basics quickly, and I can say something real.
+```
+
+## Post-1.0 Priorities
 
 - Write more original texts in Aru.
 - Keep expanding the phrasebook and corpus.
 - Add optional domain vocabularies outside the core lexicon.
 - Build a parser or validator from the formal grammar sketch.
-- Make a GitHub Pages site from the docs.
+- Keep improving the public site and playground.
 - Add syntax highlighting for editors.
+- Publish writing prompts and translation challenges.
+- Invite feedback through GitHub Issues and Discussions.
+- Use real phrasing problems as the source of future language changes.
 
-Not in v1.0.0:
+## Community Process
+
+New examples can be added freely when they follow the v1.0.0 grammar.
+
+New roots should be proposed with:
+
+```text
+root -> meaning -> example phrase -> reason
+```
+
+New grammar should be proposed only after existing grammar fails to express a repeated need across real texts.
+
+Grammar proposals should include:
+
+```text
+problem -> attempted Aru expressions -> proposed rule -> examples -> compatibility note
+```
+
+## Not In v1.0.0
 
 - Native exact numeral system.
 - Poetry or literary style rules.

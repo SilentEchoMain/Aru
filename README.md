@@ -6,6 +6,8 @@ Its goal is to be small, regular, and useful for simple speech without grammatic
 
 Current status: **stable core v1.0.0**.
 
+Current project release: **v1.1.0**.
+
 ## Core Idea
 
 ```text
@@ -54,11 +56,12 @@ The person who speaks is good.
 ```text
 SPEC.md        canonical grammar and design decisions
 LEXICON.tsv    core vocabulary
-PHRASEBOOK.tsv 100 example phrases
+PHRASEBOOK.tsv 150 example phrases
 EXAMPLES.md    lessons, corpus, dialogues, and smoke phrases
 LICENSE.md     project license
 CHANGELOG.md   release history
 CONTRIBUTING.md contribution rules and roadmap
+index.html     public website and browser playground
 tools/         project checks
 ```
 
@@ -72,19 +75,27 @@ See [LICENSE.md](LICENSE.md).
 
 Start with [SPEC.md](SPEC.md).
 
+Open [index.html](index.html) for the public site and browser playground.
+
 ## Release Check
 
 ```powershell
 .\tools\check-release.ps1
 ```
 
+```powershell
+.\tools\aru-tool.ps1 -Text "na ra waro."
+.\tools\aru-tool.ps1 -Search waro
+.\tools\aru-tool.ps1 -Search house -Phrases
+```
+
 ## Publishing Checklist
 
 - Configure Git identity if needed: `user.name` and `user.email`.
 - Create the first commit.
-- Tag the release as `v1.0.0`.
+- Tag releases as needed.
 - Push the repository.
-- Optionally enable GitHub Pages from the main branch.
+- Optionally enable GitHub Pages from the `main` branch and repository root.
 
 ## Main Rule
 

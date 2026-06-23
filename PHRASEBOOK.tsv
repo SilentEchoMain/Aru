@@ -99,3 +99,53 @@
 098	style	mene ra pawa waro nela.	A person can speak well.
 099	style	naru mini ra nela.	A small rule is good.
 100	style	waro lisu ra pawa.	Simple speech is powerful.
+101	community	mene mun ra nema ke ya Aru.	Many people learn Aru.
+102	community	kale ne ya Aru ra waki.	The Aru community begins.
+103	community	mene mun ra waro we naru sama.	People speak with the same rules.
+104	community	senu ra lano ke naru ko mene sini.	A teacher gives rules to a new person.
+105	community	mene sini ra sawi ke se?	What does the new person ask?
+106	community	mene lasa ra pane ke mene sini.	The older person answers the new person.
+107	community	kale ra maku ke sipu mun.	The community makes many texts.
+108	community	sipu ne kale ra lisu.	The community text is simple.
+109	community	mene mun ra sena ke waro.	People test speech.
+110	community	waro i ra ruma nela.	This speech becomes good.
+111	writing	na ra raku ke sipu mini.	I write a small text.
+112	writing	ta ra lowa ke sipu ne na?	Do you read my text?
+113	writing	u ra raku ke lani ne u.	They write their name.
+114	writing	sipu i ra ama ke waro lisu.	This text contains simple speech.
+115	writing	sipu ena ra lasa pasu sipu i.	That text is older than this text.
+116	writing	na ra kame ke sipu i.	I remember this text.
+117	writing	na ra niso ke lani se.	I forget some name.
+118	writing	o raku ke mona ne ta.	Write your thought.
+119	writing	o lowa ke naru sini.	Read the new rule.
+120	writing	sipu ra pawa wena ke mene.	Text can help people.
+121	tooling	tulu ra sena ke waro.	The tool tests speech.
+122	tooling	tulu i ra lowa ke sipu.	This tool reads text.
+123	tooling	tulu i ra pane ke i le, waro ra lisu.	This tool answers that speech is simple.
+124	tooling	na ra maku ke tulu ne sela waro.	I make a tool for seeing speech.
+125	tooling	tulu ne waro ra pawa.	The speech tool is powerful.
+126	tooling	mene ra pawa lowa ke waro we tulu.	A person can read speech with a tool.
+127	tooling	tulu ra no sona ke lani se.	The tool does not know some name.
+128	tooling	etu tulu ra no sona le, mene ra pane.	If the tool does not know, a person answers.
+129	tooling	tulu ra maku ke pane riki.	The tool makes a fast answer.
+130	tooling	naru lisu ra wena ke tulu.	Simple rules help the tool.
+131	public	temu luma nu le, kale ra puka ke sipu.	Today the community opens a text.
+132	public	mene mun ra lowa ke sipu puka.	Many people read the open text.
+133	public	mene se ra tanu so tera para.	Someone comes from a far place.
+134	public	mene se ra lora ke waro ne ya Aru.	Someone hears the speech of Aru.
+135	public	ta o sawi ke pane.	Ask for an answer.
+136	public	na ra lano ke pane ko ta.	I give the answer to you.
+137	public	etu pane ra nela le, na ra toma ke i.	If the answer is good, I keep it.
+138	public	etu pane ra keto le, na ra sena ke i.	If the answer is bad, I test it.
+139	public	waro ne kale ra ruma maru.	The speech of the community becomes important.
+140	public	ya Aru ra rima ke waro lisu.	Aru wants simple speech.
+141	story	mene un ra naka so malo.	One person goes from the house.
+142	story	u ra kipa ke tulu rupi.	They carry a broken tool.
+143	story	u ra soku ke melo.	They search for a friend.
+144	story	melo ra to rano.	The friend is by the river.
+145	story	melo ra lano ke wai ko u.	The friend gives water to them.
+146	story	u ra mela ke tulu.	They repair the tool.
+147	story	u an melo ra tanu ko malo.	They and the friend come to the house.
+148	story	temu luma pini le, u ra miso.	At the end of the day, they sleep.
+149	story	sipu i ra mini, tune sipu i ra nela.	This text is small, but this text is good.
+150	story	mene ra lowa ke sipu i, sia mene ra waro.	A person reads this text, therefore the person speaks.
