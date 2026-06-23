@@ -6,7 +6,7 @@ Its goal is to be small, regular, and useful for simple speech without grammatic
 
 Current status: **stable core v1.0.0**.
 
-Current project release: **v1.7.0**.
+Current project release: **v1.8.0**.
 
 ## Core Idea
 
@@ -106,6 +106,7 @@ Open [index.html](index.html) for the public site and browser playground.
 .\tools\check-grammar.ps1
 .\tools\check-portal.ps1
 .\tools\test-site.ps1
+.\tools\serve-site.ps1
 .\tools\project-report.ps1
 ```
 

@@ -37,8 +37,8 @@ foreach ($required in @(
 }
 
 $releases = @(Import-Csv -Delimiter "`t" $releasesPath)
-if ($releases.Count -lt 8) {
-    Fail "Expected at least 8 releases, got $($releases.Count)."
+if ($releases.Count -lt 9) {
+    Fail "Expected at least 9 releases, got $($releases.Count)."
 }
 
 $columns = @($releases[0].PSObject.Properties.Name)
@@ -52,8 +52,8 @@ $current = @($releases | Where-Object { $_.status -eq "current" })
 if ($current.Count -ne 1) {
     Fail "Expected exactly one current release, got $($current.Count)."
 }
-if ($current[0].version -ne "v1.7.0") {
-    Fail "Expected current release v1.7.0, got $($current[0].version)."
+if ($current[0].version -ne "v1.8.0") {
+    Fail "Expected current release v1.8.0, got $($current[0].version)."
 }
 if (($releases | Where-Object { $_.core -ne "v1.0.0" }).Count -gt 0) {
     Fail "Every project release should preserve language core v1.0.0."

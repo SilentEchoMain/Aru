@@ -1,5 +1,12 @@
 # Changelog
 
+## Aru Project v1.8.0
+
+- Added `tools/serve-site.ps1` as the standard local server for the public portal.
+- Updated release metadata so local serving is part of the public project workflow.
+- Extended release checks to require the site serving tool.
+- Language core remains **Aru v1.0.0**.
+
 ## Aru Project v1.7.0
 
 - Added `RELEASES.tsv` as a structured project release timeline.

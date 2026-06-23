@@ -8,9 +8,17 @@ function Clean($value) {
 
 $releases = @(
     [pscustomobject]@{
-        version = "v1.7.0"
+        version = "v1.8.0"
         channel = "project"
         status = "current"
+        core = "v1.0.0"
+        focus = "local portal serving"
+        artifacts = "tools/serve-site.ps1; release metadata"
+    },
+    [pscustomobject]@{
+        version = "v1.7.0"
+        channel = "project"
+        status = "stable"
         core = "v1.0.0"
         focus = "public portal"
         artifacts = "RELEASES.tsv; filtered site portal; portal checks"
