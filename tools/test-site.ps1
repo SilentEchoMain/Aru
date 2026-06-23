@@ -21,19 +21,23 @@ foreach ($required in @(
     "Corpus Reader",
     "Dialogue Browser",
     "Learning System",
+    "Project Dashboard",
+    "Portal Filters",
+    "Release Timeline",
     "LEXICON_POLICY.md",
     "LEXICON.tsv",
     "PHRASEBOOK.tsv",
     "CORPUS.tsv",
     "DIALOGUES.tsv",
-    "FLASHCARDS.tsv"
+    "FLASHCARDS.tsv",
+    "RELEASES.tsv"
 )) {
     if ($html -notmatch [regex]::Escape($required)) {
         Fail "index.html is missing required content: $required"
     }
 }
 
-foreach ($file in @("LEXICON.tsv", "LEXICON_POLICY.md", "PHRASEBOOK.tsv", "CORPUS.tsv", "DIALOGUES.tsv", "FLASHCARDS.tsv")) {
+foreach ($file in @("LEXICON.tsv", "LEXICON_POLICY.md", "PHRASEBOOK.tsv", "CORPUS.tsv", "DIALOGUES.tsv", "FLASHCARDS.tsv", "RELEASES.tsv")) {
     if (!(Test-Path (Join-Path $root $file))) {
         Fail "Site data file is missing: $file"
     }

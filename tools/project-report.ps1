@@ -46,6 +46,7 @@ $phrasebook = Read-Tsv "PHRASEBOOK.tsv"
 $corpus = Read-Tsv "CORPUS.tsv"
 $dialogues = Read-Tsv "DIALOGUES.tsv"
 $flashcards = Read-Tsv "FLASHCARDS.tsv"
+$releases = Read-Tsv "RELEASES.tsv"
 $promptContent = Get-Content (Join-Path $root "PROMPTS.md") -Raw
 $promptCount = ([regex]::Matches($promptContent, "(?m)^## Prompt \d+")).Count
 $courseContent = Get-Content (Join-Path $root "COURSE.md") -Raw
@@ -53,7 +54,7 @@ $courseLessonCount = ([regex]::Matches($courseContent, "(?m)^## Lesson \d+")).Co
 
 $report = [pscustomobject]@{
     languageCore = "v1.0.0"
-    projectRelease = "v1.6.0"
+    projectRelease = "v1.7.0"
     lexiconEntries = $lexicon.Count
     phrasebookEntries = $phrasebook.Count
     corpusTexts = $corpus.Count
@@ -61,6 +62,8 @@ $report = [pscustomobject]@{
     writingPrompts = $promptCount
     courseLessons = $courseLessonCount
     flashcards = $flashcards.Count
+    releases = $releases.Count
+    currentRelease = (@($releases | Where-Object { $_.status -eq "current" })[0]).version
     lexiconStatuses = Count-By $lexicon "status"
     lexiconDomains = Count-By $lexicon "domain"
     lexiconLevels = Count-By $lexicon "level"
@@ -90,6 +93,8 @@ if ($Json) {
     Write-Output "Writing prompts: $($report.writingPrompts)"
     Write-Output "Course lessons: $($report.courseLessons)"
     Write-Output "Flashcards: $($report.flashcards)"
+    Write-Output "Release entries: $($report.releases)"
+    Write-Output "Current release: $($report.currentRelease)"
     Write-Output ""
     Write-Output "Lexicon statuses:"
     $report.lexiconStatuses | Format-Table -AutoSize

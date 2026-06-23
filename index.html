@@ -216,6 +216,33 @@
       gap: 16px;
     }
 
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .metric {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      min-height: 104px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 30px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 680;
+    }
+
     .panel {
       background: var(--white);
       border: 1px solid var(--line);
@@ -226,7 +253,8 @@
     code,
     pre,
     textarea,
-    input {
+    input,
+    select {
       font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
     }
 
@@ -254,7 +282,8 @@
     }
 
     textarea,
-    input {
+    input,
+    select {
       width: 100%;
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -267,6 +296,14 @@
     textarea {
       min-height: 168px;
       resize: vertical;
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 14px 0;
+      align-items: end;
     }
 
     .result {
@@ -351,7 +388,9 @@
 
       .hero,
       .tool,
-      .grid {
+      .grid,
+      .dashboard,
+      .filters {
         grid-template-columns: 1fr;
       }
 
@@ -367,12 +406,14 @@
       <a class="brand" href="#">Aru</a>
       <div class="nav-links">
         <a href="#learn">Learn</a>
+        <a href="#portal">Portal</a>
         <a href="#playground">Playground</a>
         <a href="#lexicon">Lexicon</a>
         <a href="#phrasebook">Phrasebook</a>
         <a href="#course">Course</a>
         <a href="#corpus">Corpus</a>
         <a href="#dialogues">Dialogues</a>
+        <a href="#releases">Releases</a>
         <a href="https://github.com/SilentEchoMain/Aru">GitHub</a>
       </div>
     </nav>
@@ -418,6 +459,14 @@
       </div>
     </section>
 
+    <section id="portal">
+      <h2>Project Dashboard</h2>
+      <p class="muted">Aru is tracked as a language core plus public project materials: lexicon, corpus, lessons, tools, portal data, and release gates.</p>
+      <div id="statsGrid" class="dashboard" aria-live="polite"></div>
+      <h3>Portal Filters</h3>
+      <p class="muted">Use the filters below to move through roots by domain and level, then read matching texts and dialogues by learner level.</p>
+    </section>
+
     <section id="learn">
       <h2>Learn in 20 Minutes</h2>
       <div class="grid">
@@ -458,7 +507,20 @@ I go to the house.</pre>
       <h2>Lexicon Search</h2>
       <p class="muted">Search the 157-entry core lexicon with stable IDs, domains, and learner levels.</p>
       <p><a class="button" href="LEXICON_POLICY.md">Open lexicon policy</a></p>
-      <input id="lexiconSearch" placeholder="Search IDs, roots, domains, categories, or meanings">
+      <div class="filters">
+        <div>
+          <label for="lexiconDomain">Domain</label>
+          <select id="lexiconDomain"></select>
+        </div>
+        <div>
+          <label for="lexiconLevel">Level</label>
+          <select id="lexiconLevel"></select>
+        </div>
+        <div>
+          <label for="lexiconSearch">Search</label>
+          <input id="lexiconSearch" placeholder="Search IDs, roots, domains, categories, or meanings">
+        </div>
+      </div>
       <div id="lexiconTable"></div>
     </section>
 
@@ -497,15 +559,47 @@ I go to the house.</pre>
     <section id="corpus">
       <h2>Corpus Reader</h2>
       <p class="muted">Search 100 short corpus texts built from the stable v1.0.0 core.</p>
-      <input id="corpusSearch" placeholder="Search corpus topics, Aru, or English">
+      <div class="filters">
+        <div>
+          <label for="corpusLevel">Level</label>
+          <select id="corpusLevel"></select>
+        </div>
+        <div>
+          <label for="corpusTopic">Topic</label>
+          <select id="corpusTopic"></select>
+        </div>
+        <div>
+          <label for="corpusSearch">Search</label>
+          <input id="corpusSearch" placeholder="Search corpus topics, Aru, or English">
+        </div>
+      </div>
       <div id="corpusTable"></div>
     </section>
 
     <section id="dialogues">
       <h2>Dialogue Browser</h2>
       <p class="muted">Search 30 short dialogues for learning and stress testing.</p>
-      <input id="dialogueSearch" placeholder="Search dialogue topics, Aru, or English">
+      <div class="filters">
+        <div>
+          <label for="dialogueLevel">Level</label>
+          <select id="dialogueLevel"></select>
+        </div>
+        <div>
+          <label for="dialogueTopic">Topic</label>
+          <select id="dialogueTopic"></select>
+        </div>
+        <div>
+          <label for="dialogueSearch">Search</label>
+          <input id="dialogueSearch" placeholder="Search dialogue topics, Aru, or English">
+        </div>
+      </div>
       <div id="dialogueTable"></div>
+    </section>
+
+    <section id="releases">
+      <h2>Release Timeline</h2>
+      <p class="muted">Track the stable language core separately from project releases, tools, corpus growth, and public infrastructure.</p>
+      <div id="releaseTable"></div>
     </section>
   </main>
 
@@ -521,6 +615,7 @@ I go to the house.</pre>
     let corpus = [];
     let dialogues = [];
     let flashcards = [];
+    let releases = [];
     let roots = new Set();
 
     function parseTsv(text) {
@@ -533,24 +628,29 @@ I go to the house.</pre>
     }
 
     async function loadData() {
-      const [lex, phrases, corpusText, dialogueText, flashcardText] = await Promise.all([
+      const [lex, phrases, corpusText, dialogueText, flashcardText, releaseText] = await Promise.all([
         fetch("LEXICON.tsv").then(r => r.text()),
         fetch("PHRASEBOOK.tsv").then(r => r.text()),
         fetch("CORPUS.tsv").then(r => r.text()),
         fetch("DIALOGUES.tsv").then(r => r.text()),
-        fetch("FLASHCARDS.tsv").then(r => r.text())
+        fetch("FLASHCARDS.tsv").then(r => r.text()),
+        fetch("RELEASES.tsv").then(r => r.text())
       ]);
       lexicon = parseTsv(lex);
       phrasebook = parseTsv(phrases);
       corpus = parseTsv(corpusText);
       dialogues = parseTsv(dialogueText);
       flashcards = parseTsv(flashcardText);
+      releases = parseTsv(releaseText);
       roots = new Set(lexicon.map(row => row.root));
+      setupFilters();
+      renderStats();
       renderLexicon();
       renderPhrases();
       renderCorpus();
       renderDialogues();
       renderFlashcards();
+      renderReleases();
       analyze();
     }
 
@@ -627,9 +727,50 @@ I go to the house.</pre>
       return `<table>${head}${body}</table>`;
     }
 
+    function uniqueValues(rows, key) {
+      return [...new Set(rows.map(row => row[key]).filter(Boolean))].sort();
+    }
+
+    function fillSelect(id, values, label) {
+      const select = document.getElementById(id);
+      select.innerHTML = [`<option value="">All ${label}</option>`]
+        .concat(values.map(value => `<option value="${value}">${value}</option>`))
+        .join("");
+    }
+
+    function setupFilters() {
+      fillSelect("lexiconDomain", uniqueValues(lexicon, "domain"), "domains");
+      fillSelect("lexiconLevel", uniqueValues(lexicon, "level"), "levels");
+      fillSelect("corpusLevel", uniqueValues(corpus, "level"), "levels");
+      fillSelect("corpusTopic", uniqueValues(corpus, "topic"), "topics");
+      fillSelect("dialogueLevel", uniqueValues(dialogues, "level"), "levels");
+      fillSelect("dialogueTopic", uniqueValues(dialogues, "topic"), "topics");
+    }
+
+    function renderStats() {
+      const current = releases.find(row => row.status === "current") || releases[0] || {};
+      const stats = [
+        ["Core", "v1.0.0"],
+        ["Project", current.version || "v1.7.0"],
+        ["Roots", lexicon.length],
+        ["Phrases", phrasebook.length],
+        ["Corpus Texts", corpus.length],
+        ["Dialogues", dialogues.length],
+        ["Flashcards", flashcards.length],
+        ["Releases", releases.length]
+      ];
+      document.getElementById("statsGrid").innerHTML = stats
+        .map(([label, value]) => `<div class="metric"><strong>${value}</strong><span>${label}</span></div>`)
+        .join("");
+    }
+
     function renderLexicon() {
       const q = document.getElementById("lexiconSearch").value.toLowerCase();
+      const domain = document.getElementById("lexiconDomain").value;
+      const level = document.getElementById("lexiconLevel").value;
       const rows = lexicon
+        .filter(row => !domain || row.domain === domain)
+        .filter(row => !level || row.level === level)
         .filter(row => Object.values(row).join(" ").toLowerCase().includes(q))
         .slice(0, 80);
       document.getElementById("lexiconTable").innerHTML = table(["id", "root", "category", "domain", "level", "status", "meaning", "notes"], rows);
@@ -645,7 +786,11 @@ I go to the house.</pre>
 
     function renderCorpus() {
       const q = document.getElementById("corpusSearch").value.toLowerCase();
+      const level = document.getElementById("corpusLevel").value;
+      const topic = document.getElementById("corpusTopic").value;
       const rows = corpus
+        .filter(row => !level || row.level === level)
+        .filter(row => !topic || row.topic === topic)
         .filter(row => Object.values(row).join(" ").toLowerCase().includes(q))
         .slice(0, 60);
       document.getElementById("corpusTable").innerHTML = table(["id", "level", "topic", "aru", "en"], rows);
@@ -653,7 +798,11 @@ I go to the house.</pre>
 
     function renderDialogues() {
       const q = document.getElementById("dialogueSearch").value.toLowerCase();
+      const level = document.getElementById("dialogueLevel").value;
+      const topic = document.getElementById("dialogueTopic").value;
       const rows = dialogues
+        .filter(row => !level || row.level === level)
+        .filter(row => !topic || row.topic === topic)
         .filter(row => Object.values(row).join(" ").toLowerCase().includes(q))
         .slice(0, 60);
       document.getElementById("dialogueTable").innerHTML = table(["id", "level", "topic", "aru", "en"], rows);
@@ -667,11 +816,21 @@ I go to the house.</pre>
       document.getElementById("flashcardTable").innerHTML = table(["id", "deck", "front", "back", "tags"], rows);
     }
 
+    function renderReleases() {
+      document.getElementById("releaseTable").innerHTML = table(["version", "channel", "status", "core", "focus", "artifacts"], releases);
+    }
+
     document.getElementById("input").addEventListener("input", analyze);
     document.getElementById("lexiconSearch").addEventListener("input", renderLexicon);
+    document.getElementById("lexiconDomain").addEventListener("change", renderLexicon);
+    document.getElementById("lexiconLevel").addEventListener("change", renderLexicon);
     document.getElementById("phraseSearch").addEventListener("input", renderPhrases);
     document.getElementById("corpusSearch").addEventListener("input", renderCorpus);
+    document.getElementById("corpusLevel").addEventListener("change", renderCorpus);
+    document.getElementById("corpusTopic").addEventListener("change", renderCorpus);
     document.getElementById("dialogueSearch").addEventListener("input", renderDialogues);
+    document.getElementById("dialogueLevel").addEventListener("change", renderDialogues);
+    document.getElementById("dialogueTopic").addEventListener("change", renderDialogues);
     document.getElementById("flashcardSearch").addEventListener("input", renderFlashcards);
     loadData().catch(error => {
       document.getElementById("status").className = "status bad";

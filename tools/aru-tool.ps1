@@ -5,6 +5,7 @@ param(
     [switch]$Corpus,
     [switch]$Dialogues,
     [switch]$Cards,
+    [switch]$Releases,
     [switch]$Json
 )
 
@@ -16,6 +17,7 @@ $phrasebookPath = Join-Path $root "PHRASEBOOK.tsv"
 $corpusPath = Join-Path $root "CORPUS.tsv"
 $dialoguesPath = Join-Path $root "DIALOGUES.tsv"
 $flashcardsPath = Join-Path $root "FLASHCARDS.tsv"
+$releasesPath = Join-Path $root "RELEASES.tsv"
 
 function Fail($message) {
     Write-Error $message
@@ -37,12 +39,16 @@ if (!(Test-Path $dialoguesPath)) {
 if (!(Test-Path $flashcardsPath)) {
     Fail "FLASHCARDS.tsv is missing."
 }
+if (!(Test-Path $releasesPath)) {
+    Fail "RELEASES.tsv is missing."
+}
 
 $lexicon = Import-Csv -Delimiter "`t" $lexiconPath
 $phrasebook = Import-Csv -Delimiter "`t" $phrasebookPath
 $corpusRows = Import-Csv -Delimiter "`t" $corpusPath
 $dialogueRows = Import-Csv -Delimiter "`t" $dialoguesPath
 $flashcardRows = Import-Csv -Delimiter "`t" $flashcardsPath
+$releaseRows = Import-Csv -Delimiter "`t" $releasesPath
 $roots = @{}
 foreach ($row in $lexicon) {
     $roots[$row.root] = $row
@@ -112,6 +118,10 @@ if ($Search) {
         $matches = @($flashcardRows | Where-Object {
             ($_.id + " " + $_.deck + " " + $_.front + " " + $_.back + " " + $_.tags).ToLowerInvariant().Contains($needle)
         })
+    } elseif ($Releases) {
+        $matches = @($releaseRows | Where-Object {
+            ($_.version + " " + $_.channel + " " + $_.status + " " + $_.core + " " + $_.focus + " " + $_.artifacts).ToLowerInvariant().Contains($needle)
+        })
     } elseif ($Corpus) {
         $matches = @($corpusRows | Where-Object {
             ($_.id + " " + $_.level + " " + $_.topic + " " + $_.aru + " " + $_.en + " " + $_.notes).ToLowerInvariant().Contains($needle)
@@ -146,6 +156,7 @@ if (!$Text) {
     Write-Output "  .\tools\aru-tool.ps1 -Search community -Corpus"
     Write-Output "  .\tools\aru-tool.ps1 -Search meeting -Dialogues"
     Write-Output "  .\tools\aru-tool.ps1 -Search waro -Cards"
+    Write-Output "  .\tools\aru-tool.ps1 -Search portal -Releases"
     exit 0
 }
 

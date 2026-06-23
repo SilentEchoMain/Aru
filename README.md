@@ -6,7 +6,7 @@ Its goal is to be small, regular, and useful for simple speech without grammatic
 
 Current status: **stable core v1.0.0**.
 
-Current project release: **v1.6.0**.
+Current project release: **v1.7.0**.
 
 ## Core Idea
 
@@ -63,6 +63,7 @@ DIALOGUES.tsv  30 levelled learning dialogues
 COURSE.md      12-lesson learner course
 REFERENCE.md   compact grammar reference
 FLASHCARDS.tsv generated study cards
+RELEASES.tsv   project release timeline
 PROMPTS.md     20 writing prompts
 EXAMPLES.md    lessons, corpus, dialogues, and smoke phrases
 LICENSE.md     project license
@@ -100,8 +101,10 @@ Open [index.html](index.html) for the public site and browser playground.
 .\tools\aru-tool.ps1 -Search waro -Cards
 .\tools\build-corpus.ps1
 .\tools\build-learning.ps1
+.\tools\build-releases.ps1
 .\tools\check-lexicon.ps1
 .\tools\check-grammar.ps1
+.\tools\check-portal.ps1
 .\tools\test-site.ps1
 .\tools\project-report.ps1
 ```

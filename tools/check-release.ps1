@@ -19,6 +19,7 @@ $requiredFiles = @(
     "COURSE.md",
     "REFERENCE.md",
     "FLASHCARDS.tsv",
+    "RELEASES.tsv",
     "PROMPTS.md",
     "EXAMPLES.md",
     "index.html",
@@ -26,8 +27,10 @@ $requiredFiles = @(
     "CONTRIBUTING.md",
     "tools/build-corpus.ps1",
     "tools/build-learning.ps1",
+    "tools/build-releases.ps1",
     "tools/check-lexicon.ps1",
     "tools/check-grammar.ps1",
+    "tools/check-portal.ps1",
     "tools/aru-tool.ps1",
     "tools/project-report.ps1",
     "tools/test-site.ps1",
@@ -57,11 +60,11 @@ foreach ($file in $versionFiles) {
 
 $readmeContent = Get-Content (Join-Path $root "README.md") -Raw
 $changelogContent = Get-Content (Join-Path $root "CHANGELOG.md") -Raw
-if ($readmeContent -notmatch "v1\.6\.0") {
-    Fail "Expected README.md to mention project release v1.6.0."
+if ($readmeContent -notmatch "v1\.7\.0") {
+    Fail "Expected README.md to mention project release v1.7.0."
 }
-if ($changelogContent -notmatch "v1\.6\.0") {
-    Fail "Expected CHANGELOG.md to mention project release v1.6.0."
+if ($changelogContent -notmatch "v1\.7\.0") {
+    Fail "Expected CHANGELOG.md to mention project release v1.7.0."
 }
 
 $licenseContent = Get-Content (Join-Path $root "LICENSE.md") -Raw
@@ -78,6 +81,9 @@ if ($siteContent -notmatch "Learning System") {
 }
 if ($siteContent -notmatch "FLASHCARDS\.tsv") {
     Fail "Expected index.html to reference FLASHCARDS.tsv."
+}
+if ($siteContent -notmatch "RELEASES\.tsv") {
+    Fail "Expected index.html to reference RELEASES.tsv."
 }
 
 $lexiconLines = Get-Content (Join-Path $root "LEXICON.tsv")
@@ -204,6 +210,20 @@ foreach ($column in @("id", "deck", "front", "back", "tags")) {
     }
 }
 
+$releaseLines = Get-Content (Join-Path $root "RELEASES.tsv")
+$releaseEntries = [Math]::Max(0, $releaseLines.Count - 1)
+if ($releaseEntries -lt 8) {
+    Fail "Expected at least 8 release entries, got $releaseEntries."
+}
+
+$releaseRows = Import-Csv -Delimiter "`t" (Join-Path $root "RELEASES.tsv")
+$releaseColumns = @($releaseRows[0].PSObject.Properties.Name)
+foreach ($column in @("version", "channel", "status", "core", "focus", "artifacts")) {
+    if ($releaseColumns -notcontains $column) {
+        Fail "Releases are missing required column: $column"
+    }
+}
+
 $roots = @{}
 foreach ($row in $lexiconRows) {
     $roots[$row.root] = $true
@@ -255,10 +275,11 @@ Test-AruRows "dialogue" $dialogueRows
 
 & (Join-Path $root "tools/check-lexicon.ps1")
 & (Join-Path $root "tools/check-grammar.ps1")
+& (Join-Path $root "tools/check-portal.ps1")
 
 Write-Output "Aru release check passed."
 Write-Output "Language core: v1.0.0"
-Write-Output "Project release: v1.6.0"
+Write-Output "Project release: v1.7.0"
 Write-Output "Lexicon entries: $lexiconEntries"
 Write-Output "Phrasebook entries: $phrasebookEntries"
 Write-Output "Corpus texts: $corpusEntries"
@@ -266,3 +287,4 @@ Write-Output "Dialogues: $dialogueEntries"
 Write-Output "Writing prompts: $promptEntries"
 Write-Output "Course lessons: $courseLessons"
 Write-Output "Flashcards: $flashcardEntries"
+Write-Output "Release entries: $releaseEntries"

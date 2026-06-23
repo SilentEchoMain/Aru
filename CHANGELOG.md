@@ -1,5 +1,14 @@
 # Changelog
 
+## Aru Project v1.7.0
+
+- Added `RELEASES.tsv` as a structured project release timeline.
+- Added `tools/build-releases.ps1` to regenerate release timeline data.
+- Added `tools/check-portal.ps1` to validate public portal features and release metadata.
+- Upgraded `index.html` with dashboard metrics, portal filters, corpus/dialogue filters, and a release timeline.
+- Extended release checks, GitHub Actions, project reports, CLI search, and site smoke checks for portal data.
+- Language core remains **Aru v1.0.0**.
+
 ## Aru Project v1.6.0
 
 - Added stable lexicon metadata columns: `id`, `domain`, `level`, `status`, and `introduced`.

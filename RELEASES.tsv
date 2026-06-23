@@ -1,0 +1,9 @@
+﻿version	channel	status	core	focus	artifacts
+v1.7.0	project	current	v1.0.0	public portal	RELEASES.tsv; filtered site portal; portal checks
+v1.6.0	project	stable	v1.0.0	lexicon governance	LEXICON_POLICY.md; tools/check-lexicon.ps1; lexicon metadata
+v1.5.0	project	stable	v1.0.0	levelled corpus	CORPUS.tsv; DIALOGUES.tsv; level metadata
+v1.4.0	project	stable	v1.0.0	grammar validation	tools/check-grammar.ps1; GitHub Actions release check
+v1.3.0	project	stable	v1.0.0	learning system	COURSE.md; REFERENCE.md; FLASHCARDS.tsv
+v1.2.0	project	stable	v1.0.0	corpus and community workflow	CORPUS.tsv; DIALOGUES.tsv; PROMPTS.md
+v1.1.0	project	stable	v1.0.0	public launch kit	index.html; tools/aru-tool.ps1; expanded PHRASEBOOK.tsv
+v1.0.0	language	stable	v1.0.0	stable language core	SPEC.md; LEXICON.tsv; PHRASEBOOK.tsv; custom license
