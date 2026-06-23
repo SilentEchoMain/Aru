@@ -55,11 +55,11 @@ foreach ($file in $versionFiles) {
 
 $readmeContent = Get-Content (Join-Path $root "README.md") -Raw
 $changelogContent = Get-Content (Join-Path $root "CHANGELOG.md") -Raw
-if ($readmeContent -notmatch "v1\.4\.0") {
-    Fail "Expected README.md to mention project release v1.4.0."
+if ($readmeContent -notmatch "v1\.5\.0") {
+    Fail "Expected README.md to mention project release v1.5.0."
 }
-if ($changelogContent -notmatch "v1\.4\.0") {
-    Fail "Expected CHANGELOG.md to mention project release v1.4.0."
+if ($changelogContent -notmatch "v1\.5\.0") {
+    Fail "Expected CHANGELOG.md to mention project release v1.5.0."
 }
 
 $licenseContent = Get-Content (Join-Path $root "LICENSE.md") -Raw
@@ -135,9 +135,14 @@ if ($corpusEntries -lt 100) {
 
 $corpusRows = Import-Csv -Delimiter "`t" (Join-Path $root "CORPUS.tsv")
 $corpusColumns = @($corpusRows[0].PSObject.Properties.Name)
-foreach ($column in @("id", "topic", "aru", "en", "notes")) {
+foreach ($column in @("id", "level", "topic", "aru", "en", "notes")) {
     if ($corpusColumns -notcontains $column) {
         Fail "Corpus is missing required column: $column"
+    }
+}
+foreach ($level in @($corpusRows | ForEach-Object { $_.level } | Sort-Object -Unique)) {
+    if ($level -notmatch '^A[0-2]$') {
+        Fail "Corpus has unsupported level: $level"
     }
 }
 
@@ -149,9 +154,14 @@ if ($dialogueEntries -lt 30) {
 
 $dialogueRows = Import-Csv -Delimiter "`t" (Join-Path $root "DIALOGUES.tsv")
 $dialogueColumns = @($dialogueRows[0].PSObject.Properties.Name)
-foreach ($column in @("id", "topic", "aru", "en", "notes")) {
+foreach ($column in @("id", "level", "topic", "aru", "en", "notes")) {
     if ($dialogueColumns -notcontains $column) {
         Fail "Dialogues are missing required column: $column"
+    }
+}
+foreach ($level in @($dialogueRows | ForEach-Object { $_.level } | Sort-Object -Unique)) {
+    if ($level -notmatch '^A[0-2]$') {
+        Fail "Dialogues have unsupported level: $level"
     }
 }
 
@@ -245,7 +255,7 @@ Test-AruRows "dialogue" $dialogueRows
 
 Write-Output "Aru release check passed."
 Write-Output "Language core: v1.0.0"
-Write-Output "Project release: v1.4.0"
+Write-Output "Project release: v1.5.0"
 Write-Output "Lexicon entries: $lexiconEntries"
 Write-Output "Phrasebook entries: $phrasebookEntries"
 Write-Output "Corpus texts: $corpusEntries"

@@ -6,7 +6,7 @@ Its goal is to be small, regular, and useful for simple speech without grammatic
 
 Current status: **stable core v1.0.0**.
 
-Current project release: **v1.4.0**.
+Current project release: **v1.5.0**.
 
 ## Core Idea
 
@@ -57,8 +57,8 @@ The person who speaks is good.
 SPEC.md        canonical grammar and design decisions
 LEXICON.tsv    core vocabulary
 PHRASEBOOK.tsv 150 example phrases
-CORPUS.tsv     100 short corpus texts
-DIALOGUES.tsv  30 learning dialogues
+CORPUS.tsv     100 levelled short corpus texts
+DIALOGUES.tsv  30 levelled learning dialogues
 COURSE.md      12-lesson learner course
 REFERENCE.md   compact grammar reference
 FLASHCARDS.tsv generated study cards

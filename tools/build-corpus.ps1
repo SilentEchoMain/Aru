@@ -66,51 +66,61 @@ for ($i = 1; $i -le 100; $i++) {
     switch (($i - 1) % 10) {
         0 {
             $topic = "daily-life"
+            $level = "A0"
             $aru = "temu luma nu le, $($p.aru) ra waki. $($p.aru) ra taka ke $($obj.aru). $($p.aru) ra naka ko $($place.aru). $($q.aru) ra lano ke wai ko $($p.aru). $($p.aru) ra waro we $($q.aru)."
             $en = "Today the $($p.en) begins the day. The $($p.en) takes the $($obj.en). The $($p.en) goes to the $($place.en). The $($q.en) gives water to the $($p.en). The $($p.en) speaks with the $($q.en)."
         }
         1 {
             $topic = "learning"
+            $level = "A1"
             $aru = "$($p.aru) ra nema ke ya Aru. $($p.aru) ra lowa ke naru ne waro. naru i ra $($qual.aru). $($p.aru) ra sawi ke pane. $($q.aru) ra pane ke $($p.aru)."
             $en = "The $($p.en) studies Aru. The $($p.en) reads the rules of speech. This rule is $($qual.en). The $($p.en) asks for an answer. The $($q.en) answers the $($p.en)."
         }
         2 {
             $topic = "tools"
+            $level = "A1"
             $aru = "$($obj.aru) i ra ko waro. $($p.aru) ra sena ke $($obj.aru). $($obj.aru) ra pane ke i le, waro ra $($qual.aru). etu $($obj.aru) ra no sona le, $($p.aru) ra mela ke i. tulu ra wena ke $($p.aru)."
             $en = "This $($obj.en) is for speech. The $($p.en) tests the $($obj.en). The $($obj.en) answers that speech is $($qual.en). If the $($obj.en) does not know, the $($p.en) repairs it. A tool helps the $($p.en)."
         }
         3 {
             $topic = "weather"
+            $level = "A1"
             $aru = "$($w.aru) ra tanu. $($p.aru) ra no naka so etu $($w.aru). $($q.aru) ra to insa malo. $($p.aru) ra waro ke i le, temu luma po le, $($p.aru) ra po naka. $($q.aru) ra lora ke $($p.aru)."
             $en = "$($w.en) comes. The $($p.en) does not go because of $($w.en). The $($q.en) is inside the house. The $($p.en) says that tomorrow the $($p.en) will go. The $($q.en) hears the $($p.en)."
         }
         4 {
             $topic = "relative"
+            $level = "A2"
             $aru = "$($p.aru) re ri ra kipa ke $($obj.aru), ra $($qual.aru). $($q.aru) ra sela ke ena. $($p.aru) ra lano ke $($obj.aru) ko $($q.aru). $($q.aru) ra toma ke $($obj.aru). $($obj.aru) ra ne $($q.aru)."
             $en = "The $($p.en) who holds the $($obj.en) is $($qual.en). The $($q.en) sees that person. The $($p.en) gives the $($obj.en) to the $($q.en). The $($q.en) keeps the $($obj.en). The $($obj.en) is related to the $($q.en)."
         }
         5 {
             $topic = "comparison"
+            $level = "A2"
             $aru = "$($place.aru) i ra maru pasu $($place.aru) ena. $($obj.aru) i ra $($qual.aru) pasu $($obj.aru) ena. $($p.aru) ra waro lisu pasu $($q.aru). $($q.aru) ra sona sama pasu $($p.aru). $($p.aru) ra rima sona waro nela."
             $en = "This $($place.en) is bigger than that $($place.en). This $($obj.en) is more $($qual.en) than that $($obj.en). The $($p.en) speaks more simply than the $($q.en). The $($q.en) knows as much as the $($p.en). The $($p.en) wants to know how to speak well."
         }
         6 {
             $topic = "community"
+            $level = "A1"
             $aru = "kale ne ya Aru ra maku ke sipu. $($p.aru) ra raku ke sipu $($qual.aru). $($q.aru) ra lowa ke sipu. kale ra sena ke waro. waro i ra ruma nela."
             $en = "The Aru community makes a text. The $($p.en) writes a $($qual.en) text. The $($q.en) reads the text. The community tests speech. This speech becomes good."
         }
         7 {
             $topic = "public"
+            $level = "A1"
             $aru = "sipu i ra puka. mene se ra tanu so tera para. mene se ra lowa ke sipu. u ra sawi ke naru se. kale ra pane ke u."
             $en = "This text is open. Someone comes from a far place. Someone reads the text. They ask for some rule. The community answers them."
         }
         8 {
             $topic = "repair"
+            $level = "A1"
             $aru = "$($obj.aru) ra rupi. $($p.aru) ra taka ke $($obj.aru). $($p.aru) ra naka ko $($q.aru). $($q.aru) ra mela ke $($obj.aru). $($obj.aru) ra ruma pawa."
             $en = "The $($obj.en) is broken. The $($p.en) takes the $($obj.en). The $($p.en) goes to the $($q.en). The $($q.en) repairs the $($obj.en). The $($obj.en) becomes powerful."
         }
         default {
             $topic = "clear-speech"
+            $level = "A2"
             $aru = "waro lisu ra nela. $($p.aru) ra no rima ke naru maru. $($p.aru) ra rima ke naru mini. etu $($q.aru) ra sona ke $($p.aru) le, $($p.aru) ra pawa waro. waro mini ra pawa."
             $en = "Simple speech is good. The $($p.en) does not want big rules. The $($p.en) wants small rules. If the $($q.en) understands the $($p.en), the $($p.en) can speak. Small speech is powerful."
         }
@@ -118,6 +128,7 @@ for ($i = 1; $i -le 100; $i++) {
 
     $corpusRows += [pscustomobject]@{
         id = ("T{0:000}" -f $i)
+        level = $level
         topic = $topic
         aru = $aru
         en = $en
@@ -134,31 +145,37 @@ for ($i = 1; $i -le 30; $i++) {
     switch (($i - 1) % 6) {
         0 {
             $topic = "meeting"
+            $level = "A0"
             $aru = "lani ne ta ra se? lani ne na ra ya Mira. ta ra nema ke ya Aru? na ra nema ke ya Aru. o waro we na."
             $en = "What is your name? My name is Mira. Do you study Aru? I study Aru. Speak with me."
         }
         1 {
             $topic = "house"
+            $level = "A1"
             $aru = "malo ne na ra kima. ka ta ra rima naka ko i? na ra rima naka ko i. ka malo ra nilo? malo ra nilo mini."
             $en = "My house is near. Do you want to go to it? I want to go to it. Is the house cold? The house is slightly cold."
         }
         2 {
             $topic = "tool"
+            $level = "A1"
             $aru = "tulu i ra rupi. ta ra pawa mela ke i? na ra pawa mela ke i. o lano ke tulu ko na. na ra lano ke i ko ta."
             $en = "This tool is broken. Can you repair it? I can repair it. Give the tool to me. I give it to you."
         }
         3 {
             $topic = "learning"
+            $level = "A1"
             $aru = "ta ra sona ke naru i? na ra sona ke naru mini. se ra kasa? sipu re ri ra ama ke naru mun, ra kasa. na ra sona."
             $en = "Do you know this rule? I know the small rule. What is hard? A text that has many rules is hard. I understand."
         }
         4 {
             $topic = "cause"
+            $level = "A2"
             $aru = "ta ra pa no tanu so etu se? na ra pa no tanu so etu roka. temu luma po le, ta o tanu. na ra po tanu. na ra lora ke ta."
             $en = "Why did you not come? I did not come because of rain. Tomorrow, come. I will come. I hear you."
         }
         default {
             $topic = "public"
+            $level = "A1"
             $aru = "sipu i ra puka. se ra lowa ke i? mene mun ra lowa ke i. ka sipu ra lisu? sipu ra lisu, tune sipu ra mini."
             $en = "This text is open. Who reads it? Many people read it. Is the text simple? The text is simple, but the text is small."
         }
@@ -166,6 +183,7 @@ for ($i = 1; $i -le 30; $i++) {
 
     $dialogueRows += [pscustomobject]@{
         id = ("D{0:000}" -f $i)
+        level = $level
         topic = $topic
         aru = $aru
         en = $en
@@ -218,8 +236,8 @@ for ($i = 0; $i -lt $prompts.Count; $i++) {
     $promptLines += ""
 }
 
-Write-Tsv (Join-Path $root "CORPUS.tsv") $corpusRows @("id", "topic", "aru", "en", "notes")
-Write-Tsv (Join-Path $root "DIALOGUES.tsv") $dialogueRows @("id", "topic", "aru", "en", "notes")
+Write-Tsv (Join-Path $root "CORPUS.tsv") $corpusRows @("id", "level", "topic", "aru", "en", "notes")
+Write-Tsv (Join-Path $root "DIALOGUES.tsv") $dialogueRows @("id", "level", "topic", "aru", "en", "notes")
 Set-Content -Path (Join-Path $root "PROMPTS.md") -Value $promptLines -Encoding utf8
 
 Write-Output "Generated CORPUS.tsv: $($corpusRows.Count) texts"

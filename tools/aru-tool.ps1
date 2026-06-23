@@ -114,11 +114,11 @@ if ($Search) {
         })
     } elseif ($Corpus) {
         $matches = @($corpusRows | Where-Object {
-            ($_.id + " " + $_.topic + " " + $_.aru + " " + $_.en + " " + $_.notes).ToLowerInvariant().Contains($needle)
+            ($_.id + " " + $_.level + " " + $_.topic + " " + $_.aru + " " + $_.en + " " + $_.notes).ToLowerInvariant().Contains($needle)
         })
     } elseif ($Dialogues) {
         $matches = @($dialogueRows | Where-Object {
-            ($_.id + " " + $_.topic + " " + $_.aru + " " + $_.en + " " + $_.notes).ToLowerInvariant().Contains($needle)
+            ($_.id + " " + $_.level + " " + $_.topic + " " + $_.aru + " " + $_.en + " " + $_.notes).ToLowerInvariant().Contains($needle)
         })
     } elseif ($Phrases) {
         $matches = @($phrasebook | Where-Object {

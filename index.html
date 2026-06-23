@@ -647,7 +647,7 @@ I go to the house.</pre>
       const rows = corpus
         .filter(row => Object.values(row).join(" ").toLowerCase().includes(q))
         .slice(0, 60);
-      document.getElementById("corpusTable").innerHTML = table(["id", "topic", "aru", "en"], rows);
+      document.getElementById("corpusTable").innerHTML = table(["id", "level", "topic", "aru", "en"], rows);
     }
 
     function renderDialogues() {
@@ -655,7 +655,7 @@ I go to the house.</pre>
       const rows = dialogues
         .filter(row => Object.values(row).join(" ").toLowerCase().includes(q))
         .slice(0, 60);
-      document.getElementById("dialogueTable").innerHTML = table(["id", "topic", "aru", "en"], rows);
+      document.getElementById("dialogueTable").innerHTML = table(["id", "level", "topic", "aru", "en"], rows);
     }
 
     function renderFlashcards() {

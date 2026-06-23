@@ -23,6 +23,15 @@ function Topic-Counts($rows) {
     })
 }
 
+function Level-Counts($rows) {
+    return @($rows | Group-Object level | Sort-Object Name | ForEach-Object {
+        [pscustomobject]@{
+            level = $_.Name
+            count = $_.Count
+        }
+    })
+}
+
 $lexicon = Read-Tsv "LEXICON.tsv"
 $phrasebook = Read-Tsv "PHRASEBOOK.tsv"
 $corpus = Read-Tsv "CORPUS.tsv"
@@ -35,7 +44,7 @@ $courseLessonCount = ([regex]::Matches($courseContent, "(?m)^## Lesson \d+")).Co
 
 $report = [pscustomobject]@{
     languageCore = "v1.0.0"
-    projectRelease = "v1.4.0"
+    projectRelease = "v1.5.0"
     lexiconEntries = $lexicon.Count
     phrasebookEntries = $phrasebook.Count
     corpusTexts = $corpus.Count
@@ -46,6 +55,8 @@ $report = [pscustomobject]@{
     phrasebookTopics = Topic-Counts $phrasebook
     corpusTopics = Topic-Counts $corpus
     dialogueTopics = Topic-Counts $dialogues
+    corpusLevels = Level-Counts $corpus
+    dialogueLevels = Level-Counts $dialogues
     flashcardDecks = @($flashcards | Group-Object deck | Sort-Object Count -Descending | ForEach-Object {
         [pscustomobject]@{
             deck = $_.Name
@@ -72,6 +83,10 @@ if ($Json) {
     $report.phrasebookTopics | Select-Object -First 10 | Format-Table -AutoSize
     Write-Output "Top corpus topics:"
     $report.corpusTopics | Select-Object -First 10 | Format-Table -AutoSize
+    Write-Output "Corpus levels:"
+    $report.corpusLevels | Format-Table -AutoSize
+    Write-Output "Dialogue levels:"
+    $report.dialogueLevels | Format-Table -AutoSize
     Write-Output "Flashcard decks:"
     $report.flashcardDecks | Format-Table -AutoSize
 }

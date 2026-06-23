@@ -1,5 +1,14 @@
 # Changelog
 
+## Aru Project v1.5.0
+
+- Added `level` metadata to `CORPUS.tsv` and `DIALOGUES.tsv`.
+- Updated `tools/build-corpus.ps1` so corpus and dialogue levels are generated reproducibly.
+- Updated the public site to show learner levels in corpus and dialogue tables.
+- Extended release checks to validate corpus and dialogue level metadata.
+- Extended project reports and CLI search to include level metadata.
+- Language core remains **Aru v1.0.0**.
+
 ## Aru Project v1.4.0
 
 - Added `tools/check-grammar.ps1` for token, name, number, relative-phrase, question, imperative, and boundary checks.
