@@ -87,13 +87,18 @@ Grammar proposals should include:
 problem -> attempted Aru expressions -> proposed rule -> examples -> compatibility note
 ```
 
+Use [GOVERNANCE.md](GOVERNANCE.md), [STYLE_GUIDE.md](STYLE_GUIDE.md), and [REVIEW_CHECKLIST.md](REVIEW_CHECKLIST.md) for decision rules, public writing style, and review expectations.
+
 Before opening a pull request, run:
 
 ```powershell
 .\tools\build-corpus.ps1
 .\tools\build-learning.ps1
+.\tools\build-releases.ps1
+.\tools\check-community.ps1
 .\tools\check-lexicon.ps1
 .\tools\check-grammar.ps1
+.\tools\check-portal.ps1
 .\tools\test-site.ps1
 .\tools\check-release.ps1
 ```

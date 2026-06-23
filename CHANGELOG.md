@@ -1,5 +1,15 @@
 # Changelog
 
+## Aru Project v1.9.0
+
+- Added `GOVERNANCE.md` for project decisions, compatibility, and release ownership.
+- Added `STYLE_GUIDE.md` for public Aru text style and learner-level expectations.
+- Added `REVIEW_CHECKLIST.md` for pull request and proposal review.
+- Added `CODE_OF_CONDUCT.md` and expanded GitHub issue/discussion configuration.
+- Added `tools/check-community.ps1` and connected community checks to CI and release gates.
+- Extended the public portal with governance, style, review, and conduct links.
+- Language core remains **Aru v1.0.0**.
+
 ## Aru Project v1.8.0
 
 - Added `tools/serve-site.ps1` as the standard local server for the public portal.

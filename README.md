@@ -6,7 +6,7 @@ Its goal is to be small, regular, and useful for simple speech without grammatic
 
 Current status: **stable core v1.0.0**.
 
-Current project release: **v1.8.0**.
+Current project release: **v1.9.0**.
 
 ## Core Idea
 
@@ -64,6 +64,9 @@ COURSE.md      12-lesson learner course
 REFERENCE.md   compact grammar reference
 FLASHCARDS.tsv generated study cards
 RELEASES.tsv   project release timeline
+GOVERNANCE.md  project decision process
+STYLE_GUIDE.md public Aru writing style
+REVIEW_CHECKLIST.md reviewer checklist
 PROMPTS.md     20 writing prompts
 EXAMPLES.md    lessons, corpus, dialogues, and smoke phrases
 LICENSE.md     project license
@@ -102,6 +105,7 @@ Open [index.html](index.html) for the public site and browser playground.
 .\tools\build-corpus.ps1
 .\tools\build-learning.ps1
 .\tools\build-releases.ps1
+.\tools\check-community.ps1
 .\tools\check-lexicon.ps1
 .\tools\check-grammar.ps1
 .\tools\check-portal.ps1

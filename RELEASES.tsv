@@ -1,5 +1,6 @@
 ﻿version	channel	status	core	focus	artifacts
-v1.8.0	project	current	v1.0.0	local portal serving	tools/serve-site.ps1; release metadata
+v1.9.0	project	current	v1.0.0	community governance	GOVERNANCE.md; STYLE_GUIDE.md; REVIEW_CHECKLIST.md; tools/check-community.ps1
+v1.8.0	project	stable	v1.0.0	local portal serving	tools/serve-site.ps1; release metadata
 v1.7.0	project	stable	v1.0.0	public portal	RELEASES.tsv; filtered site portal; portal checks
 v1.6.0	project	stable	v1.0.0	lexicon governance	LEXICON_POLICY.md; tools/check-lexicon.ps1; lexicon metadata
 v1.5.0	project	stable	v1.0.0	levelled corpus	CORPUS.tsv; DIALOGUES.tsv; level metadata

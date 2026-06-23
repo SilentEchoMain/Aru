@@ -23,6 +23,10 @@ jobs:
         shell: pwsh
         run: ./tools/build-releases.ps1
 
+      - name: Check community process
+        shell: pwsh
+        run: ./tools/check-community.ps1
+
       - name: Check lexicon
         shell: pwsh
         run: ./tools/check-lexicon.ps1

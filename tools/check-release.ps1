@@ -25,9 +25,14 @@ $requiredFiles = @(
     "index.html",
     "CHANGELOG.md",
     "CONTRIBUTING.md",
+    "GOVERNANCE.md",
+    "STYLE_GUIDE.md",
+    "REVIEW_CHECKLIST.md",
+    "CODE_OF_CONDUCT.md",
     "tools/build-corpus.ps1",
     "tools/build-learning.ps1",
     "tools/build-releases.ps1",
+    "tools/check-community.ps1",
     "tools/check-lexicon.ps1",
     "tools/check-grammar.ps1",
     "tools/check-portal.ps1",
@@ -37,11 +42,13 @@ $requiredFiles = @(
     "tools/test-site.ps1",
     ".github/workflows/release-check.yml",
     ".github/ISSUE_TEMPLATE/word-proposal.yml",
+    ".github/ISSUE_TEMPLATE/config.yml",
     ".github/ISSUE_TEMPLATE/grammar-rfc.yml",
     ".github/ISSUE_TEMPLATE/text-contribution.yml",
     ".github/ISSUE_TEMPLATE/bug-report.yml",
     ".github/PULL_REQUEST_TEMPLATE.md",
-    ".github/DISCUSSION_TEMPLATE/writing-challenge.md"
+    ".github/DISCUSSION_TEMPLATE/writing-challenge.md",
+    ".github/DISCUSSION_TEMPLATE/translation-challenge.md"
 )
 
 foreach ($file in $requiredFiles) {
@@ -61,11 +68,11 @@ foreach ($file in $versionFiles) {
 
 $readmeContent = Get-Content (Join-Path $root "README.md") -Raw
 $changelogContent = Get-Content (Join-Path $root "CHANGELOG.md") -Raw
-if ($readmeContent -notmatch "v1\.8\.0") {
-    Fail "Expected README.md to mention project release v1.8.0."
+if ($readmeContent -notmatch "v1\.9\.0") {
+    Fail "Expected README.md to mention project release v1.9.0."
 }
-if ($changelogContent -notmatch "v1\.8\.0") {
-    Fail "Expected CHANGELOG.md to mention project release v1.8.0."
+if ($changelogContent -notmatch "v1\.9\.0") {
+    Fail "Expected CHANGELOG.md to mention project release v1.9.0."
 }
 
 $licenseContent = Get-Content (Join-Path $root "LICENSE.md") -Raw
@@ -213,8 +220,8 @@ foreach ($column in @("id", "deck", "front", "back", "tags")) {
 
 $releaseLines = Get-Content (Join-Path $root "RELEASES.tsv")
 $releaseEntries = [Math]::Max(0, $releaseLines.Count - 1)
-if ($releaseEntries -lt 9) {
-    Fail "Expected at least 9 release entries, got $releaseEntries."
+if ($releaseEntries -lt 10) {
+    Fail "Expected at least 10 release entries, got $releaseEntries."
 }
 
 $releaseRows = Import-Csv -Delimiter "`t" (Join-Path $root "RELEASES.tsv")
@@ -274,13 +281,14 @@ Test-AruRows "phrasebook" $phrasebookRows
 Test-AruRows "corpus" $corpusRows
 Test-AruRows "dialogue" $dialogueRows
 
+& (Join-Path $root "tools/check-community.ps1")
 & (Join-Path $root "tools/check-lexicon.ps1")
 & (Join-Path $root "tools/check-grammar.ps1")
 & (Join-Path $root "tools/check-portal.ps1")
 
 Write-Output "Aru release check passed."
 Write-Output "Language core: v1.0.0"
-Write-Output "Project release: v1.8.0"
+Write-Output "Project release: v1.9.0"
 Write-Output "Lexicon entries: $lexiconEntries"
 Write-Output "Phrasebook entries: $phrasebookEntries"
 Write-Output "Corpus texts: $corpusEntries"
