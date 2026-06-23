@@ -9,6 +9,7 @@ param(
     [switch]$Submissions,
     [switch]$Benchmark,
     [switch]$Challenges,
+    [switch]$Conformance,
     [switch]$Json
 )
 
@@ -24,6 +25,7 @@ $releasesPath = Join-Path $root "RELEASES.tsv"
 $submissionsPath = Join-Path $root "TEXT_SUBMISSIONS.tsv"
 $benchmarkPath = Join-Path $root "TRANSLATION_BENCH.tsv"
 $challengesPath = Join-Path $root "COMMUNITY_CHALLENGES.tsv"
+$conformancePath = Join-Path $root "CONFORMANCE.tsv"
 
 function Fail($message) {
     Write-Error $message
@@ -57,6 +59,9 @@ if (!(Test-Path $benchmarkPath)) {
 if (!(Test-Path $challengesPath)) {
     Fail "COMMUNITY_CHALLENGES.tsv is missing."
 }
+if (!(Test-Path $conformancePath)) {
+    Fail "CONFORMANCE.tsv is missing."
+}
 
 $lexicon = Import-Csv -Delimiter "`t" $lexiconPath
 $phrasebook = Import-Csv -Delimiter "`t" $phrasebookPath
@@ -67,6 +72,7 @@ $releaseRows = Import-Csv -Delimiter "`t" $releasesPath
 $submissionRows = Import-Csv -Delimiter "`t" $submissionsPath
 $benchmarkRows = Import-Csv -Delimiter "`t" $benchmarkPath
 $challengeRows = Import-Csv -Delimiter "`t" $challengesPath
+$conformanceRows = Import-Csv -Delimiter "`t" $conformancePath
 $roots = @{}
 foreach ($row in $lexicon) {
     $roots[$row.root] = $row
@@ -152,6 +158,10 @@ if ($Search) {
         $matches = @($challengeRows | Where-Object {
             ($_.id + " " + $_.track + " " + $_.level + " " + $_.title + " " + $_.prompt + " " + $_.seed_aru + " " + $_.outcome + " " + $_.check + " " + $_.status).ToLowerInvariant().Contains($needle)
         })
+    } elseif ($Conformance) {
+        $matches = @($conformanceRows | Where-Object {
+            ($_.id + " " + $_.expected + " " + $_.level + " " + $_.feature + " " + $_.text + " " + $_.expected_kind + " " + $_.notes).ToLowerInvariant().Contains($needle)
+        })
     } elseif ($Corpus) {
         $matches = @($corpusRows | Where-Object {
             ($_.id + " " + $_.level + " " + $_.topic + " " + $_.aru + " " + $_.en + " " + $_.notes).ToLowerInvariant().Contains($needle)
@@ -190,6 +200,7 @@ if (!$Text) {
     Write-Output "  .\tools\aru-tool.ps1 -Search draft -Submissions"
     Write-Output "  .\tools\aru-tool.ps1 -Search relative -Benchmark"
     Write-Output "  .\tools\aru-tool.ps1 -Search writing -Challenges"
+    Write-Output "  .\tools\aru-tool.ps1 -Search invalid -Conformance"
     exit 0
 }
 

@@ -1,0 +1,61 @@
+id	expected	level	feature	text	expected_kind	notes
+C001	valid	A0	predicate	na ra waro.	declarative	Basic predicate boundary
+C002	valid	A0	predicate	malo ra maru.	declarative	Quality predicate
+C003	valid	A0	object	na ra sela ke luma.	declarative	Direct object
+C004	valid	A0	object	ta ra kani ke pani.	declarative	Food object
+C005	valid	A0	negation	na ra no kani.	declarative	Predicate negation
+C006	valid	A0	imperative	o naka.	imperative	Bare command
+C007	valid	A0	imperative	ta o kani ke pani.	imperative	Addressed command
+C008	valid	A0	yesno	ka ta ra kani?	yesno_question	Yes/no question
+C009	valid	A0	unknown	se ra naka?	unknown_question	Unknown subject
+C010	valid	A0	name	lani ne na ra ya Aru.	declarative	Name marker
+C011	valid	A0	quantity	mene un ra tanu.	declarative	One person
+C012	valid	A0	coordination	na an ta ra kani.	declarative	Coordinated subject
+C013	valid	A1	time	na ra pa kani ke pani.	declarative	Past marker
+C014	valid	A1	time	na ra po naka ko malo.	declarative	Future movement
+C015	valid	A1	relation	na ra to insa malo.	declarative	Location phrase
+C016	valid	A1	relation	na ra naka ko malo.	declarative	Direction phrase
+C017	valid	A1	relation	na ra naka so malo.	declarative	Source phrase
+C018	valid	A1	relation	na ra maku ke malo we tulu.	declarative	Instrument phrase
+C019	valid	A1	relation	malo ne na ra mini.	declarative	Weak relation before predicate
+C020	valid	A1	context	temu luma nu le, na ra waro.	declarative	Time context
+C021	valid	A1	context	etu ta ra naka le, na ra naka.	declarative	Condition context
+C022	valid	A1	content	na ra sona ke i le, u ra pa tanu.	declarative	Content clause
+C023	valid	A1	modal	na ra pawa lowa ke sipu.	declarative	Modal action chain
+C024	valid	A1	modal	na ra rima nema ke ya Aru.	declarative	Intent with name
+C025	valid	A1	phase	na ra waki salo.	declarative	Begin action
+C026	valid	A1	phase	na ra pini ke salo.	declarative	Finish with object
+C027	valid	A1	quantity	mene saka 3 ra tanu.	declarative	Exact digit count
+C028	valid	A1	coordination	pani an wai ra nela.	declarative	Coordinated subject group
+C029	valid	A1	coordination	na ra taka ke pani alo wai.	declarative	Object alternative
+C030	valid	A1	coordination	roka ra tanu, sia na ra mota.	declarative	Sentence connector
+C031	valid	A1	coordination	tulu ra rupi, tune na ra mela ke i.	declarative	Contrast connector
+C032	valid	A1	object	na ra laki ke tulu i.	declarative	Demonstrative object
+C033	valid	A1	object	na ra kame ke lani ne ta.	declarative	Linked object
+C034	valid	A1	relation	na ra wati to poka lupo.	declarative	Nearby location
+C035	valid	A1	cause	na ra mota so etu roka.	declarative	Cause phrase
+C036	valid	A2	relative	mene re ri ra raku ke sipu, ra nela.	declarative	Relative subject
+C037	valid	A2	relative	malo re na ra sela ke ri, ra maru.	declarative	Relative object
+C038	valid	A2	relative	malo re na ra mota to ri, ra kima.	declarative	Relative location
+C039	valid	A2	comparison	malo i ra maru pasu malo ena.	declarative	More comparison
+C040	valid	A2	comparison	wai i ra welo sama pasu wai ena.	declarative	Equal comparison
+C041	valid	A2	comparison	tulu i ra risa mini pasu tulu ena.	declarative	Lesser comparison
+C042	valid	A2	comparison	mene i ra nela pasu ora.	declarative	Superlative
+C043	valid	A2	cause	na ra no naka so etu roka.	declarative	Negated cause sentence
+C044	valid	A2	content	na ra sona ke i le, u ra pa no tanu.	declarative	Content with negation
+C045	valid	A2	modal	na ra rima pawa raku ke sipu.	declarative	Stacked modal chain
+C046	invalid	A0	invalid	na waro.	invalid	Missing ra
+C047	invalid	A0	invalid	ra waro.	invalid	Missing subject before ra
+C048	invalid	A0	invalid	na ra.	invalid	ra cannot end a statement
+C049	invalid	A0	invalid	na ra sela ke.	invalid	ke cannot end a statement
+C050	invalid	A0	invalid	lani ne na ra ya.	invalid	ya needs a name
+C051	invalid	A1	invalid	mene saka ra tanu.	invalid	saka needs exact digits
+C052	invalid	A2	invalid	mene re ra waro.	invalid	re needs ri
+C053	invalid	A2	invalid	mene ri ra waro.	invalid	ri outside re phrase
+C054	invalid	A0	invalid	na ka ra waro?	invalid	ka should open question
+C055	invalid	A0	invalid	o.	invalid	o needs predicate
+C056	invalid	A0	invalid	na ra zala.	invalid	Unknown token
+C057	invalid	A1	invalid	na ra kani ke le.	invalid	ke cannot be followed by le
+C058	invalid	A1	invalid	na ra naka ko.	invalid	Relation cannot end statement
+C059	invalid	A1	invalid	na ra o naka.	invalid	o is not predicate syntax
+C060	invalid	A1	invalid	na ra taka ke pani saka.	invalid	saka needs exact digits

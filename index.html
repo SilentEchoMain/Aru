@@ -414,6 +414,7 @@
         <a href="#submissions">Submissions</a>
         <a href="#benchmark">Benchmark</a>
         <a href="#challenges">Challenges</a>
+        <a href="#conformance">Conformance</a>
         <a href="#corpus">Corpus</a>
         <a href="#dialogues">Dialogues</a>
         <a href="#releases">Releases</a>
@@ -513,6 +514,11 @@
           <h3>Workshop</h3>
           <p>Run a 60-minute first Aru session with review and challenge steps.</p>
           <a class="button" href="WORKSHOP_PLAN.md">Open workshop plan</a>
+        </div>
+        <div class="panel">
+          <h3>Grammar Conformance</h3>
+          <p>Track valid and invalid parser examples for the stable core grammar.</p>
+          <a class="button" href="GRAMMAR.md">Open grammar notes</a>
         </div>
         <div class="panel">
           <h3>Review</h3>
@@ -674,6 +680,30 @@ I go to the house.</pre>
       <div id="challengeTable"></div>
     </section>
 
+    <section id="conformance">
+      <h2>Grammar Conformance</h2>
+      <p class="muted">Search 60 parser conformance examples, including valid v1.0.0 patterns and intentionally invalid regression cases.</p>
+      <p>
+        <a class="button" href="GRAMMAR.md">Open grammar notes</a>
+        <a class="button" href="CONFORMANCE.tsv">Open conformance data</a>
+      </p>
+      <div class="filters">
+        <div>
+          <label for="conformanceExpected">Expected</label>
+          <select id="conformanceExpected"></select>
+        </div>
+        <div>
+          <label for="conformanceFeature">Feature</label>
+          <select id="conformanceFeature"></select>
+        </div>
+        <div>
+          <label for="conformanceSearch">Search</label>
+          <input id="conformanceSearch" placeholder="Search examples, kinds, features, or notes">
+        </div>
+      </div>
+      <div id="conformanceTable"></div>
+    </section>
+
     <section id="corpus">
       <h2>Corpus Reader</h2>
       <p class="muted">Search 100 short corpus texts built from the stable v1.0.0 core.</p>
@@ -737,6 +767,7 @@ I go to the house.</pre>
     let submissions = [];
     let benchmark = [];
     let challenges = [];
+    let conformance = [];
     let roots = new Set();
 
     function parseTsv(text) {
@@ -749,7 +780,7 @@ I go to the house.</pre>
     }
 
     async function loadData() {
-      const [lex, phrases, corpusText, dialogueText, flashcardText, releaseText, submissionText, benchmarkText, challengeText] = await Promise.all([
+      const [lex, phrases, corpusText, dialogueText, flashcardText, releaseText, submissionText, benchmarkText, challengeText, conformanceText] = await Promise.all([
         fetch("LEXICON.tsv").then(r => r.text()),
         fetch("PHRASEBOOK.tsv").then(r => r.text()),
         fetch("CORPUS.tsv").then(r => r.text()),
@@ -758,7 +789,8 @@ I go to the house.</pre>
         fetch("RELEASES.tsv").then(r => r.text()),
         fetch("TEXT_SUBMISSIONS.tsv").then(r => r.text()),
         fetch("TRANSLATION_BENCH.tsv").then(r => r.text()),
-        fetch("COMMUNITY_CHALLENGES.tsv").then(r => r.text())
+        fetch("COMMUNITY_CHALLENGES.tsv").then(r => r.text()),
+        fetch("CONFORMANCE.tsv").then(r => r.text())
       ]);
       lexicon = parseTsv(lex);
       phrasebook = parseTsv(phrases);
@@ -769,6 +801,7 @@ I go to the house.</pre>
       submissions = parseTsv(submissionText);
       benchmark = parseTsv(benchmarkText);
       challenges = parseTsv(challengeText);
+      conformance = parseTsv(conformanceText);
       roots = new Set(lexicon.map(row => row.root));
       setupFilters();
       renderStats();
@@ -781,6 +814,7 @@ I go to the house.</pre>
       renderSubmissions();
       renderBenchmark();
       renderChallenges();
+      renderConformance();
       analyze();
     }
 
@@ -879,13 +913,15 @@ I go to the house.</pre>
       fillSelect("benchmarkPhenomenon", uniqueValues(benchmark, "phenomenon"), "phenomena");
       fillSelect("challengeTrack", uniqueValues(challenges, "track"), "tracks");
       fillSelect("challengeLevel", uniqueValues(challenges, "level"), "levels");
+      fillSelect("conformanceExpected", uniqueValues(conformance, "expected"), "expected values");
+      fillSelect("conformanceFeature", uniqueValues(conformance, "feature"), "features");
     }
 
     function renderStats() {
       const current = releases.find(row => row.status === "current") || releases[0] || {};
       const stats = [
         ["Core", "v1.0.0"],
-        ["Project", current.version || "v1.13.0"],
+        ["Project", current.version || "v1.14.0"],
         ["Roots", lexicon.length],
         ["Phrases", phrasebook.length],
         ["Corpus Texts", corpus.length],
@@ -894,7 +930,8 @@ I go to the house.</pre>
         ["Releases", releases.length],
         ["Submissions", submissions.length],
         ["Benchmark", benchmark.length],
-        ["Challenges", challenges.length]
+        ["Challenges", challenges.length],
+        ["Conformance", conformance.length]
       ];
       document.getElementById("statsGrid").innerHTML = stats
         .map(([label, value]) => `<div class="metric"><strong>${value}</strong><span>${label}</span></div>`)
@@ -989,6 +1026,18 @@ I go to the house.</pre>
       document.getElementById("challengeTable").innerHTML = table(["id", "track", "level", "title", "seed_aru", "outcome", "status"], rows);
     }
 
+    function renderConformance() {
+      const q = document.getElementById("conformanceSearch").value.toLowerCase();
+      const expected = document.getElementById("conformanceExpected").value;
+      const feature = document.getElementById("conformanceFeature").value;
+      const rows = conformance
+        .filter(row => !expected || row.expected === expected)
+        .filter(row => !feature || row.feature === feature)
+        .filter(row => Object.values(row).join(" ").toLowerCase().includes(q))
+        .slice(0, 80);
+      document.getElementById("conformanceTable").innerHTML = table(["id", "expected", "level", "feature", "text", "expected_kind"], rows);
+    }
+
     document.getElementById("input").addEventListener("input", analyze);
     document.getElementById("lexiconSearch").addEventListener("input", renderLexicon);
     document.getElementById("lexiconDomain").addEventListener("change", renderLexicon);
@@ -1008,6 +1057,9 @@ I go to the house.</pre>
     document.getElementById("challengeSearch").addEventListener("input", renderChallenges);
     document.getElementById("challengeTrack").addEventListener("change", renderChallenges);
     document.getElementById("challengeLevel").addEventListener("change", renderChallenges);
+    document.getElementById("conformanceSearch").addEventListener("input", renderConformance);
+    document.getElementById("conformanceExpected").addEventListener("change", renderConformance);
+    document.getElementById("conformanceFeature").addEventListener("change", renderConformance);
     loadData().catch(error => {
       document.getElementById("status").className = "status bad";
       document.getElementById("status").textContent = "Could not load project TSV files.";

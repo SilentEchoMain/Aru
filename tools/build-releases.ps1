@@ -8,9 +8,17 @@ function Clean($value) {
 
 $releases = @(
     [pscustomobject]@{
-        version = "v1.13.0"
+        version = "v1.14.0"
         channel = "project"
         status = "current"
+        core = "v1.0.0"
+        focus = "grammar conformance parser"
+        artifacts = "GRAMMAR.md; CONFORMANCE.tsv; tools/parse-aru.ps1; tools/check-conformance.ps1; tools/conformance-report.ps1"
+    },
+    [pscustomobject]@{
+        version = "v1.13.0"
+        channel = "project"
+        status = "stable"
         core = "v1.0.0"
         focus = "adoption and workshop kit"
         artifacts = "ADOPTION.md; TEACHER_GUIDE.md; WORKSHOP_PLAN.md; COMMUNITY_CHALLENGES.tsv; tools/check-adoption.ps1"

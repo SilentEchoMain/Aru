@@ -35,6 +35,10 @@ jobs:
         shell: pwsh
         run: ./tools/check-benchmark.ps1
 
+      - name: Check conformance
+        shell: pwsh
+        run: ./tools/check-conformance.ps1
+
       - name: Check community process
         shell: pwsh
         run: ./tools/check-community.ps1

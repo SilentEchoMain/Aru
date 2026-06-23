@@ -33,6 +33,8 @@ Use this checklist when reviewing pull requests, issue proposals, and discussion
 - Benchmark reference translations follow `QUALITY_METRICS.md`.
 - Community challenges are concrete, ready to run, and aligned with `ADOPTION.md`.
 - Teaching materials keep first-session grammar small.
+- Conformance examples cover valid and invalid parser behavior.
+- Parser changes preserve existing valid v1.0.0 examples.
 
 ## Editor And Authoring
 
@@ -52,6 +54,7 @@ Run:
 .\tools\check-adoption.ps1
 .\tools\check-authoring.ps1
 .\tools\check-benchmark.ps1
+.\tools\check-conformance.ps1
 .\tools\check-community.ps1
 .\tools\check-editor.ps1
 .\tools\check-lexicon.ps1

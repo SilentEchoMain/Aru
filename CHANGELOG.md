@@ -1,5 +1,14 @@
 # Changelog
 
+## Aru Project v1.14.0
+
+- Added `GRAMMAR.md` for machine-checkable grammar conformance notes.
+- Added `CONFORMANCE.tsv` with 60 valid and invalid parser conformance examples.
+- Added `tools/parse-aru.ps1` for structured sentence parsing.
+- Added `tools/check-conformance.ps1` and `tools/conformance-report.ps1`.
+- Connected conformance checks to CI, release gates, project reports, CLI search, and the public portal.
+- Language core remains **Aru v1.0.0**.
+
 ## Aru Project v1.13.0
 
 - Added `ADOPTION.md` for public growth strategy and learner entry points.

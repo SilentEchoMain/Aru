@@ -34,6 +34,10 @@ foreach ($required in @(
     "COMMUNITY_CHALLENGES.tsv",
     "Community Challenges",
     "challengeSearch",
+    "GRAMMAR.md",
+    "CONFORMANCE.tsv",
+    "Grammar Conformance",
+    "conformanceSearch",
     "BENCHMARK.md",
     "QUALITY_METRICS.md",
     "TRANSLATION_BENCH.tsv",
@@ -58,8 +62,8 @@ foreach ($required in @(
 }
 
 $releases = @(Import-Csv -Delimiter "`t" $releasesPath)
-if ($releases.Count -lt 14) {
-    Fail "Expected at least 14 releases, got $($releases.Count)."
+if ($releases.Count -lt 15) {
+    Fail "Expected at least 15 releases, got $($releases.Count)."
 }
 
 $columns = @($releases[0].PSObject.Properties.Name)
@@ -73,8 +77,8 @@ $current = @($releases | Where-Object { $_.status -eq "current" })
 if ($current.Count -ne 1) {
     Fail "Expected exactly one current release, got $($current.Count)."
 }
-if ($current[0].version -ne "v1.13.0") {
-    Fail "Expected current release v1.13.0, got $($current[0].version)."
+if ($current[0].version -ne "v1.14.0") {
+    Fail "Expected current release v1.14.0, got $($current[0].version)."
 }
 if (($releases | Where-Object { $_.core -ne "v1.0.0" }).Count -gt 0) {
     Fail "Every project release should preserve language core v1.0.0."
