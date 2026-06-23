@@ -29,6 +29,8 @@ Use this checklist when reviewing pull requests, issue proposals, and discussion
 - Dialogues are short and useful for learners.
 - Lessons introduce patterns before dense examples.
 - Translations are clear and do not hide missing Aru structure.
+- Benchmark rows are short, levelled, and tied to one main phenomenon.
+- Benchmark reference translations follow `QUALITY_METRICS.md`.
 
 ## Editor And Authoring
 
@@ -46,6 +48,7 @@ Run:
 .\tools\build-learning.ps1
 .\tools\build-releases.ps1
 .\tools\check-authoring.ps1
+.\tools\check-benchmark.ps1
 .\tools\check-community.ps1
 .\tools\check-editor.ps1
 .\tools\check-lexicon.ps1

@@ -7,6 +7,7 @@ param(
     [switch]$Cards,
     [switch]$Releases,
     [switch]$Submissions,
+    [switch]$Benchmark,
     [switch]$Json
 )
 
@@ -20,6 +21,7 @@ $dialoguesPath = Join-Path $root "DIALOGUES.tsv"
 $flashcardsPath = Join-Path $root "FLASHCARDS.tsv"
 $releasesPath = Join-Path $root "RELEASES.tsv"
 $submissionsPath = Join-Path $root "TEXT_SUBMISSIONS.tsv"
+$benchmarkPath = Join-Path $root "TRANSLATION_BENCH.tsv"
 
 function Fail($message) {
     Write-Error $message
@@ -47,6 +49,9 @@ if (!(Test-Path $releasesPath)) {
 if (!(Test-Path $submissionsPath)) {
     Fail "TEXT_SUBMISSIONS.tsv is missing."
 }
+if (!(Test-Path $benchmarkPath)) {
+    Fail "TRANSLATION_BENCH.tsv is missing."
+}
 
 $lexicon = Import-Csv -Delimiter "`t" $lexiconPath
 $phrasebook = Import-Csv -Delimiter "`t" $phrasebookPath
@@ -55,6 +60,7 @@ $dialogueRows = Import-Csv -Delimiter "`t" $dialoguesPath
 $flashcardRows = Import-Csv -Delimiter "`t" $flashcardsPath
 $releaseRows = Import-Csv -Delimiter "`t" $releasesPath
 $submissionRows = Import-Csv -Delimiter "`t" $submissionsPath
+$benchmarkRows = Import-Csv -Delimiter "`t" $benchmarkPath
 $roots = @{}
 foreach ($row in $lexicon) {
     $roots[$row.root] = $row
@@ -132,6 +138,10 @@ if ($Search) {
         $matches = @($submissionRows | Where-Object {
             ($_.id + " " + $_.type + " " + $_.level + " " + $_.topic + " " + $_.aru + " " + $_.en + " " + $_.notes + " " + $_.status).ToLowerInvariant().Contains($needle)
         })
+    } elseif ($Benchmark) {
+        $matches = @($benchmarkRows | Where-Object {
+            ($_.id + " " + $_.level + " " + $_.domain + " " + $_.phenomenon + " " + $_.source_en + " " + $_.reference_aru + " " + $_.notes).ToLowerInvariant().Contains($needle)
+        })
     } elseif ($Corpus) {
         $matches = @($corpusRows | Where-Object {
             ($_.id + " " + $_.level + " " + $_.topic + " " + $_.aru + " " + $_.en + " " + $_.notes).ToLowerInvariant().Contains($needle)
@@ -168,6 +178,7 @@ if (!$Text) {
     Write-Output "  .\tools\aru-tool.ps1 -Search waro -Cards"
     Write-Output "  .\tools\aru-tool.ps1 -Search portal -Releases"
     Write-Output "  .\tools\aru-tool.ps1 -Search draft -Submissions"
+    Write-Output "  .\tools\aru-tool.ps1 -Search relative -Benchmark"
     exit 0
 }
 

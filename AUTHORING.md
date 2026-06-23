@@ -25,6 +25,13 @@ For queued proposals, use `TEXT_SUBMISSIONS.tsv` and `TEXT_WORKFLOW.md`.
 .\tools\check-authoring.ps1
 ```
 
+For translation benchmark work, use `BENCHMARK.md`, `TRANSLATION_BENCH.tsv`, and `QUALITY_METRICS.md`.
+
+```powershell
+.\tools\check-benchmark.ps1
+.\tools\benchmark-report.ps1
+```
+
 ## Suggested Metadata
 
 Use this metadata for new texts:
@@ -85,6 +92,7 @@ They are source assets for editor support. They are not yet packaged as a market
 Before proposing a text, check it against:
 
 - `TEXT_WORKFLOW.md`
+- `BENCHMARK.md` and `QUALITY_METRICS.md` for benchmark items
 - `STYLE_GUIDE.md`
 - `REVIEW_CHECKLIST.md`
 - `LEXICON_POLICY.md` if it needs a new root

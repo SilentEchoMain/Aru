@@ -34,6 +34,7 @@ Accepted texts can be copied into:
 - `CORPUS.tsv`
 - `DIALOGUES.tsv`
 - `PROMPTS.md`
+- `TRANSLATION_BENCH.tsv`, when the text is a controlled benchmark item
 
 The queue keeps the proposal history.
 

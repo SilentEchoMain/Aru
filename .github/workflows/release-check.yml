@@ -27,6 +27,10 @@ jobs:
         shell: pwsh
         run: ./tools/check-authoring.ps1
 
+      - name: Check benchmark
+        shell: pwsh
+        run: ./tools/check-benchmark.ps1
+
       - name: Check community process
         shell: pwsh
         run: ./tools/check-community.ps1

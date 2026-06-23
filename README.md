@@ -6,7 +6,7 @@ Its goal is to be small, regular, and useful for simple speech without grammatic
 
 Current status: **stable core v1.0.0**.
 
-Current project release: **v1.11.0**.
+Current project release: **v1.12.0**.
 
 ## Core Idea
 
@@ -70,6 +70,9 @@ REVIEW_CHECKLIST.md reviewer checklist
 AUTHORING.md   writing and editor workflow
 TEXT_WORKFLOW.md text submission workflow
 TEXT_SUBMISSIONS.tsv queued public text drafts
+BENCHMARK.md  translation benchmark guide
+QUALITY_METRICS.md scoring guide for public examples
+TRANSLATION_BENCH.tsv 50 translation benchmark items
 PROMPTS.md     20 writing prompts
 EXAMPLES.md    lessons, corpus, dialogues, and smoke phrases
 LICENSE.md     project license
@@ -105,10 +108,12 @@ Open [index.html](index.html) for the public site and browser playground.
 .\tools\aru-tool.ps1 -Search community -Corpus
 .\tools\aru-tool.ps1 -Search meeting -Dialogues
 .\tools\aru-tool.ps1 -Search waro -Cards
+.\tools\aru-tool.ps1 -Search relative -Benchmark
 .\tools\build-corpus.ps1
 .\tools\build-learning.ps1
 .\tools\build-releases.ps1
 .\tools\check-authoring.ps1
+.\tools\check-benchmark.ps1
 .\tools\check-community.ps1
 .\tools\check-editor.ps1
 .\tools\check-lexicon.ps1
@@ -116,6 +121,7 @@ Open [index.html](index.html) for the public site and browser playground.
 .\tools\check-portal.ps1
 .\tools\test-site.ps1
 .\tools\serve-site.ps1
+.\tools\benchmark-report.ps1
 .\tools\project-report.ps1
 ```
 

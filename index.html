@@ -412,6 +412,7 @@
         <a href="#phrasebook">Phrasebook</a>
         <a href="#course">Course</a>
         <a href="#submissions">Submissions</a>
+        <a href="#benchmark">Benchmark</a>
         <a href="#corpus">Corpus</a>
         <a href="#dialogues">Dialogues</a>
         <a href="#releases">Releases</a>
@@ -486,6 +487,16 @@
           <h3>Text Workflow</h3>
           <p>Draft, review, and promote public Aru texts through a checked queue.</p>
           <a class="button" href="TEXT_WORKFLOW.md">Open workflow</a>
+        </div>
+        <div class="panel">
+          <h3>Benchmark</h3>
+          <p>Measure translation coverage with levelled English-to-Aru reference items.</p>
+          <a class="button" href="BENCHMARK.md">Open benchmark</a>
+        </div>
+        <div class="panel">
+          <h3>Quality Metrics</h3>
+          <p>Score public examples for meaning, grammar, lexicon, clarity, and economy.</p>
+          <a class="button" href="QUALITY_METRICS.md">Open metrics</a>
         </div>
         <div class="panel">
           <h3>Review</h3>
@@ -602,6 +613,30 @@ I go to the house.</pre>
       <div id="submissionTable"></div>
     </section>
 
+    <section id="benchmark">
+      <h2>Translation Benchmark</h2>
+      <p class="muted">Search 50 levelled English-to-Aru prompts for translation checks, lesson coverage, and quality review.</p>
+      <p>
+        <a class="button" href="TRANSLATION_BENCH.tsv">Open benchmark data</a>
+        <a class="button" href="QUALITY_METRICS.md">Open quality metrics</a>
+      </p>
+      <div class="filters">
+        <div>
+          <label for="benchmarkLevel">Level</label>
+          <select id="benchmarkLevel"></select>
+        </div>
+        <div>
+          <label for="benchmarkPhenomenon">Phenomenon</label>
+          <select id="benchmarkPhenomenon"></select>
+        </div>
+        <div>
+          <label for="benchmarkSearch">Search</label>
+          <input id="benchmarkSearch" placeholder="Search source, reference, domain, or notes">
+        </div>
+      </div>
+      <div id="benchmarkTable"></div>
+    </section>
+
     <section id="corpus">
       <h2>Corpus Reader</h2>
       <p class="muted">Search 100 short corpus texts built from the stable v1.0.0 core.</p>
@@ -663,6 +698,7 @@ I go to the house.</pre>
     let flashcards = [];
     let releases = [];
     let submissions = [];
+    let benchmark = [];
     let roots = new Set();
 
     function parseTsv(text) {
@@ -675,14 +711,15 @@ I go to the house.</pre>
     }
 
     async function loadData() {
-      const [lex, phrases, corpusText, dialogueText, flashcardText, releaseText, submissionText] = await Promise.all([
+      const [lex, phrases, corpusText, dialogueText, flashcardText, releaseText, submissionText, benchmarkText] = await Promise.all([
         fetch("LEXICON.tsv").then(r => r.text()),
         fetch("PHRASEBOOK.tsv").then(r => r.text()),
         fetch("CORPUS.tsv").then(r => r.text()),
         fetch("DIALOGUES.tsv").then(r => r.text()),
         fetch("FLASHCARDS.tsv").then(r => r.text()),
         fetch("RELEASES.tsv").then(r => r.text()),
-        fetch("TEXT_SUBMISSIONS.tsv").then(r => r.text())
+        fetch("TEXT_SUBMISSIONS.tsv").then(r => r.text()),
+        fetch("TRANSLATION_BENCH.tsv").then(r => r.text())
       ]);
       lexicon = parseTsv(lex);
       phrasebook = parseTsv(phrases);
@@ -691,6 +728,7 @@ I go to the house.</pre>
       flashcards = parseTsv(flashcardText);
       releases = parseTsv(releaseText);
       submissions = parseTsv(submissionText);
+      benchmark = parseTsv(benchmarkText);
       roots = new Set(lexicon.map(row => row.root));
       setupFilters();
       renderStats();
@@ -701,6 +739,7 @@ I go to the house.</pre>
       renderFlashcards();
       renderReleases();
       renderSubmissions();
+      renderBenchmark();
       analyze();
     }
 
@@ -795,20 +834,23 @@ I go to the house.</pre>
       fillSelect("corpusTopic", uniqueValues(corpus, "topic"), "topics");
       fillSelect("dialogueLevel", uniqueValues(dialogues, "level"), "levels");
       fillSelect("dialogueTopic", uniqueValues(dialogues, "topic"), "topics");
+      fillSelect("benchmarkLevel", uniqueValues(benchmark, "level"), "levels");
+      fillSelect("benchmarkPhenomenon", uniqueValues(benchmark, "phenomenon"), "phenomena");
     }
 
     function renderStats() {
       const current = releases.find(row => row.status === "current") || releases[0] || {};
       const stats = [
         ["Core", "v1.0.0"],
-        ["Project", current.version || "v1.7.0"],
+        ["Project", current.version || "v1.12.0"],
         ["Roots", lexicon.length],
         ["Phrases", phrasebook.length],
         ["Corpus Texts", corpus.length],
         ["Dialogues", dialogues.length],
         ["Flashcards", flashcards.length],
         ["Releases", releases.length],
-        ["Submissions", submissions.length]
+        ["Submissions", submissions.length],
+        ["Benchmark", benchmark.length]
       ];
       document.getElementById("statsGrid").innerHTML = stats
         .map(([label, value]) => `<div class="metric"><strong>${value}</strong><span>${label}</span></div>`)
@@ -879,6 +921,18 @@ I go to the house.</pre>
       document.getElementById("submissionTable").innerHTML = table(["id", "type", "level", "topic", "aru", "en", "status"], rows);
     }
 
+    function renderBenchmark() {
+      const q = document.getElementById("benchmarkSearch").value.toLowerCase();
+      const level = document.getElementById("benchmarkLevel").value;
+      const phenomenon = document.getElementById("benchmarkPhenomenon").value;
+      const rows = benchmark
+        .filter(row => !level || row.level === level)
+        .filter(row => !phenomenon || row.phenomenon === phenomenon)
+        .filter(row => Object.values(row).join(" ").toLowerCase().includes(q))
+        .slice(0, 80);
+      document.getElementById("benchmarkTable").innerHTML = table(["id", "level", "domain", "phenomenon", "source_en", "reference_aru"], rows);
+    }
+
     document.getElementById("input").addEventListener("input", analyze);
     document.getElementById("lexiconSearch").addEventListener("input", renderLexicon);
     document.getElementById("lexiconDomain").addEventListener("change", renderLexicon);
@@ -892,6 +946,9 @@ I go to the house.</pre>
     document.getElementById("dialogueTopic").addEventListener("change", renderDialogues);
     document.getElementById("flashcardSearch").addEventListener("input", renderFlashcards);
     document.getElementById("submissionSearch").addEventListener("input", renderSubmissions);
+    document.getElementById("benchmarkSearch").addEventListener("input", renderBenchmark);
+    document.getElementById("benchmarkLevel").addEventListener("change", renderBenchmark);
+    document.getElementById("benchmarkPhenomenon").addEventListener("change", renderBenchmark);
     loadData().catch(error => {
       document.getElementById("status").className = "status bad";
       document.getElementById("status").textContent = "Could not load project TSV files.";

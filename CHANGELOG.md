@@ -1,5 +1,14 @@
 # Changelog
 
+## Aru Project v1.12.0
+
+- Added `BENCHMARK.md` for the public translation benchmark workflow.
+- Added `TRANSLATION_BENCH.tsv` with 50 levelled English-to-Aru benchmark items.
+- Added `QUALITY_METRICS.md` for scoring meaning, grammar, lexicon, clarity, and economy.
+- Added `tools/check-benchmark.ps1` and `tools/benchmark-report.ps1`.
+- Connected benchmark checks to CI, release gates, project reports, CLI search, and the public portal.
+- Language core remains **Aru v1.0.0**.
+
 ## Aru Project v1.11.0
 
 - Added `TEXT_WORKFLOW.md` for moving draft text into review and accepted public materials.

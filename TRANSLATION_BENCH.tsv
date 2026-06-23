@@ -1,0 +1,51 @@
+id	level	domain	phenomenon	source_en	reference_aru	notes
+B001	A0	speech	predicate	I speak.	na ra waro.	Basic predicate boundary
+B002	A0	perception	object	I see light.	na ra sela ke luma.	Direct object with ke
+B003	A0	food	object	You eat food.	ta ra kani ke pani.	Basic transitive clause
+B004	A0	movement	predicate	They come.	u ra tanu.	Pronoun without number marking
+B005	A0	question	question	Who goes?	se ra naka?	Unknown subject question
+B006	A0	food	negation	I do not eat.	na ra no kani.	Predicate negation
+B007	A0	movement	imperative	Go.	o naka.	Bare imperative
+B008	A0	name	name	My name is Aru.	lani ne na ra ya Aru.	Name marker
+B009	A0	people	quantity	One person comes.	mene un ra tanu.	Minimal quantity
+B010	A0	quality	predicate	The house is good.	malo ra nela.	Quality predicate
+B011	A1	food	time	I ate food.	na ra pa kani ke pani.	Past marker
+B012	A1	movement	relation	I will go to the house.	na ra po naka ko malo.	Future plus direction
+B013	A1	place	relation	I am inside the house.	na ra to insa malo.	Location relation
+B014	A1	movement	relation	I go from the house.	na ra naka so malo.	Physical source
+B015	A1	building	relation	I build the house with a tool.	na ra maku ke malo we tulu.	Instrument with we
+B016	A1	house	relation	My house is small.	malo ne na ra mini.	Weak relation
+B017	A1	writing	context	Today I write a text.	temu luma nu le, na ra raku ke sipu.	Time context
+B018	A1	condition	context	If you go, I go.	etu ta ra naka le, na ra naka.	Conditional context
+B019	A1	knowledge	content	I know that you came.	na ra sona ke i le, ta ra pa tanu.	Content clause
+B020	A1	reading	modal	I can read the text.	na ra pawa lowa ke sipu.	Modal chain
+B021	A1	learning	modal	I want to learn Aru.	na ra rima nema ke ya Aru.	Intent plus name
+B022	A1	food	coordination	Food and water are good.	pani an wai ra nela.	Nominal coordination
+B023	A1	choice	coordination	I take food or water.	na ra taka ke pani alo wai.	Object alternative
+B024	A1	body	relation	My hand hurts.	kute ne na ra nawa.	Body relation
+B025	A1	media	object	The person reads a book.	mene ra lowa ke lipa.	Media object
+B026	A1	weather	coordination	Rain comes, therefore I stay.	roka ra tanu, sia na ra mota.	Sentence connector
+B027	A1	tools	coordination	The tool is broken, but I repair it.	tulu ra rupi, tune na ra mela ke i.	Contrast connector
+B028	A1	community	object	The teacher helps the child.	senu ra wena ke kano.	Society vocabulary
+B029	A1	movement	relation	I wait near the road.	na ra wati to poka lupo.	Location phrase
+B030	A1	people	quantity	Three people come.	mene saka 3 ra tanu.	Exact number
+B031	A1	work	phase	I begin work.	na ra waki salo.	Phase chain
+B032	A1	work	object	I finish the task.	na ra pini ke salo.	Completion with object
+B033	A1	tools	object	I choose this tool.	na ra laki ke tulu i.	Demonstrative object
+B034	A1	name	object	I remember your name.	na ra kame ke lani ne ta.	Possessive relation
+B035	A1	water	object	The person searches for water.	mene ra soku ke wai.	Search object
+B036	A2	relative	relative	The person who writes the text is good.	mene re ri ra raku ke sipu, ra nela.	Relative subject
+B037	A2	relative	relative	The house that I see is big.	malo re na ra sela ke ri, ra maru.	Relative object
+B038	A2	place	relative	The house where I stay is near.	malo re na ra mota to ri, ra kima.	Relative place
+B039	A2	comparison	comparison	This house is bigger than that house.	malo i ra maru pasu malo ena.	More than comparison
+B040	A2	comparison	comparison	This water is as hot as that water.	wai i ra welo sama pasu wai ena.	Equal comparison
+B041	A2	comparison	comparison	This tool is less heavy than that tool.	tulu i ra risa mini pasu tulu ena.	Lesser degree
+B042	A2	people	comparison	This person is the best.	mene i ra nela pasu ora.	Superlative
+B043	A2	weather	cause	I do not go because of rain.	na ra no naka so etu roka.	Cause with so etu
+B044	A2	knowledge	content	I know that he did not come.	na ra sona ke i le, u ra pa no tanu.	Content plus negation
+B045	A2	writing	modal	I want to be able to write a text.	na ra rima pawa raku ke sipu.	Modal chain
+B046	A2	movement	coordination	The road is far, but the house is near.	lupo ra para, tune malo ra kima.	Contrast with qualities
+B047	A2	tools	context	If the tool is broken, I repair it.	etu tulu ra rupi le, na ra mela ke i.	Conditional repair
+B048	A2	question	question	What do you see?	ta ra sela ke se?	Unknown object question
+B049	A2	giving	relation	I give food to the child.	na ra lano ke pani ko kano.	Recipient relation
+B050	A2	relative	relative	The text that I wrote is open.	sipu re na ra raku ke ri, ra puka.	Relative object with media

@@ -30,6 +30,10 @@ foreach ($required in @(
     "TEXT_WORKFLOW.md",
     "TEXT_SUBMISSIONS.tsv",
     "Text Submission Queue",
+    "BENCHMARK.md",
+    "QUALITY_METRICS.md",
+    "TRANSLATION_BENCH.tsv",
+    "Translation Benchmark",
     "REVIEW_CHECKLIST.md",
     "CODE_OF_CONDUCT.md",
     "editor/vscode/aru.tmLanguage.json",
@@ -46,7 +50,7 @@ foreach ($required in @(
     }
 }
 
-foreach ($file in @("LEXICON.tsv", "LEXICON_POLICY.md", "PHRASEBOOK.tsv", "CORPUS.tsv", "DIALOGUES.tsv", "FLASHCARDS.tsv", "RELEASES.tsv", "TEXT_SUBMISSIONS.tsv")) {
+foreach ($file in @("LEXICON.tsv", "LEXICON_POLICY.md", "PHRASEBOOK.tsv", "CORPUS.tsv", "DIALOGUES.tsv", "FLASHCARDS.tsv", "RELEASES.tsv", "TEXT_SUBMISSIONS.tsv", "TRANSLATION_BENCH.tsv")) {
     if (!(Test-Path (Join-Path $root $file))) {
         Fail "Site data file is missing: $file"
     }
