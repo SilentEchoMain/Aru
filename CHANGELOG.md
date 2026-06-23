@@ -1,5 +1,18 @@
 # Changelog
 
+## Aru Project v1.3.0
+
+- Added `COURSE.md` with a structured 12-lesson course.
+- Added `REFERENCE.md` as a compact grammar and writing reference.
+- Added `FLASHCARDS.tsv` with generated study cards for roots and phrasebook examples.
+- Added `tools/build-learning.ps1` to regenerate flashcards from project data.
+- Added `tools/test-site.ps1` for website smoke checks.
+- Extended `tools/aru-tool.ps1` with flashcard search.
+- Extended `tools/project-report.ps1` with learning-system metrics.
+- Extended `index.html` with learning-system links and flashcard search.
+- Strengthened `tools/check-release.ps1` to require and validate learning artifacts.
+- Language core remains **Aru v1.0.0**.
+
 ## Aru Project v1.2.0
 
 - Added `CORPUS.tsv` with 100 short stable-core texts.

@@ -1,0 +1,308 @@
+﻿id	deck	front	back	tags
+C001	core-lexicon	ra	predicate marker	root particle
+C002	core-lexicon	ke	object marker	root particle
+C003	core-lexicon	ne	weak relation / genitive	root particle
+C004	core-lexicon	le	context / frame	root particle
+C005	core-lexicon	re	relative construction	root particle
+C006	core-lexicon	ri	relative substitute	root particle
+C007	core-lexicon	no	not	root particle
+C008	core-lexicon	ka	yes/no question	root particle
+C009	core-lexicon	o	imperative	root particle
+C010	core-lexicon	ya	name / foreign word	root particle
+C011	core-lexicon	pa	past	root time
+C012	core-lexicon	nu	now / present	root time
+C013	core-lexicon	po	future	root time
+C014	core-lexicon	to	area / place / contact	root relation
+C015	core-lexicon	ko	direction / addressee / goal	root relation
+C016	core-lexicon	so	source	root relation
+C017	core-lexicon	we	accompaniment / means	root relation
+C018	core-lexicon	pasu	than / compared with	root relation
+C019	core-lexicon	an	and	root conjunction
+C020	core-lexicon	alo	or	root conjunction
+C021	core-lexicon	sia	therefore	root conjunction
+C022	core-lexicon	tune	but	root conjunction
+C023	core-lexicon	na	I / we	root pronoun
+C024	core-lexicon	ta	you	root pronoun
+C025	core-lexicon	u	he / she / it / they	root pronoun
+C026	core-lexicon	i	this / here	root demonstrative
+C027	core-lexicon	ena	that / there	root demonstrative
+C028	core-lexicon	se	unknown element	root indefinite
+C029	core-lexicon	nalo	zero / absence	root quantity
+C030	core-lexicon	un	one	root quantity
+C031	core-lexicon	san	two	root quantity
+C032	core-lexicon	mun	many	root quantity
+C033	core-lexicon	ora	all / every	root quantity
+C034	core-lexicon	saka	exact number	root quantity
+C035	core-lexicon	mene	person	root root
+C036	core-lexicon	lani	name	root root
+C037	core-lexicon	mamu	parent / caretaker	root root
+C038	core-lexicon	waro	speech / speak	root root
+C039	core-lexicon	naru	rule / order	root root
+C040	core-lexicon	etu	condition / circumstance	root root
+C041	core-lexicon	malo	house / shelter / building	root root
+C042	core-lexicon	tera	earth / place / surface	root root
+C043	core-lexicon	luma	light / sun	root root
+C044	core-lexicon	temu	time / period	root root
+C045	core-lexicon	noki	darkness / night	root root
+C046	core-lexicon	muna	moon	root root
+C047	core-lexicon	wai	water / liquid	root root
+C048	core-lexicon	pira	fire / heat	root root
+C049	core-lexicon	kawo	air / sky	root root
+C050	core-lexicon	pani	food	root root
+C051	core-lexicon	lenu	clothing / covering	root root
+C052	core-lexicon	tulu	tool	root root
+C053	core-lexicon	insa	inside / interior	root root
+C054	core-lexicon	supa	surface / top	root root
+C055	core-lexicon	poka	side / nearby	root root
+C056	core-lexicon	naka	go / move	root root
+C057	core-lexicon	tanu	come / arrive	root root
+C058	core-lexicon	ruma	become	root root
+C059	core-lexicon	waki	begin	root root
+C060	core-lexicon	maku	do / make / build	root root
+C061	core-lexicon	kani	eat / consume	root root
+C062	core-lexicon	taka	take / receive	root root
+C063	core-lexicon	lano	give / send	root root
+C064	core-lexicon	sela	see / perceive	root root
+C065	core-lexicon	lora	hear / listen	root root
+C066	core-lexicon	sona	know / understand / know how	root root
+C067	core-lexicon	rima	want / intend	root root
+C068	core-lexicon	pawa	can / have power	root root
+C069	core-lexicon	sima	need / should	root root
+C070	core-lexicon	miso	sleep / rest	root root
+C071	core-lexicon	pini	finish / stop	root root
+C072	core-lexicon	ama	have / contain	root root
+C073	core-lexicon	maru	big / important	root quality
+C074	core-lexicon	mini	small / slight	root quality
+C075	core-lexicon	nela	good / right / useful	root quality
+C076	core-lexicon	keto	bad / harmful / wrong	root quality
+C077	core-lexicon	sini	new	root quality
+C078	core-lexicon	lasa	old	root quality
+C079	core-lexicon	welo	hot	root quality
+C080	core-lexicon	nilo	cold	root quality
+C081	core-lexicon	kima	near	root quality
+C082	core-lexicon	para	far	root quality
+C083	core-lexicon	sama	similar / same	root quality
+C084	core-lexicon	lisu	clean / simple	root quality
+C085	core-lexicon	soma	body	root root
+C086	core-lexicon	saki	head	root root
+C087	core-lexicon	mata	eye / gaze	root root
+C088	core-lexicon	nuko	ear	root root
+C089	core-lexicon	muto	mouth / opening	root root
+C090	core-lexicon	kute	hand / arm	root root
+C091	core-lexicon	pamo	leg / foot	root root
+C092	core-lexicon	rani	blood	root root
+C093	core-lexicon	telo	skin / outer layer	root root
+C094	core-lexicon	neno	heart / center	root root
+C095	core-lexicon	nawa	pain / hurt	root root
+C096	core-lexicon	nima	life / live	root root
+C097	core-lexicon	melo	friend	root root
+C098	core-lexicon	kano	child	root root
+C099	core-lexicon	rane	adult / elder	root root
+C100	core-lexicon	senu	teacher / guide	root root
+C101	core-lexicon	kale	group / community	root root
+C102	core-lexicon	nami	family / close group	root root
+C103	core-lexicon	mono	thing / object	root root
+C104	core-lexicon	suko	container / vessel	root root
+C105	core-lexicon	lipa	sheet / book / document	root root
+C106	core-lexicon	raku	write / mark / drawing	root root
+C107	core-lexicon	lowa	read / interpret sign	root root
+C108	core-lexicon	poto	image / picture	root root
+C109	core-lexicon	sipu	text / record	root root
+C110	core-lexicon	salo	work / task	root root
+C111	core-lexicon	pela	play / game	root root
+C112	core-lexicon	mona	thought / think	root root
+C113	core-lexicon	sawi	ask / request	root root
+C114	core-lexicon	pane	answer / reply	root root
+C115	core-lexicon	nema	learn / study	root root
+C116	core-lexicon	laki	choose / choice	root root
+C117	core-lexicon	kame	remember	root root
+C118	core-lexicon	niso	forget	root root
+C119	core-lexicon	sano	believe / trust	root root
+C120	core-lexicon	sena	try / test	root root
+C121	core-lexicon	wena	help / support	root root
+C122	core-lexicon	wati	wait	root root
+C123	core-lexicon	mota	stay / remain	root root
+C124	core-lexicon	weki	leave / depart	root root
+C125	core-lexicon	soku	search / find	root root
+C126	core-lexicon	toma	keep / store	root root
+C127	core-lexicon	kipa	hold / carry	root root
+C128	core-lexicon	puka	open	root root
+C129	core-lexicon	soto	close / shut	root root
+C130	core-lexicon	rupi	break / broken	root root
+C131	core-lexicon	mela	repair / heal	root root
+C132	core-lexicon	kasi	plant / grow	root root
+C133	core-lexicon	simo	living creature / animal	root root
+C134	core-lexicon	kapi	stone / solid piece	root root
+C135	core-lexicon	pula	dust / powder	root root
+C136	core-lexicon	roka	rain	root root
+C137	core-lexicon	lupo	path / road	root root
+C138	core-lexicon	rano	river / flow	root root
+C139	core-lexicon	mewa	sea / large water place	root root
+C140	core-lexicon	sara	mountain / high land	root root
+C141	core-lexicon	pano	field / open area	root root
+C142	core-lexicon	kowa	wind / moving air	root root
+C143	core-lexicon	misa	middle / between	root root
+C144	core-lexicon	tonu	true / real	root quality
+C145	core-lexicon	kemu	false / unreal	root quality
+C146	core-lexicon	kasa	hard / difficult	root quality
+C147	core-lexicon	lapi	soft	root quality
+C148	core-lexicon	nasa	strange / confused	root quality
+C149	core-lexicon	sene	quiet / calm	root quality
+C150	core-lexicon	riki	fast	root quality
+C151	core-lexicon	mole	slow	root quality
+C152	core-lexicon	risa	heavy	root quality
+C153	core-lexicon	puna	lightweight	root quality
+C154	core-lexicon	rasa	red	root quality
+C155	core-lexicon	nilu	blue / green	root quality
+C156	core-lexicon	walo	white / bright-colored	root quality
+C157	core-lexicon	pako	black / dark-colored	root quality
+C158	phrasebook	lani ne na ra ya Aru.	My name is Aru.	phrase identity
+C159	phrasebook	na ra mene.	I am a person.	phrase identity
+C160	phrasebook	ta ra mene nela.	You are a good person.	phrase identity
+C161	phrasebook	u ra melo ne na.	They are my friend.	phrase identity
+C162	phrasebook	na mun ra kale mini.	We are a small group.	phrase identity
+C163	phrasebook	na ra waro.	I speak.	phrase speech
+C164	phrasebook	ta ra lora ke na?	Do you hear me?	phrase speech
+C165	phrasebook	na ra lora ke ta.	I hear you.	phrase speech
+C166	phrasebook	na ra waro we ya Mira.	I speak with Mira.	phrase speech
+C167	phrasebook	ta o waro mini.	Speak briefly.	phrase speech
+C168	phrasebook	na ra sela ke luma.	I see light / the sun.	phrase perception
+C169	phrasebook	u ra sela ke malo maru.	They see a big house.	phrase perception
+C170	phrasebook	ta ra lora ke noki?	Do you hear the night / darkness?	phrase perception
+C171	phrasebook	mata ne na ra sela ke tulu.	My eye sees the tool.	phrase perception
+C172	phrasebook	nuko ne ta ra lora ke waro.	Your ear hears speech.	phrase perception
+C173	phrasebook	na ra naka.	I go.	phrase movement
+C174	phrasebook	ta ra naka ko malo.	You go to the house.	phrase movement
+C175	phrasebook	u ra tanu so malo.	They come from the house.	phrase movement
+C176	phrasebook	na ra weki so malo.	I leave the house.	phrase movement
+C177	phrasebook	na ra naka we ta.	I go with you.	phrase movement
+C178	phrasebook	na ra to malo.	I am at the house.	phrase place
+C179	phrasebook	na ra to insa malo.	I am inside the house.	phrase place
+C180	phrasebook	tulu ra to supa malo.	The tool is on top of the house.	phrase place
+C181	phrasebook	kano ra to poka mamu.	The child is beside the parent.	phrase place
+C182	phrasebook	malo ra to kima wai.	The house is near water.	phrase place
+C183	phrasebook	temu luma nu le, na ra salo.	Today I work.	phrase time
+C184	phrasebook	temu luma pa le, na ra pa miso.	Yesterday I slept.	phrase time
+C185	phrasebook	temu luma po le, na ra po tanu.	Tomorrow I will come.	phrase time
+C186	phrasebook	na ra nu kani ke pani.	I am eating food now.	phrase time
+C187	phrasebook	ta ra po naka ko tera para.	You will go to a far place.	phrase time
+C188	phrasebook	na ra kani ke pani.	I eat food.	phrase food
+C189	phrasebook	ta o kani ke pani welo.	Eat hot food.	phrase food
+C190	phrasebook	na ra rima ke wai.	I want water.	phrase food
+C191	phrasebook	pani ra to suko.	The food is in the container.	phrase food
+C192	phrasebook	wai ra nilo.	The water is cold.	phrase food
+C193	phrasebook	na ra maku ke malo.	I build a house.	phrase work
+C194	phrasebook	ta ra salo we tulu.	You work with a tool.	phrase work
+C195	phrasebook	u ra raku ke sipu.	They write a text.	phrase work
+C196	phrasebook	na ra lowa ke lipa.	I read the book / document.	phrase work
+C197	phrasebook	tulu i ra ko sela para.	This tool is for distant seeing.	phrase work
+C198	phrasebook	na ra nema ke ya Aru.	I study Aru.	phrase learning
+C199	phrasebook	ta ra sona ke naru ne waro.	You know the rules of speech.	phrase learning
+C200	phrasebook	u ra sona maku ke tulu.	They know how to make a tool.	phrase learning
+C201	phrasebook	na ra rima sona waro nela.	I want to know how to speak well.	phrase learning
+C202	phrasebook	senu ra pane ke se?	What does the teacher answer?	phrase learning
+C203	phrasebook	ka ta ra kani?	Are you eating?	phrase questions
+C204	phrasebook	se ra naka?	Who is going?	phrase questions
+C205	phrasebook	ta ra sela ke se?	What do you see?	phrase questions
+C206	phrasebook	ta ra to se?	Where are you?	phrase questions
+C207	phrasebook	ta ra no tanu so etu se?	Why did you not come?	phrase questions
+C208	phrasebook	na ra no kani ke pani.	I do not eat food.	phrase negation
+C209	phrasebook	no na ra kani ke pani.	Not I eat food.	phrase negation
+C210	phrasebook	na ra kani ke no pani.	I eat not-food.	phrase negation
+C211	phrasebook	o no naka.	Do not go.	phrase negation
+C212	phrasebook	na ra pa no tanu.	I did not come.	phrase negation
+C213	phrasebook	na ra no naka so etu nilo.	I do not go because of cold.	phrase cause
+C214	phrasebook	na ra no naka so etu i le, u ra nilo.	I do not go because it is cold.	phrase cause
+C215	phrasebook	u ra miso so etu salo maru.	They rest because of much work.	phrase cause
+C216	phrasebook	ta ra tanu so etu rima ne na?	Did you come because of my wish?	phrase cause
+C217	phrasebook	u ra naka, sia na ra naka.	They go, therefore I go.	phrase cause
+C218	phrasebook	malo ne na ra maru.	My house is big.	phrase relations
+C219	phrasebook	lani ne ta ra ya Mira.	Your name is Mira.	phrase relations
+C220	phrasebook	naru ne waro ra lisu.	The grammar is simple.	phrase relations
+C221	phrasebook	malo ko kano ra kima.	The house for the child is near.	phrase relations
+C222	phrasebook	wai so rano ra lisu.	The water from the river is clean.	phrase relations
+C223	phrasebook	mene re ri ra maku ke malo, ra nela.	The person who builds a house is good.	phrase relative
+C224	phrasebook	malo re na ra sela ke ri, ra maru.	The house that I see is big.	phrase relative
+C225	phrasebook	mene re na ra lano ke pani ko ri, ra melo ne na.	The person to whom I give food is my friend.	phrase relative
+C226	phrasebook	tulu re ta ra kipa ke ri, ra kasa.	The tool you hold is hard.	phrase relative
+C227	phrasebook	malo re na ra to ri, ra nilo.	The house where I am is cold.	phrase relative
+C228	phrasebook	malo i ra maru pasu malo ena.	This house is bigger than that house.	phrase comparison
+C229	phrasebook	tulu i ra nela pasu tulu ena.	This tool is better than that tool.	phrase comparison
+C230	phrasebook	wai i ra welo mini pasu wai ena.	This water is less hot than that water.	phrase comparison
+C231	phrasebook	mene i ra riki sama pasu mene ena.	This person is as fast as that one.	phrase comparison
+C232	phrasebook	malo i ra maru pasu ora.	This house is the biggest.	phrase comparison
+C233	phrasebook	na ra sona ke i le, u ra pa tanu.	I know that they came.	phrase content
+C234	phrasebook	ta ra rima ke i le, na ra naka.	You want me to go.	phrase content
+C235	phrasebook	u ra sela ke i le, na ra maku ke malo.	They see that I build a house.	phrase content
+C236	phrasebook	na ra waro ke i le, ya Aru ra lisu.	I say that Aru is simple.	phrase content
+C237	phrasebook	ta ra sano ke i le, na ra po tanu?	Do you believe that I will come?	phrase content
+C238	phrasebook	soma ne na ra nilo.	My body is cold.	phrase body
+C239	phrasebook	na ra nawa to pamo.	I have pain in my leg.	phrase body
+C240	phrasebook	kute ne ta ra kipa ke tulu.	Your hand holds the tool.	phrase body
+C241	phrasebook	muto ne u ra no waro.	Their mouth does not speak.	phrase body
+C242	phrasebook	neno ne na ra pawa.	My heart is strong.	phrase body
+C243	phrasebook	kasi ra to tera.	The plant is on the ground.	phrase world
+C244	phrasebook	simo ra naka to rano.	The animal moves by the river.	phrase world
+C245	phrasebook	roka ra tanu so kawo.	Rain comes from the sky.	phrase world
+C246	phrasebook	kowa ra naka we luma.	The wind moves with the light / sun.	phrase world
+C247	phrasebook	mewa ra maru pasu rano.	The sea is bigger than the river.	phrase world
+C248	phrasebook	lipa i ra ne na.	This document is mine / related to me.	phrase objects
+C249	phrasebook	poto ra to lipa.	The image is on the sheet / in the book.	phrase objects
+C250	phrasebook	suko ra ama ke wai.	The container has water.	phrase objects
+C251	phrasebook	tulu ra rupi.	The tool is broken.	phrase objects
+C252	phrasebook	na ra mela ke tulu.	I repair the tool.	phrase objects
+C253	phrasebook	ya Aru ra waro lisu.	Aru is simple speech.	phrase style
+C254	phrasebook	na ra no rima ke naru maru.	I do not want big rules.	phrase style
+C255	phrasebook	mene ra pawa waro nela.	A person can speak well.	phrase style
+C256	phrasebook	naru mini ra nela.	A small rule is good.	phrase style
+C257	phrasebook	waro lisu ra pawa.	Simple speech is powerful.	phrase style
+C258	phrasebook	mene mun ra nema ke ya Aru.	Many people learn Aru.	phrase community
+C259	phrasebook	kale ne ya Aru ra waki.	The Aru community begins.	phrase community
+C260	phrasebook	mene mun ra waro we naru sama.	People speak with the same rules.	phrase community
+C261	phrasebook	senu ra lano ke naru ko mene sini.	A teacher gives rules to a new person.	phrase community
+C262	phrasebook	mene sini ra sawi ke se?	What does the new person ask?	phrase community
+C263	phrasebook	mene lasa ra pane ke mene sini.	The older person answers the new person.	phrase community
+C264	phrasebook	kale ra maku ke sipu mun.	The community makes many texts.	phrase community
+C265	phrasebook	sipu ne kale ra lisu.	The community text is simple.	phrase community
+C266	phrasebook	mene mun ra sena ke waro.	People test speech.	phrase community
+C267	phrasebook	waro i ra ruma nela.	This speech becomes good.	phrase community
+C268	phrasebook	na ra raku ke sipu mini.	I write a small text.	phrase writing
+C269	phrasebook	ta ra lowa ke sipu ne na?	Do you read my text?	phrase writing
+C270	phrasebook	u ra raku ke lani ne u.	They write their name.	phrase writing
+C271	phrasebook	sipu i ra ama ke waro lisu.	This text contains simple speech.	phrase writing
+C272	phrasebook	sipu ena ra lasa pasu sipu i.	That text is older than this text.	phrase writing
+C273	phrasebook	na ra kame ke sipu i.	I remember this text.	phrase writing
+C274	phrasebook	na ra niso ke lani se.	I forget some name.	phrase writing
+C275	phrasebook	o raku ke mona ne ta.	Write your thought.	phrase writing
+C276	phrasebook	o lowa ke naru sini.	Read the new rule.	phrase writing
+C277	phrasebook	sipu ra pawa wena ke mene.	Text can help people.	phrase writing
+C278	phrasebook	tulu ra sena ke waro.	The tool tests speech.	phrase tooling
+C279	phrasebook	tulu i ra lowa ke sipu.	This tool reads text.	phrase tooling
+C280	phrasebook	tulu i ra pane ke i le, waro ra lisu.	This tool answers that speech is simple.	phrase tooling
+C281	phrasebook	na ra maku ke tulu ne sela waro.	I make a tool for seeing speech.	phrase tooling
+C282	phrasebook	tulu ne waro ra pawa.	The speech tool is powerful.	phrase tooling
+C283	phrasebook	mene ra pawa lowa ke waro we tulu.	A person can read speech with a tool.	phrase tooling
+C284	phrasebook	tulu ra no sona ke lani se.	The tool does not know some name.	phrase tooling
+C285	phrasebook	etu tulu ra no sona le, mene ra pane.	If the tool does not know, a person answers.	phrase tooling
+C286	phrasebook	tulu ra maku ke pane riki.	The tool makes a fast answer.	phrase tooling
+C287	phrasebook	naru lisu ra wena ke tulu.	Simple rules help the tool.	phrase tooling
+C288	phrasebook	temu luma nu le, kale ra puka ke sipu.	Today the community opens a text.	phrase public
+C289	phrasebook	mene mun ra lowa ke sipu puka.	Many people read the open text.	phrase public
+C290	phrasebook	mene se ra tanu so tera para.	Someone comes from a far place.	phrase public
+C291	phrasebook	mene se ra lora ke waro ne ya Aru.	Someone hears the speech of Aru.	phrase public
+C292	phrasebook	ta o sawi ke pane.	Ask for an answer.	phrase public
+C293	phrasebook	na ra lano ke pane ko ta.	I give the answer to you.	phrase public
+C294	phrasebook	etu pane ra nela le, na ra toma ke i.	If the answer is good, I keep it.	phrase public
+C295	phrasebook	etu pane ra keto le, na ra sena ke i.	If the answer is bad, I test it.	phrase public
+C296	phrasebook	waro ne kale ra ruma maru.	The speech of the community becomes important.	phrase public
+C297	phrasebook	ya Aru ra rima ke waro lisu.	Aru wants simple speech.	phrase public
+C298	phrasebook	mene un ra naka so malo.	One person goes from the house.	phrase story
+C299	phrasebook	u ra kipa ke tulu rupi.	They carry a broken tool.	phrase story
+C300	phrasebook	u ra soku ke melo.	They search for a friend.	phrase story
+C301	phrasebook	melo ra to rano.	The friend is by the river.	phrase story
+C302	phrasebook	melo ra lano ke wai ko u.	The friend gives water to them.	phrase story
+C303	phrasebook	u ra mela ke tulu.	They repair the tool.	phrase story
+C304	phrasebook	u an melo ra tanu ko malo.	They and the friend come to the house.	phrase story
+C305	phrasebook	temu luma pini le, u ra miso.	At the end of the day, they sleep.	phrase story
+C306	phrasebook	sipu i ra mini, tune sipu i ra nela.	This text is small, but this text is good.	phrase story
+C307	phrasebook	mene ra lowa ke sipu i, sia mene ra waro.	A person reads this text, therefore the person speaks.	phrase story

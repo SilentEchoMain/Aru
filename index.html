@@ -370,6 +370,7 @@
         <a href="#playground">Playground</a>
         <a href="#lexicon">Lexicon</a>
         <a href="#phrasebook">Phrasebook</a>
+        <a href="#course">Course</a>
         <a href="#corpus">Corpus</a>
         <a href="#dialogues">Dialogues</a>
         <a href="https://github.com/SilentEchoMain/Aru">GitHub</a>
@@ -467,6 +468,31 @@ I go to the house.</pre>
       <div id="phraseTable"></div>
     </section>
 
+    <section id="course">
+      <h2>Learning System</h2>
+      <p class="muted">Aru now has a structured course, a compact reference, and exportable flashcards.</p>
+      <div class="grid">
+        <div class="panel">
+          <h3>Course</h3>
+          <p>Work through 12 lessons with examples and exercises.</p>
+          <a class="button" href="COURSE.md">Open course</a>
+        </div>
+        <div class="panel">
+          <h3>Reference</h3>
+          <p>Use a compact grammar card while writing.</p>
+          <a class="button" href="REFERENCE.md">Open reference</a>
+        </div>
+        <div class="panel">
+          <h3>Flashcards</h3>
+          <p>Study roots and phrases with TSV flashcards.</p>
+          <a class="button" href="FLASHCARDS.tsv">Download cards</a>
+        </div>
+      </div>
+      <h3>Flashcard Search</h3>
+      <input id="flashcardSearch" placeholder="Search flashcards">
+      <div id="flashcardTable"></div>
+    </section>
+
     <section id="corpus">
       <h2>Corpus Reader</h2>
       <p class="muted">Search 100 short corpus texts built from the stable v1.0.0 core.</p>
@@ -493,6 +519,7 @@ I go to the house.</pre>
     let phrasebook = [];
     let corpus = [];
     let dialogues = [];
+    let flashcards = [];
     let roots = new Set();
 
     function parseTsv(text) {
@@ -505,21 +532,24 @@ I go to the house.</pre>
     }
 
     async function loadData() {
-      const [lex, phrases, corpusText, dialogueText] = await Promise.all([
+      const [lex, phrases, corpusText, dialogueText, flashcardText] = await Promise.all([
         fetch("LEXICON.tsv").then(r => r.text()),
         fetch("PHRASEBOOK.tsv").then(r => r.text()),
         fetch("CORPUS.tsv").then(r => r.text()),
-        fetch("DIALOGUES.tsv").then(r => r.text())
+        fetch("DIALOGUES.tsv").then(r => r.text()),
+        fetch("FLASHCARDS.tsv").then(r => r.text())
       ]);
       lexicon = parseTsv(lex);
       phrasebook = parseTsv(phrases);
       corpus = parseTsv(corpusText);
       dialogues = parseTsv(dialogueText);
+      flashcards = parseTsv(flashcardText);
       roots = new Set(lexicon.map(row => row.root));
       renderLexicon();
       renderPhrases();
       renderCorpus();
       renderDialogues();
+      renderFlashcards();
       analyze();
     }
 
@@ -628,11 +658,20 @@ I go to the house.</pre>
       document.getElementById("dialogueTable").innerHTML = table(["id", "topic", "aru", "en"], rows);
     }
 
+    function renderFlashcards() {
+      const q = document.getElementById("flashcardSearch").value.toLowerCase();
+      const rows = flashcards
+        .filter(row => Object.values(row).join(" ").toLowerCase().includes(q))
+        .slice(0, 80);
+      document.getElementById("flashcardTable").innerHTML = table(["id", "deck", "front", "back", "tags"], rows);
+    }
+
     document.getElementById("input").addEventListener("input", analyze);
     document.getElementById("lexiconSearch").addEventListener("input", renderLexicon);
     document.getElementById("phraseSearch").addEventListener("input", renderPhrases);
     document.getElementById("corpusSearch").addEventListener("input", renderCorpus);
     document.getElementById("dialogueSearch").addEventListener("input", renderDialogues);
+    document.getElementById("flashcardSearch").addEventListener("input", renderFlashcards);
     loadData().catch(error => {
       document.getElementById("status").className = "status bad";
       document.getElementById("status").textContent = "Could not load project TSV files.";

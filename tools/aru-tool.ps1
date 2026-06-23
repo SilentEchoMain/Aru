@@ -4,6 +4,7 @@ param(
     [switch]$Phrases,
     [switch]$Corpus,
     [switch]$Dialogues,
+    [switch]$Cards,
     [switch]$Json
 )
 
@@ -14,6 +15,7 @@ $lexiconPath = Join-Path $root "LEXICON.tsv"
 $phrasebookPath = Join-Path $root "PHRASEBOOK.tsv"
 $corpusPath = Join-Path $root "CORPUS.tsv"
 $dialoguesPath = Join-Path $root "DIALOGUES.tsv"
+$flashcardsPath = Join-Path $root "FLASHCARDS.tsv"
 
 function Fail($message) {
     Write-Error $message
@@ -32,11 +34,15 @@ if (!(Test-Path $corpusPath)) {
 if (!(Test-Path $dialoguesPath)) {
     Fail "DIALOGUES.tsv is missing."
 }
+if (!(Test-Path $flashcardsPath)) {
+    Fail "FLASHCARDS.tsv is missing."
+}
 
 $lexicon = Import-Csv -Delimiter "`t" $lexiconPath
 $phrasebook = Import-Csv -Delimiter "`t" $phrasebookPath
 $corpusRows = Import-Csv -Delimiter "`t" $corpusPath
 $dialogueRows = Import-Csv -Delimiter "`t" $dialoguesPath
+$flashcardRows = Import-Csv -Delimiter "`t" $flashcardsPath
 $roots = @{}
 foreach ($row in $lexicon) {
     $roots[$row.root] = $row
@@ -102,7 +108,11 @@ function Test-AruText($value) {
 
 if ($Search) {
     $needle = $Search.ToLowerInvariant()
-    if ($Corpus) {
+    if ($Cards) {
+        $matches = @($flashcardRows | Where-Object {
+            ($_.id + " " + $_.deck + " " + $_.front + " " + $_.back + " " + $_.tags).ToLowerInvariant().Contains($needle)
+        })
+    } elseif ($Corpus) {
         $matches = @($corpusRows | Where-Object {
             ($_.id + " " + $_.topic + " " + $_.aru + " " + $_.en + " " + $_.notes).ToLowerInvariant().Contains($needle)
         })
@@ -135,6 +145,7 @@ if (!$Text) {
     Write-Output "  .\tools\aru-tool.ps1 -Search house -Phrases"
     Write-Output "  .\tools\aru-tool.ps1 -Search community -Corpus"
     Write-Output "  .\tools\aru-tool.ps1 -Search meeting -Dialogues"
+    Write-Output "  .\tools\aru-tool.ps1 -Search waro -Cards"
     exit 0
 }
 

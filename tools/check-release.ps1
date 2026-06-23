@@ -15,14 +15,19 @@ $requiredFiles = @(
     "PHRASEBOOK.tsv",
     "CORPUS.tsv",
     "DIALOGUES.tsv",
+    "COURSE.md",
+    "REFERENCE.md",
+    "FLASHCARDS.tsv",
     "PROMPTS.md",
     "EXAMPLES.md",
     "index.html",
     "CHANGELOG.md",
     "CONTRIBUTING.md",
     "tools/build-corpus.ps1",
+    "tools/build-learning.ps1",
     "tools/aru-tool.ps1",
     "tools/project-report.ps1",
+    "tools/test-site.ps1",
     ".github/ISSUE_TEMPLATE/word-proposal.yml",
     ".github/ISSUE_TEMPLATE/grammar-rfc.yml",
     ".github/ISSUE_TEMPLATE/text-contribution.yml",
@@ -48,11 +53,11 @@ foreach ($file in $versionFiles) {
 
 $readmeContent = Get-Content (Join-Path $root "README.md") -Raw
 $changelogContent = Get-Content (Join-Path $root "CHANGELOG.md") -Raw
-if ($readmeContent -notmatch "v1\.2\.0") {
-    Fail "Expected README.md to mention project release v1.2.0."
+if ($readmeContent -notmatch "v1\.3\.0") {
+    Fail "Expected README.md to mention project release v1.3.0."
 }
-if ($changelogContent -notmatch "v1\.2\.0") {
-    Fail "Expected CHANGELOG.md to mention project release v1.2.0."
+if ($changelogContent -notmatch "v1\.3\.0") {
+    Fail "Expected CHANGELOG.md to mention project release v1.3.0."
 }
 
 $licenseContent = Get-Content (Join-Path $root "LICENSE.md") -Raw
@@ -63,6 +68,12 @@ if ($licenseContent -notmatch "Aru License 1\.0") {
 $siteContent = Get-Content (Join-Path $root "index.html") -Raw
 if ($siteContent -notmatch "Aru Playground") {
     Fail "Expected index.html to contain the Aru Playground."
+}
+if ($siteContent -notmatch "Learning System") {
+    Fail "Expected index.html to contain the learning system."
+}
+if ($siteContent -notmatch "FLASHCARDS\.tsv") {
+    Fail "Expected index.html to reference FLASHCARDS.tsv."
 }
 
 $lexiconLines = Get-Content (Join-Path $root "LEXICON.tsv")
@@ -148,6 +159,37 @@ if ($promptEntries -lt 20) {
     Fail "Expected at least 20 writing prompts, got $promptEntries."
 }
 
+$courseContent = Get-Content (Join-Path $root "COURSE.md") -Raw
+$courseLessons = ([regex]::Matches($courseContent, "(?m)^## Lesson \d+")).Count
+if ($courseLessons -lt 12) {
+    Fail "Expected at least 12 course lessons, got $courseLessons."
+}
+if ($courseContent -notmatch "Aru v1\.0\.0") {
+    Fail "Expected COURSE.md to identify Aru v1.0.0."
+}
+
+$referenceContent = Get-Content (Join-Path $root "REFERENCE.md") -Raw
+if ($referenceContent -notmatch "Aru Reference") {
+    Fail "Expected REFERENCE.md to contain Aru Reference."
+}
+if ($referenceContent -notmatch "Aru v1\.0\.0") {
+    Fail "Expected REFERENCE.md to identify Aru v1.0.0."
+}
+
+$flashcardLines = Get-Content (Join-Path $root "FLASHCARDS.tsv")
+$flashcardEntries = [Math]::Max(0, $flashcardLines.Count - 1)
+if ($flashcardEntries -lt 300) {
+    Fail "Expected at least 300 flashcards, got $flashcardEntries."
+}
+
+$flashcardRows = Import-Csv -Delimiter "`t" (Join-Path $root "FLASHCARDS.tsv")
+$flashcardColumns = @($flashcardRows[0].PSObject.Properties.Name)
+foreach ($column in @("id", "deck", "front", "back", "tags")) {
+    if ($flashcardColumns -notcontains $column) {
+        Fail "Flashcards are missing required column: $column"
+    }
+}
+
 $roots = @{}
 foreach ($row in $lexiconRows) {
     $roots[$row.root] = $true
@@ -199,9 +241,11 @@ Test-AruRows "dialogue" $dialogueRows
 
 Write-Output "Aru release check passed."
 Write-Output "Language core: v1.0.0"
-Write-Output "Project release: v1.2.0"
+Write-Output "Project release: v1.3.0"
 Write-Output "Lexicon entries: $lexiconEntries"
 Write-Output "Phrasebook entries: $phrasebookEntries"
 Write-Output "Corpus texts: $corpusEntries"
 Write-Output "Dialogues: $dialogueEntries"
 Write-Output "Writing prompts: $promptEntries"
+Write-Output "Course lessons: $courseLessons"
+Write-Output "Flashcards: $flashcardEntries"
