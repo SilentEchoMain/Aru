@@ -57,6 +57,14 @@ I understood the basics quickly, and I can say something real.
 - Invite feedback through GitHub Issues and Discussions.
 - Use real phrasing problems as the source of future language changes.
 
+Current public-use targets:
+
+- Keep at least 150 phrasebook entries.
+- Keep at least 100 short corpus texts.
+- Keep at least 30 learning dialogues.
+- Keep at least 20 writing prompts.
+- Keep all public examples valid against the core lexicon unless they are marked names after `ya` or exact digits after `saka`.
+
 ## Community Process
 
 New examples can be added freely when they follow the v1.0.0 grammar.

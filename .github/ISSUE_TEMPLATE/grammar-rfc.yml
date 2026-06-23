@@ -1,0 +1,45 @@
+name: Grammar RFC
+description: Propose a grammar change or clarification.
+title: "Grammar RFC: "
+labels: ["grammar-rfc"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Grammar changes are rare. Show repeated real examples that the current grammar handles poorly.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What cannot be said clearly with Aru v1.0.0?
+    validations:
+      required: true
+  - type: textarea
+    id: attempts
+    attributes:
+      label: Attempted Aru expressions
+      description: List existing-form attempts and why they fail.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed rule
+      description: State the smallest compatible rule or clarification.
+    validations:
+      required: true
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples
+      description: Include at least five examples.
+    validations:
+      required: true
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility note
+      description: Explain whether existing v1.0.0 texts remain valid.
+    validations:
+      required: true
+

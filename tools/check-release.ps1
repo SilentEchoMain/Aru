@@ -13,10 +13,22 @@ $requiredFiles = @(
     "SPEC.md",
     "LEXICON.tsv",
     "PHRASEBOOK.tsv",
+    "CORPUS.tsv",
+    "DIALOGUES.tsv",
+    "PROMPTS.md",
     "EXAMPLES.md",
     "index.html",
     "CHANGELOG.md",
-    "CONTRIBUTING.md"
+    "CONTRIBUTING.md",
+    "tools/build-corpus.ps1",
+    "tools/aru-tool.ps1",
+    "tools/project-report.ps1",
+    ".github/ISSUE_TEMPLATE/word-proposal.yml",
+    ".github/ISSUE_TEMPLATE/grammar-rfc.yml",
+    ".github/ISSUE_TEMPLATE/text-contribution.yml",
+    ".github/ISSUE_TEMPLATE/bug-report.yml",
+    ".github/PULL_REQUEST_TEMPLATE.md",
+    ".github/DISCUSSION_TEMPLATE/writing-challenge.md"
 )
 
 foreach ($file in $requiredFiles) {
@@ -36,11 +48,11 @@ foreach ($file in $versionFiles) {
 
 $readmeContent = Get-Content (Join-Path $root "README.md") -Raw
 $changelogContent = Get-Content (Join-Path $root "CHANGELOG.md") -Raw
-if ($readmeContent -notmatch "v1\.1\.0") {
-    Fail "Expected README.md to mention project release v1.1.0."
+if ($readmeContent -notmatch "v1\.2\.0") {
+    Fail "Expected README.md to mention project release v1.2.0."
 }
-if ($changelogContent -notmatch "v1\.1\.0") {
-    Fail "Expected CHANGELOG.md to mention project release v1.1.0."
+if ($changelogContent -notmatch "v1\.2\.0") {
+    Fail "Expected CHANGELOG.md to mention project release v1.2.0."
 }
 
 $licenseContent = Get-Content (Join-Path $root "LICENSE.md") -Raw
@@ -102,51 +114,94 @@ foreach ($column in @("id", "topic", "aru", "en")) {
     }
 }
 
+$corpusLines = Get-Content (Join-Path $root "CORPUS.tsv")
+$corpusEntries = [Math]::Max(0, $corpusLines.Count - 1)
+if ($corpusEntries -lt 100) {
+    Fail "Expected at least 100 corpus texts, got $corpusEntries."
+}
+
+$corpusRows = Import-Csv -Delimiter "`t" (Join-Path $root "CORPUS.tsv")
+$corpusColumns = @($corpusRows[0].PSObject.Properties.Name)
+foreach ($column in @("id", "topic", "aru", "en", "notes")) {
+    if ($corpusColumns -notcontains $column) {
+        Fail "Corpus is missing required column: $column"
+    }
+}
+
+$dialogueLines = Get-Content (Join-Path $root "DIALOGUES.tsv")
+$dialogueEntries = [Math]::Max(0, $dialogueLines.Count - 1)
+if ($dialogueEntries -lt 30) {
+    Fail "Expected at least 30 dialogues, got $dialogueEntries."
+}
+
+$dialogueRows = Import-Csv -Delimiter "`t" (Join-Path $root "DIALOGUES.tsv")
+$dialogueColumns = @($dialogueRows[0].PSObject.Properties.Name)
+foreach ($column in @("id", "topic", "aru", "en", "notes")) {
+    if ($dialogueColumns -notcontains $column) {
+        Fail "Dialogues are missing required column: $column"
+    }
+}
+
+$promptContent = Get-Content (Join-Path $root "PROMPTS.md") -Raw
+$promptEntries = ([regex]::Matches($promptContent, "(?m)^## Prompt \d+")).Count
+if ($promptEntries -lt 20) {
+    Fail "Expected at least 20 writing prompts, got $promptEntries."
+}
+
 $roots = @{}
 foreach ($row in $lexiconRows) {
     $roots[$row.root] = $true
 }
 
-$unknownPhraseTokens = @()
-foreach ($row in $phrasebookRows) {
-    $skipName = $false
-    $skipNumber = $false
-    $tokens = (($row.aru -replace '[\.,\?:;\(\)\[\]\{\}"'']', ' ') -split '\s+' | Where-Object { $_ })
-    foreach ($token in $tokens) {
-        if ($skipName) {
-            $skipName = $false
-            continue
-        }
-        if ($skipNumber) {
-            if ($token -match '^\d+$') {
+function Test-AruRows($label, $rows) {
+    $unknownTokens = @()
+    foreach ($row in $rows) {
+        $skipName = $false
+        $skipNumber = $false
+        $tokens = (($row.aru -replace '[\.,\?:;\(\)\[\]\{\}"'']', ' ') -split '\s+' | Where-Object { $_ })
+        foreach ($token in $tokens) {
+            if ($skipName) {
                 $skipNumber = $false
+                $skipName = $false
                 continue
             }
-            $skipNumber = $false
+            if ($skipNumber) {
+                if ($token -match '^\d+$') {
+                    $skipNumber = $false
+                    continue
+                }
+                $skipNumber = $false
+            }
+            if ($token -eq "ya") {
+                $skipName = $true
+                continue
+            }
+            if ($token -eq "saka") {
+                $skipNumber = $true
+                continue
+            }
+            if ($token -match '^\d+$') {
+                continue
+            }
+            if (!$roots.ContainsKey($token)) {
+                $unknownTokens += "$($row.id):$token"
+            }
         }
-        if ($token -eq "ya") {
-            $skipName = $true
-            continue
-        }
-        if ($token -eq "saka") {
-            $skipNumber = $true
-            continue
-        }
-        if ($token -match '^\d+$') {
-            continue
-        }
-        if (!$roots.ContainsKey($token)) {
-            $unknownPhraseTokens += "$($row.id):$token"
-        }
+    }
+    if ($unknownTokens.Count -gt 0) {
+        Fail ("Unknown $label tokens: " + (($unknownTokens | Sort-Object -Unique) -join ", "))
     }
 }
 
-if ($unknownPhraseTokens.Count -gt 0) {
-    Fail ("Unknown phrasebook tokens: " + (($unknownPhraseTokens | Sort-Object -Unique) -join ", "))
-}
+Test-AruRows "phrasebook" $phrasebookRows
+Test-AruRows "corpus" $corpusRows
+Test-AruRows "dialogue" $dialogueRows
 
 Write-Output "Aru release check passed."
 Write-Output "Language core: v1.0.0"
-Write-Output "Project release: v1.1.0"
+Write-Output "Project release: v1.2.0"
 Write-Output "Lexicon entries: $lexiconEntries"
 Write-Output "Phrasebook entries: $phrasebookEntries"
+Write-Output "Corpus texts: $corpusEntries"
+Write-Output "Dialogues: $dialogueEntries"
+Write-Output "Writing prompts: $promptEntries"

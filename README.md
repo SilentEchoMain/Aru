@@ -6,7 +6,7 @@ Its goal is to be small, regular, and useful for simple speech without grammatic
 
 Current status: **stable core v1.0.0**.
 
-Current project release: **v1.1.0**.
+Current project release: **v1.2.0**.
 
 ## Core Idea
 
@@ -57,12 +57,16 @@ The person who speaks is good.
 SPEC.md        canonical grammar and design decisions
 LEXICON.tsv    core vocabulary
 PHRASEBOOK.tsv 150 example phrases
+CORPUS.tsv     100 short corpus texts
+DIALOGUES.tsv  30 learning dialogues
+PROMPTS.md     20 writing prompts
 EXAMPLES.md    lessons, corpus, dialogues, and smoke phrases
 LICENSE.md     project license
 CHANGELOG.md   release history
 CONTRIBUTING.md contribution rules and roadmap
 index.html     public website and browser playground
 tools/         project checks
+.github/       contribution and discussion templates
 ```
 
 ## License
@@ -87,6 +91,10 @@ Open [index.html](index.html) for the public site and browser playground.
 .\tools\aru-tool.ps1 -Text "na ra waro."
 .\tools\aru-tool.ps1 -Search waro
 .\tools\aru-tool.ps1 -Search house -Phrases
+.\tools\aru-tool.ps1 -Search community -Corpus
+.\tools\aru-tool.ps1 -Search meeting -Dialogues
+.\tools\build-corpus.ps1
+.\tools\project-report.ps1
 ```
 
 ## Publishing Checklist

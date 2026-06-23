@@ -4,6 +4,8 @@ This file contains beginner lessons, validated examples, dialogues, short texts,
 
 The full 150-entry phrasebook is in [PHRASEBOOK.tsv](PHRASEBOOK.tsv).
 
+Larger structured usage data lives in [CORPUS.tsv](CORPUS.tsv), [DIALOGUES.tsv](DIALOGUES.tsv), and [PROMPTS.md](PROMPTS.md).
+
 ## Lessons
 
 ### Lesson 1: `ra` and `ke`

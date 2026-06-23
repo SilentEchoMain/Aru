@@ -1,0 +1,35 @@
+name: Text contribution
+description: Contribute Aru corpus text, dialogue, or prompt material.
+title: "Text: "
+labels: ["text"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Contribution type
+      options:
+        - phrasebook entry
+        - corpus text
+        - dialogue
+        - writing prompt
+    validations:
+      required: true
+  - type: textarea
+    id: aru
+    attributes:
+      label: Aru text
+      description: Keep the text compatible with Aru v1.0.0.
+    validations:
+      required: true
+  - type: textarea
+    id: english
+    attributes:
+      label: English translation
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Mention any uncertain grammar or vocabulary choices.
+

@@ -1,0 +1,48 @@
+name: Word proposal
+description: Propose a new Aru root for future compatible releases.
+title: "Word proposal: "
+labels: ["word-proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Propose roots from real usage needs. Prefer existing roots and compounds before adding new roots.
+  - type: input
+    id: root
+    attributes:
+      label: Proposed root
+      description: Use Aru phonology only.
+      placeholder: "example: ..."
+    validations:
+      required: true
+  - type: input
+    id: meaning
+    attributes:
+      label: Meaning
+      description: Keep the meaning broad and reusable.
+    validations:
+      required: true
+  - type: textarea
+    id: examples
+    attributes:
+      label: Example phrases
+      description: Include at least three Aru examples with English translations.
+      placeholder: |
+        ...
+    validations:
+      required: true
+  - type: textarea
+    id: need
+    attributes:
+      label: Usage need
+      description: What real text or repeated expression requires this root?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives tried
+      description: Existing roots or compounds you tried before proposing this.
+    validations:
+      required: true
+

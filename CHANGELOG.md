@@ -1,5 +1,17 @@
 # Changelog
 
+## Aru Project v1.2.0
+
+- Added `CORPUS.tsv` with 100 short stable-core texts.
+- Added `DIALOGUES.tsv` with 30 learning dialogues.
+- Added `PROMPTS.md` with 20 writing prompts for corpus growth.
+- Added `tools/build-corpus.ps1` to regenerate the structured corpus artifacts.
+- Added `tools/project-report.ps1` to summarize project size, topics, and release metadata.
+- Extended `tools/aru-tool.ps1` with corpus and dialogue search.
+- Extended `index.html` with corpus and dialogue browsers.
+- Strengthened `tools/check-release.ps1` to require and validate corpus, dialogues, prompts, and generated Aru tokens.
+- Language core remains **Aru v1.0.0**.
+
 ## Aru Project v1.1.0
 
 - Added `index.html` as a public website, quick-start page, searchable lexicon, searchable phrasebook, and browser playground.

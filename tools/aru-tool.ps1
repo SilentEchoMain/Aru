@@ -2,6 +2,8 @@ param(
     [string]$Text,
     [string]$Search,
     [switch]$Phrases,
+    [switch]$Corpus,
+    [switch]$Dialogues,
     [switch]$Json
 )
 
@@ -10,6 +12,8 @@ $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $PSScriptRoot
 $lexiconPath = Join-Path $root "LEXICON.tsv"
 $phrasebookPath = Join-Path $root "PHRASEBOOK.tsv"
+$corpusPath = Join-Path $root "CORPUS.tsv"
+$dialoguesPath = Join-Path $root "DIALOGUES.tsv"
 
 function Fail($message) {
     Write-Error $message
@@ -22,9 +26,17 @@ if (!(Test-Path $lexiconPath)) {
 if (!(Test-Path $phrasebookPath)) {
     Fail "PHRASEBOOK.tsv is missing."
 }
+if (!(Test-Path $corpusPath)) {
+    Fail "CORPUS.tsv is missing."
+}
+if (!(Test-Path $dialoguesPath)) {
+    Fail "DIALOGUES.tsv is missing."
+}
 
 $lexicon = Import-Csv -Delimiter "`t" $lexiconPath
 $phrasebook = Import-Csv -Delimiter "`t" $phrasebookPath
+$corpusRows = Import-Csv -Delimiter "`t" $corpusPath
+$dialogueRows = Import-Csv -Delimiter "`t" $dialoguesPath
 $roots = @{}
 foreach ($row in $lexicon) {
     $roots[$row.root] = $row
@@ -90,7 +102,15 @@ function Test-AruText($value) {
 
 if ($Search) {
     $needle = $Search.ToLowerInvariant()
-    if ($Phrases) {
+    if ($Corpus) {
+        $matches = @($corpusRows | Where-Object {
+            ($_.id + " " + $_.topic + " " + $_.aru + " " + $_.en + " " + $_.notes).ToLowerInvariant().Contains($needle)
+        })
+    } elseif ($Dialogues) {
+        $matches = @($dialogueRows | Where-Object {
+            ($_.id + " " + $_.topic + " " + $_.aru + " " + $_.en + " " + $_.notes).ToLowerInvariant().Contains($needle)
+        })
+    } elseif ($Phrases) {
         $matches = @($phrasebook | Where-Object {
             ($_.id + " " + $_.topic + " " + $_.aru + " " + $_.en).ToLowerInvariant().Contains($needle)
         })
@@ -113,6 +133,8 @@ if (!$Text) {
     Write-Output "  .\tools\aru-tool.ps1 -Text 'na ra waro.'"
     Write-Output "  .\tools\aru-tool.ps1 -Search waro"
     Write-Output "  .\tools\aru-tool.ps1 -Search house -Phrases"
+    Write-Output "  .\tools\aru-tool.ps1 -Search community -Corpus"
+    Write-Output "  .\tools\aru-tool.ps1 -Search meeting -Dialogues"
     exit 0
 }
 

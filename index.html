@@ -370,6 +370,8 @@
         <a href="#playground">Playground</a>
         <a href="#lexicon">Lexicon</a>
         <a href="#phrasebook">Phrasebook</a>
+        <a href="#corpus">Corpus</a>
+        <a href="#dialogues">Dialogues</a>
         <a href="https://github.com/SilentEchoMain/Aru">GitHub</a>
       </div>
     </nav>
@@ -464,6 +466,20 @@ I go to the house.</pre>
       <input id="phraseSearch" placeholder="Search Aru or English phrases">
       <div id="phraseTable"></div>
     </section>
+
+    <section id="corpus">
+      <h2>Corpus Reader</h2>
+      <p class="muted">Search 100 short corpus texts built from the stable v1.0.0 core.</p>
+      <input id="corpusSearch" placeholder="Search corpus topics, Aru, or English">
+      <div id="corpusTable"></div>
+    </section>
+
+    <section id="dialogues">
+      <h2>Dialogue Browser</h2>
+      <p class="muted">Search 30 short dialogues for learning and stress testing.</p>
+      <input id="dialogueSearch" placeholder="Search dialogue topics, Aru, or English">
+      <div id="dialogueTable"></div>
+    </section>
   </main>
 
   <footer>
@@ -475,6 +491,8 @@ I go to the house.</pre>
     const punctuation = /[.,?!:;()[\]{}"']/g;
     let lexicon = [];
     let phrasebook = [];
+    let corpus = [];
+    let dialogues = [];
     let roots = new Set();
 
     function parseTsv(text) {
@@ -487,15 +505,21 @@ I go to the house.</pre>
     }
 
     async function loadData() {
-      const [lex, phrases] = await Promise.all([
+      const [lex, phrases, corpusText, dialogueText] = await Promise.all([
         fetch("LEXICON.tsv").then(r => r.text()),
-        fetch("PHRASEBOOK.tsv").then(r => r.text())
+        fetch("PHRASEBOOK.tsv").then(r => r.text()),
+        fetch("CORPUS.tsv").then(r => r.text()),
+        fetch("DIALOGUES.tsv").then(r => r.text())
       ]);
       lexicon = parseTsv(lex);
       phrasebook = parseTsv(phrases);
+      corpus = parseTsv(corpusText);
+      dialogues = parseTsv(dialogueText);
       roots = new Set(lexicon.map(row => row.root));
       renderLexicon();
       renderPhrases();
+      renderCorpus();
+      renderDialogues();
       analyze();
     }
 
@@ -588,9 +612,27 @@ I go to the house.</pre>
       document.getElementById("phraseTable").innerHTML = table(["id", "topic", "aru", "en"], rows);
     }
 
+    function renderCorpus() {
+      const q = document.getElementById("corpusSearch").value.toLowerCase();
+      const rows = corpus
+        .filter(row => Object.values(row).join(" ").toLowerCase().includes(q))
+        .slice(0, 60);
+      document.getElementById("corpusTable").innerHTML = table(["id", "topic", "aru", "en"], rows);
+    }
+
+    function renderDialogues() {
+      const q = document.getElementById("dialogueSearch").value.toLowerCase();
+      const rows = dialogues
+        .filter(row => Object.values(row).join(" ").toLowerCase().includes(q))
+        .slice(0, 60);
+      document.getElementById("dialogueTable").innerHTML = table(["id", "topic", "aru", "en"], rows);
+    }
+
     document.getElementById("input").addEventListener("input", analyze);
     document.getElementById("lexiconSearch").addEventListener("input", renderLexicon);
     document.getElementById("phraseSearch").addEventListener("input", renderPhrases);
+    document.getElementById("corpusSearch").addEventListener("input", renderCorpus);
+    document.getElementById("dialogueSearch").addEventListener("input", renderDialogues);
     loadData().catch(error => {
       document.getElementById("status").className = "status bad";
       document.getElementById("status").textContent = "Could not load project TSV files.";
