@@ -1,0 +1,13 @@
+id	type	level	topic	aru	en	notes	status
+S001	phrase	A0	speech	na ra waro.	I speak.	First-contact speech example	review
+S002	phrase	A0	perception	ta ra lora ke na?	Do you hear me?	Short question example	review
+S003	corpus	A0	house	malo ra maru. malo ra nela.	The house is big. The house is good.	Simple A0 description	draft
+S004	corpus	A1	learning	mene ra nema ke ya Aru. mene ra lowa ke sipu.	The person studies Aru. The person reads a text.	Learning corpus seed	review
+S005	corpus	A1	weather	roka ra tanu. na ra no naka so etu roka.	Rain comes. I do not go because of rain.	Cause example	draft
+S006	corpus	A2	relative	mene re ri ra raku ke sipu, ra nela.	The person who writes a text is good.	Relative phrase example	review
+S007	corpus	A2	comparison	malo i ra maru pasu malo ena.	This house is bigger than that house.	Comparison example	review
+S008	dialogue	A0	meeting	lani ne ta ra se? lani ne na ra ya Mira.	What is your name? My name is Mira.	Two-turn meeting dialogue	draft
+S009	dialogue	A1	tool	tulu i ra rupi. na ra pawa mela ke i.	This tool is broken. I can repair it.	Tool repair dialogue seed	draft
+S010	dialogue	A2	cause	ta ra pa no tanu so etu se? na ra pa no tanu so etu roka.	Why did you not come? I did not come because of rain.	Cause question dialogue	review
+S011	prompt	A1	writing	na ra raku ke sipu lisu.	I write a simple text.	Starter for writing prompt	draft
+S012	prompt	A2	public	sipu i ra puka, sia mene mun ra lowa ke i.	This text is open, therefore many people read it.	Public text prompt seed	draft

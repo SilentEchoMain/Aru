@@ -18,6 +18,13 @@ The language core is **Aru v1.0.0**. Authoring tools should protect that stabili
 .\tools\check-release.ps1
 ```
 
+For queued proposals, use `TEXT_SUBMISSIONS.tsv` and `TEXT_WORKFLOW.md`.
+
+```powershell
+.\tools\new-text-submission.ps1 -Type corpus -Level A1 -Topic learning -Aru "na ra nema ke ya Aru." -En "I study Aru." -Notes "Short learning example"
+.\tools\check-authoring.ps1
+```
+
 ## Suggested Metadata
 
 Use this metadata for new texts:
@@ -28,6 +35,14 @@ topic: short lowercase topic
 aru: short Aru text
 en: close English translation
 notes: why the text is useful
+```
+
+Queue rows also include:
+
+```text
+id: S001 style ID
+type: phrase | corpus | dialogue | prompt
+status: draft | review | accepted | rejected
 ```
 
 ## Level Targets
@@ -69,6 +84,7 @@ They are source assets for editor support. They are not yet packaged as a market
 
 Before proposing a text, check it against:
 
+- `TEXT_WORKFLOW.md`
 - `STYLE_GUIDE.md`
 - `REVIEW_CHECKLIST.md`
 - `LEXICON_POLICY.md` if it needs a new root

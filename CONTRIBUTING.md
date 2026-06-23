@@ -95,6 +95,7 @@ Before opening a pull request, run:
 .\tools\build-corpus.ps1
 .\tools\build-learning.ps1
 .\tools\build-releases.ps1
+.\tools\check-authoring.ps1
 .\tools\check-community.ps1
 .\tools\check-editor.ps1
 .\tools\check-lexicon.ps1

@@ -411,6 +411,7 @@
         <a href="#lexicon">Lexicon</a>
         <a href="#phrasebook">Phrasebook</a>
         <a href="#course">Course</a>
+        <a href="#submissions">Submissions</a>
         <a href="#corpus">Corpus</a>
         <a href="#dialogues">Dialogues</a>
         <a href="#releases">Releases</a>
@@ -480,6 +481,11 @@
           <h3>Authoring</h3>
           <p>Workflow for writing, checking, and submitting Aru texts.</p>
           <a class="button" href="AUTHORING.md">Open authoring guide</a>
+        </div>
+        <div class="panel">
+          <h3>Text Workflow</h3>
+          <p>Draft, review, and promote public Aru texts through a checked queue.</p>
+          <a class="button" href="TEXT_WORKFLOW.md">Open workflow</a>
         </div>
         <div class="panel">
           <h3>Review</h3>
@@ -588,6 +594,14 @@ I go to the house.</pre>
       <div id="flashcardTable"></div>
     </section>
 
+    <section id="submissions">
+      <h2>Text Submission Queue</h2>
+      <p class="muted">Search draft and review material before it becomes phrasebook, corpus, dialogue, or prompt content.</p>
+      <p><a class="button" href="TEXT_SUBMISSIONS.tsv">Open queue</a></p>
+      <input id="submissionSearch" placeholder="Search submission ID, type, level, topic, Aru, English, notes, or status">
+      <div id="submissionTable"></div>
+    </section>
+
     <section id="corpus">
       <h2>Corpus Reader</h2>
       <p class="muted">Search 100 short corpus texts built from the stable v1.0.0 core.</p>
@@ -648,6 +662,7 @@ I go to the house.</pre>
     let dialogues = [];
     let flashcards = [];
     let releases = [];
+    let submissions = [];
     let roots = new Set();
 
     function parseTsv(text) {
@@ -660,13 +675,14 @@ I go to the house.</pre>
     }
 
     async function loadData() {
-      const [lex, phrases, corpusText, dialogueText, flashcardText, releaseText] = await Promise.all([
+      const [lex, phrases, corpusText, dialogueText, flashcardText, releaseText, submissionText] = await Promise.all([
         fetch("LEXICON.tsv").then(r => r.text()),
         fetch("PHRASEBOOK.tsv").then(r => r.text()),
         fetch("CORPUS.tsv").then(r => r.text()),
         fetch("DIALOGUES.tsv").then(r => r.text()),
         fetch("FLASHCARDS.tsv").then(r => r.text()),
-        fetch("RELEASES.tsv").then(r => r.text())
+        fetch("RELEASES.tsv").then(r => r.text()),
+        fetch("TEXT_SUBMISSIONS.tsv").then(r => r.text())
       ]);
       lexicon = parseTsv(lex);
       phrasebook = parseTsv(phrases);
@@ -674,6 +690,7 @@ I go to the house.</pre>
       dialogues = parseTsv(dialogueText);
       flashcards = parseTsv(flashcardText);
       releases = parseTsv(releaseText);
+      submissions = parseTsv(submissionText);
       roots = new Set(lexicon.map(row => row.root));
       setupFilters();
       renderStats();
@@ -683,6 +700,7 @@ I go to the house.</pre>
       renderDialogues();
       renderFlashcards();
       renderReleases();
+      renderSubmissions();
       analyze();
     }
 
@@ -789,7 +807,8 @@ I go to the house.</pre>
         ["Corpus Texts", corpus.length],
         ["Dialogues", dialogues.length],
         ["Flashcards", flashcards.length],
-        ["Releases", releases.length]
+        ["Releases", releases.length],
+        ["Submissions", submissions.length]
       ];
       document.getElementById("statsGrid").innerHTML = stats
         .map(([label, value]) => `<div class="metric"><strong>${value}</strong><span>${label}</span></div>`)
@@ -852,6 +871,14 @@ I go to the house.</pre>
       document.getElementById("releaseTable").innerHTML = table(["version", "channel", "status", "core", "focus", "artifacts"], releases);
     }
 
+    function renderSubmissions() {
+      const q = document.getElementById("submissionSearch").value.toLowerCase();
+      const rows = submissions
+        .filter(row => Object.values(row).join(" ").toLowerCase().includes(q))
+        .slice(0, 80);
+      document.getElementById("submissionTable").innerHTML = table(["id", "type", "level", "topic", "aru", "en", "status"], rows);
+    }
+
     document.getElementById("input").addEventListener("input", analyze);
     document.getElementById("lexiconSearch").addEventListener("input", renderLexicon);
     document.getElementById("lexiconDomain").addEventListener("change", renderLexicon);
@@ -864,6 +891,7 @@ I go to the house.</pre>
     document.getElementById("dialogueLevel").addEventListener("change", renderDialogues);
     document.getElementById("dialogueTopic").addEventListener("change", renderDialogues);
     document.getElementById("flashcardSearch").addEventListener("input", renderFlashcards);
+    document.getElementById("submissionSearch").addEventListener("input", renderSubmissions);
     loadData().catch(error => {
       document.getElementById("status").className = "status bad";
       document.getElementById("status").textContent = "Could not load project TSV files.";

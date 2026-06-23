@@ -20,11 +20,13 @@
 - [ ] Language or lexicon decisions follow `GOVERNANCE.md` and `LEXICON_POLICY.md`.
 - [ ] Public examples follow `STYLE_GUIDE.md`.
 - [ ] Authoring or editor changes follow `AUTHORING.md`.
+- [ ] Text queue changes follow `TEXT_WORKFLOW.md`.
 - [ ] Review notes can be checked against `REVIEW_CHECKLIST.md`.
 
 ## Checks
 
 ```powershell
+.\tools\check-authoring.ps1
 .\tools\check-community.ps1
 .\tools\check-editor.ps1
 .\tools\check-lexicon.ps1

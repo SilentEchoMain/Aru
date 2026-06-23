@@ -1,5 +1,14 @@
 # Changelog
 
+## Aru Project v1.11.0
+
+- Added `TEXT_WORKFLOW.md` for moving draft text into review and accepted public materials.
+- Added `TEXT_SUBMISSIONS.tsv` as a structured queue for phrase, corpus, dialogue, and prompt proposals.
+- Added `tools/new-text-submission.ps1` to generate or append validated submission rows.
+- Added `tools/check-authoring.ps1` for text queue schema, status, level, type, topic, and token validation.
+- Connected authoring checks to CI, release gates, project reports, CLI search, and the public portal.
+- Language core remains **Aru v1.0.0**.
+
 ## Aru Project v1.10.0
 
 - Added `AUTHORING.md` for public writing and editor workflow.

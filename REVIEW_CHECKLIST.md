@@ -35,6 +35,7 @@ Use this checklist when reviewing pull requests, issue proposals, and discussion
 - Public authoring guidance stays aligned with `STYLE_GUIDE.md`.
 - Editor snippets use valid Aru examples.
 - Editor grammar highlights core particles, relations, names, and numbers.
+- Text submissions use `TEXT_SUBMISSIONS.tsv` schema and `TEXT_WORKFLOW.md` status flow.
 
 ## Project Checks
 
@@ -44,6 +45,7 @@ Run:
 .\tools\build-corpus.ps1
 .\tools\build-learning.ps1
 .\tools\build-releases.ps1
+.\tools\check-authoring.ps1
 .\tools\check-community.ps1
 .\tools\check-editor.ps1
 .\tools\check-lexicon.ps1

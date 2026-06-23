@@ -14,6 +14,25 @@ body:
         - writing prompt
     validations:
       required: true
+  - type: dropdown
+    id: level
+    attributes:
+      label: Learner level
+      options:
+        - A0
+        - A1
+        - A2
+        - B1
+    validations:
+      required: true
+  - type: input
+    id: topic
+    attributes:
+      label: Topic
+      description: Use lowercase letters, digits, or hyphens.
+      placeholder: learning
+    validations:
+      required: true
   - type: textarea
     id: aru
     attributes:
@@ -31,5 +50,4 @@ body:
     id: notes
     attributes:
       label: Notes
-      description: Mention any uncertain grammar or vocabulary choices.
-
+      description: Mention intended use, uncertain grammar, vocabulary choices, and whether this should enter TEXT_SUBMISSIONS.tsv.

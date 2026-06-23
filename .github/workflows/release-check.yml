@@ -23,6 +23,10 @@ jobs:
         shell: pwsh
         run: ./tools/build-releases.ps1
 
+      - name: Check text authoring
+        shell: pwsh
+        run: ./tools/check-authoring.ps1
+
       - name: Check community process
         shell: pwsh
         run: ./tools/check-community.ps1
